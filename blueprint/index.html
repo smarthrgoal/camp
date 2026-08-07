@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DECI Summer Camp - Level 3 Blueprint</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body { background: #f4f7fc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .sidebar { min-height: 100vh; background: #1e2a47; color: #fff; padding-top: 20px; transition: all 0.2s; }
+    .sidebar .nav-link { color: #cfd8e6; font-weight: 500; border-radius: 0.5rem; margin-bottom: 5px; transition: all 0.2s; padding: 10px 16px; }
+    .sidebar .nav-link:hover, .sidebar .nav-link.active { background: #2a3a5c; color: #fff; }
+    .sidebar .nav-link i { margin-left: 10px; width: 22px; text-align: center; }
+    .main-content { padding: 30px 30px 40px; }
+    .page-section { display: none; animation: fadeIn 0.3s ease-in-out; }
+    .page-section.active-page { display: block; }
+    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+    .card-deci { border: none; border-radius: 20px; box-shadow: 0 8px 28px rgba(0,0,0,0.05); background: #fff; transition: transform 0.15s; }
+    .card-deci:hover { transform: translateY(-2px); }
+    .badge-day { background: #eef3ff; color: #1e2a47; font-weight: 600; padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; }
+    .day-icon { width: 48px; height: 48px; background: #eef3ff; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #1e2a47; font-size: 1.5rem; font-weight: 700; }
+    .section-title { font-weight: 700; color: #1e2a47; position: relative; padding-bottom: 12px; }
+    .section-title::after { content: ''; position: absolute; bottom: 0; right: 0; width: 70px; height: 4px; background: #1e2a47; border-radius: 4px; }
+    .bg-soft-primary { background-color: #eef3ff; }
+    .text-deci-dark { color: #1e2a47; }
+    .lang-toggle { cursor: pointer; background: #2a3a5c; border-radius: 30px; padding: 6px 16px; color: #fff; border: 1px solid #4a5a7c; transition: 0.2s; }
+    .lang-toggle:hover { background: #3a4a6c; border-color: #6a7a9c; }
+    .lang-toggle i { margin-left: 6px; }
+    @media (max-width: 768px) { .sidebar { min-height: auto; padding-top: 10px; } .main-content { padding: 20px 15px; } }
+    .list-content ul { padding-right: 20px; }
+    .list-content li { margin-bottom: 6px; }
+    
+    /* Literal translation styles */
+    .literal-item {
+      border-right: 4px solid #1e2a47;
+      padding-right: 20px;
+      margin-bottom: 20px;
+      background: #f8faff;
+      border-radius: 12px;
+      padding: 18px 20px;
+      transition: background 0.2s;
+    }
+    .literal-item:hover { background: #f0f4ff; }
+    .literal-ar {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #0b1a33;
+      line-height: 1.8;
+    }
+    .literal-en {
+      font-size: 0.92rem;
+      color: #3d4f6a;
+      background: #eef3fa;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: 1px dashed #bac8dc;
+      line-height: 1.6;
+      display: none;
+    }
+    .literal-en.show { display: block; }
+    .btn-toggle-original {
+      border-radius: 50px;
+      font-size: 0.75rem;
+      padding: 4px 14px;
+      border: 1px solid #1e2a47;
+      color: #1e2a47;
+      background: transparent;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+    .btn-toggle-original:hover { background: #1e2a47; color: #fff; }
+    .btn-toggle-original.active { background: #1e2a47; color: #fff; }
+    .badge-literal { background: #dce3ef; color: #1e2a47; font-weight: 400; padding: 2px 12px; border-radius: 30px; font-size: 0.7rem; letter-spacing: 0.5px; }
+    .section-tag { background: #1e2a47; color: #fff; padding: 4px 16px; border-radius: 30px; font-size: 0.7rem; display: inline-block; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 sidebar d-md-block">
+      <div class="text-center py-3">
+        <h5 class="fw-bold text-white"><i class="fas fa-campground me-2"></i>DECI</h5>
+        <span class="badge bg-warning text-dark" id="levelBadge">المستوى الثالث</span>
+      </div>
+      <hr class="bg-secondary opacity-25" />
+      <ul class="nav flex-column px-2" id="sidebarNav">
+        <li class="nav-item"><a class="nav-link active" data-page="overview" href="#"><i class="fas fa-home"></i> <span data-i18n="nav-overview">نظرة عامة</span></a></li>
+        <li class="nav-item"><a class="nav-link" data-page="literal" href="#"><i class="fas fa-language"></i> <span data-i18n="nav-literal">ترجمة حرفية</span></a></li>
+      </ul>
+      <hr class="bg-secondary opacity-25" />
+      <div class="px-3">
+        <div class="lang-toggle d-inline-flex align-items-center" id="langToggle">
+          <i class="fas fa-globe me-1"></i> <span id="langLabel">English</span>
+        </div>
+      </div>
+      <div class="px-3 small text-secondary mt-3">
+        <i class="fas fa-calendar-alt me-1"></i> <span data-i18n="version">النسخة 1.0 · أغسطس 2026</span>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 col-lg-10 main-content">
+      <!-- ==================== OVERVIEW (مختصرة) ==================== -->
+      <section id="page-overview" class="page-section active-page">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+          <h1 class="section-title" data-i18n="overview-title">المخطط التفصيلي للمستوى الثالث</h1>
+          <span class="badge-day"><i class="far fa-clock me-1"></i> <span data-i18n="overview-badge">5 أيام · 3 ساعات يومياً</span></span>
+        </div>
+        <div class="card-deci card p-4 mb-4">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-8">
+              <h3 class="fw-bold text-deci-dark" data-i18n="overview-subtitle">من المشكلة إلى الإمكانية</h3>
+              <p class="lead fs-6 text-secondary" data-i18n="overview-tagline">ريادة الأعمال من خلال الألعاب، اكتشاف المستخدم، والنماذج الأولية</p>
+              <div class="d-flex flex-wrap gap-3 mt-3">
+                <span class="badge bg-primary bg-opacity-10 text-primary p-2"><i class="fas fa-users me-1"></i> <span data-i18n="overview-group">20-25 طالباً</span></span>
+                <span class="badge bg-success bg-opacity-10 text-success p-2"><i class="fas fa-language me-1"></i> <span data-i18n="overview-lang">لغة التقديم: الإنجليزية</span></span>
+                <span class="badge bg-warning bg-opacity-10 text-warning-emphasis p-2"><i class="fas fa-rocket me-1"></i> <span data-i18n="overview-challenge">يوم عرض المبتكرين</span></span>
+              </div>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="day-icon mx-auto mb-2">3</div>
+              <span class="fw-semibold" data-i18n="overview-level">المستوى الثالث</span>
+              <div class="small text-secondary" data-i18n="overview-bridge">جسر بين المستويين 2 و 4-5</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-deci card p-4 mb-4">
+          <h5 class="fw-bold"><i class="fas fa-route me-2 text-deci-dark"></i> <span data-i18n="journey-title">مسيرة الرحلة</span></h5>
+          <div class="row text-center mt-3 g-2">
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-3 w-100" data-i18n="journey-step1">اكتشف المشكلة</span></div>
+            <div class="col-auto align-self-center"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-3 w-100" data-i18n="journey-step2">افهم المستخدم</span></div>
+            <div class="col-auto align-self-center"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-3 w-100" data-i18n="journey-step3">ابتكر القيمة</span></div>
+            <div class="col-auto align-self-center"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-3 w-100" data-i18n="journey-step4">نموذج أولي</span></div>
+            <div class="col-auto align-self-center"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-3 w-100" data-i18n="journey-step5">عرض الفكرة</span></div>
+          </div>
+        </div>
+        <div class="footer-note mt-4 border-top pt-3 text-secondary small">
+          <i class="fas fa-file-pdf me-1"></i> <span data-i18n="version">النسخة 1.0 · أغسطس 2026 · المخيم الصيفي DECI</span>
+        </div>
+      </section>
+
+      <!-- ==================== LITERAL TRANSLATION PAGE (Full Blueprint) ==================== -->
+      <section id="page-literal" class="page-section">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+          <h1 class="section-title"><i class="fas fa-file-alt me-2"></i> <span data-i18n="literal-title">الترجمة الحرفية الكاملة للمخطط</span></h1>
+          <span class="badge-day"><i class="fas fa-exchange-alt me-1"></i> <span data-i18n="literal-badge">عرض النص الأصلي</span></span>
+        </div>
+        <p class="text-secondary mb-4" data-i18n="literal-desc">هنا تجد الترجمة الحرفية (كلمة بكلمة) للنص الكامل للمخطط، مع إمكانية إظهار النص الإنجليزي الأصلي أسفل كل فقرة.</p>
+        
+        <div class="mb-3 d-flex gap-2 flex-wrap">
+          <button class="btn btn-outline-deci btn-sm" id="toggleAllOriginal" style="border-color:#1e2a47;color:#1e2a47;">
+            <i class="fas fa-eye me-1"></i> <span data-i18n="literal-toggle-all">إظهار كل النصوص الأصلية</span>
+          </button>
+          <span class="badge bg-secondary bg-opacity-10 text-secondary align-self-center" id="literalCount"></span>
+        </div>
+
+        <div id="literalContainer"></div>
+
+        <div class="alert alert-info mt-4">
+          <i class="fas fa-info-circle me-2"></i> <span data-i18n="literal-note">الترجمة الحرفية تهدف إلى توضيح بنية الجملة الإنجليزية كما هي، لتسهيل فهم العلاقة بين اللغتين.</span>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function() {
+    // ---------- LITERAL TRANSLATION DATA (Full Blueprint) ----------
+    const literalData = [
+      // Header & Overview
+      { id: 1, en: "SUMMER CAMP LEVEL 3 BLUEPRINT", ar: "مخيم صيفي المستوى الثالث المخطط التفصيلي" },
+      { id: 2, en: "FROM PROBLEM TO POSSIBILITY", ar: "من المشكلة إلى الإمكانية" },
+      { id: 3, en: "Entrepreneurship Through Games, User Discovery and Prototyping", ar: "ريادة الأعمال من خلال الألعاب، اكتشاف المستخدم، والنماذج الأولية" },
+      { id: 4, en: "SPOT UNDERSTAND CREATE PROTOTYPE PITCH", ar: "اكتشف افهم ابتكر نموذج أولي قدم عرضاً" },
+      { id: 5, en: "Programme Duration 5 days - 3 hours per day", ar: "مدة البرنامج 5 أيام - 3 ساعات يومياً" },
+      { id: 6, en: "Target Group DECI Level 3 students", ar: "الفئة المستهدفة طلاب DECI المستوى الثالث" },
+      { id: 7, en: "Group Size 20-25 students working in fixed teams of 4-5", ar: "حجم المجموعة 20-25 طالباً يعملون في فرق ثابتة من 4-5" },
+      { id: 8, en: "Delivery Language English", ar: "لغة التقديم الإنجليزية" },
+      { id: 9, en: "Learning Approach Game-based, activity-driven and project-based", ar: "نهج التعلم قائم على الألعاب، موجه بالأنشطة، وقائم على المشاريع" },
+      { id: 10, en: "Final Challenge The Young Innovators Demo Day", ar: "التحدي النهائي يوم عرض المبتكرين الصغار" },
+      { id: 11, en: "Version 1.0 | August 2026", ar: "النسخة 1.0 | أغسطس 2026" },
+      
+      // Programme Overview
+      { id: 12, en: "Journey Theme Turning a real problem into a useful, tested project idea.", ar: "موضوع الرحلة تحويل مشكلة حقيقية إلى فكرة مشروع مفيدة ومختبرة." },
+      { id: 13, en: "Entrepreneurship at This Level Identifying a real need, creating value through a solution, testing an early idea and explaining why it matters.", ar: "ريادة الأعمال في هذا المستوى تحديد حاجة حقيقية، خلق قيمة من خلال حل، اختبار فكرة مبكرة، وشرح سبب أهميتها." },
+      { id: 14, en: "Learning Approach Games, challenge cards, role-play, simple field observation, idea sprints, paper prototyping and peer feedback.", ar: "نهج التعلم ألعاب، بطاقات تحديات، تمثيل أدوار، ملاحظة ميدانية بسيطة، سباقات أفكار، نماذج أولية ورقية، وتغذية راجعة من الأقران." },
+      { id: 15, en: "Journey Progression Spot a Problem -> Understand the User -> Create Value -> Prototype and Test -> Pitch at Demo Day", ar: "مسيرة الرحلة اكتشف مشكلة -> افهم المستخدم -> ابتكر قيمة -> نموذج أولي واختبار -> قدم عرضاً في يوم العرض" },
+      
+      // Position in Learning Journey
+      { id: 16, en: "Level 3 is the bridge between the teamwork and problem-solving experience of Level 2 and the more advanced startup journey planned for merged Levels 4 and 5.", ar: "المستوى الثالث هو الجسر بين خبرة العمل الجماعي وحل المشكلات في المستوى الثاني ورحلة الشركات الناشئة الأكثر تقدماً المخطط لها للمستويين الرابع والخامس المدمجين." },
+      { id: 17, en: "Level 2: Solve a school challenge through communication, teamwork, planning and problem-solving. A structured proposal and team presentation.", ar: "المستوى الثاني: حل تحدي مدرسي من خلال التواصل، العمل الجماعي، التخطيط، وحل المشكلات. اقتراح منظم وعرض فريق." },
+      { id: 18, en: "Level 3: Turn a real user problem into a useful project idea, test it with a simple prototype and pitch it. A tested idea, low-fidelity prototype and Demo Day pitch.", ar: "المستوى الثالث: تحويل مشكلة مستخدم حقيقية إلى فكرة مشروع مفيدة، اختبارها بنموذج أولي بسيط، وتقديم عرض عنها. فكرة مختبرة، نموذج أولي منخفض الدقة، وعرض في يوم العرض." },
+      { id: 19, en: "Levels 4 & 5: Build a mixed-track venture using a Business Model Canvas, stronger prototype and realistic startup decisions.", ar: "المستويان الرابع والخامس: بناء مشروع متعدد المسارات باستخدام لوحة نموذج العمل، نموذج أولي أقوى، وقرارات شركة ناشئة واقعية." },
+      
+      // Scope Boundaries
+      { id: 20, en: "Included in Level 3: Problem and opportunity discovery, user needs, observation and questioning, idea generation, simple value proposition, low-fidelity prototyping, testing, improvement, teamwork, pitching and reflection.", ar: "مدرج في المستوى الثالث: اكتشاف المشكلات والفرص، احتياجات المستخدم، الملاحظة والاستجواب، توليد الأفكار، عرض القيمة البسيط، النماذج الأولية منخفضة الدقة، الاختبار، التحسين، العمل الجماعي، العرض، والتفكير التأملي." },
+      { id: 21, en: "Reserved for Levels 4 and 5: Full Business Model Canvas, revenue and pricing, cost structures, market size, channels, advanced customer validation, startup finance, formal negotiation and a technically functional prototype.", ar: "محجوز للمستويين الرابع والخامس: لوحة نموذج العمل الكاملة، الإيرادات والتسعير، هياكل التكلفة، حجم السوق، القنوات، التحقق المتقدم من العملاء، تمويل الشركات الناشئة، التفاوض الرسمي، ونموذج أولي وظيفي تقنياً." },
+      
+      // Level Storyline
+      { id: 22, en: "Throughout the five days, students work as Young Innovator Teams. Each team chooses a familiar problem from school, community, environment or digital life and turns it into a simple project idea.", ar: "طوال الأيام الخمسة، يعمل الطلاب كفرق مبتكرين صغار. يختار كل فريق مشكلة مألوفة من المدرسة، المجتمع، البيئة، أو الحياة الرقمية، ويحولها إلى فكرة مشروع بسيطة." },
+      { id: 23, en: "The journey begins with noticing problems rather than jumping to products. Teams then identify who experiences the problem, collect evidence, create several possible solutions, explain the value of one selected idea, build a low-fidelity prototype and test it with other students.", ar: "تبدأ الرحلة بملاحظة المشكلات بدلاً من القفز إلى المنتجات. ثم تحدد الفرق من يعاني من المشكلة، وتجمع الأدلة، وتنشئ عدة حلول ممكنة، وتشرح قيمة فكرة واحدة مختارة، وتبني نموذجاً أولياً منخفض الدقة، وتختبره مع طلاب آخرين." },
+      { id: 24, en: "On Day 5, each team presents the problem, the user, the proposed solution, the prototype, the feedback received and the improvement made. The goal is not to launch a real business; it is to understand the entrepreneurial way of thinking through an experience students can complete and explain.", ar: "في اليوم الخامس، يقدم كل فريق المشكلة، المستخدم، الحل المقترح، النموذج الأولي، التغذية الراجعة المستلمة، والتحسين الذي تم إجراؤه. الهدف ليس إطلاق عمل تجاري حقيقي؛ بل هو فهم طريقة التفكير الريادي من خلال تجربة يمكن للطلاب إكمالها وشرحها." },
+      
+      // Learning Objectives
+      { id: 25, en: "1. Explain entrepreneurship as identifying a real problem, creating useful value and improving a solution through testing.", ar: "١. شرح ريادة الأعمال كتحديد مشكلة حقيقية، خلق قيمة مفيدة، وتحسين حل من خلال الاختبار." },
+      { id: 26, en: "2. Identify a specific user group and describe a need using observations, questions and evidence rather than assumptions alone.", ar: "٢. تحديد مجموعة مستخدمين محددة ووصف حاجة باستخدام ملاحظات، أسئلة، وأدلة بدلاً من الافتراضات وحدها." },
+      { id: 27, en: "3. Generate several project ideas and select one using simple criteria such as usefulness, feasibility and fit with available skills.", ar: "٣. توليد عدة أفكار مشاريع واختيار واحد باستخدام معايير بسيطة مثل الفائدة، الجدوى، والملاءمة مع المهارات المتاحة." },
+      { id: 28, en: "4. Write a simple value proposition that connects the user, the need, the proposed solution and the expected benefit.", ar: "٤. كتابة عرض قيمة بسيط يربط المستخدم، الحاجة، الحل المقترح، والفائدة المتوقعة." },
+      { id: 29, en: "5. Build and test a low-fidelity prototype, then revise at least one part based on relevant feedback.", ar: "٥. بناء واختبار نموذج أولي منخفض الدقة، ثم مراجعة جزء واحد على الأقل بناءً على تغذية راجعة ذات صلة." },
+      { id: 30, en: "6. Deliver a clear team pitch that communicates the problem, value, prototype, learning and next step.", ar: "٦. تقديم عرض فريق واضح ينقل المشكلة، القيمة، النموذج الأولي، التعلم، والخطوة التالية." },
+      
+      // Final Challenge
+      { id: 31, en: "The Young Innovators Challenge: Each team identifies a familiar problem, understands who is affected, develops a useful project idea, creates a simple prototype, tests it and presents the improved concept during a final Demo Day.", ar: "تحدي المبتكرين الصغار: تحدد كل فريق مشكلة مألوفة، ويفهم من يتأثر بها، ويطور فكرة مشروع مفيدة، وينشئ نموذجاً أولياً بسيطاً، ويختبره، ويقدم المفهوم المحسّن خلال يوم العرض النهائي." },
+      { id: 32, en: "Suggested Challenge Areas: Helping students organise assignments, deadlines or shared school tasks. Reducing waste, saving energy or encouraging responsible environmental habits. Making school information, clubs or opportunities easier to find. Supporting safer and more respectful digital behaviour. Improving inclusion, communication or participation among students. Helping students manage stress, busy periods or everyday study routines. Improving a simple community service, public space or neighbourhood experience. Using a DECI technical interest to support a practical user need.", ar: "مجالات التحدي المقترحة: مساعدة الطلاب في تنظيم الواجبات، المواعيد النهائية، أو المهام المدرسية المشتركة. تقليل النفايات، توفير الطاقة، أو تشجيع العادات البيئية المسؤولة. جعل المعلومات المدرسية، الأندية، أو الفرص أسهل في العثور عليها. دعم سلوك رقمي أكثر أماناً واحتراماً. تحسين الاندماج، التواصل، أو المشاركة بين الطلاب. مساعدة الطلاب في إدارة التوتر، فترات الضغط، أو روتين الدراسة اليومي. تحسين خدمة مجتمعية بسيطة، مساحة عامة، أو تجربة حيوية. استخدام اهتمام تقني من DECI لدعم حاجة مستخدم عملية." },
+      { id: 33, en: "Final Team Output: Opportunity Map. User Need Card with evidence. Project Idea Card and Simple Value Proposition. Low-Fidelity Prototype. Prototype Test and Improvement Log. Mini Project One-Pager. A 3-4-minute Demo Day pitch with a brief question-and-answer round.", ar: "الناتج النهائي للفريق: خريطة الفرص. بطاقة حاجة المستخدم مع الأدلة. بطاقة فكرة المشروع وعرض القيمة البسيط. نموذج أولي منخفض الدقة. سجل اختبار النموذج الأولي وتحسينه. صفحة واحدة مصغرة عن المشروع. عرض مدته ٣-٤ دقائق في يوم العرض مع جولة أسئلة وأجوبة موجزة." },
+      
+      // Five-Day Journey Map (Days 1-5)
+      { id: 34, en: "DAY 1: Spot the Opportunity - Entrepreneurship Mindset and Problem Discovery", ar: "اليوم الأول: اكتشاف الفرصة - عقلية ريادة الأعمال واكتشاف المشكلات" },
+      { id: 35, en: "How can everyday problems become project opportunities?", ar: "كيف يمكن للمشكلات اليومية أن تصبح فرصاً لمشاريع؟" },
+      { id: 36, en: "Day 1 Output: Opportunity Map containing the selected problem, affected user group, evidence already available, why the issue matters and questions for further investigation.", ar: "الناتج اليومي: خريطة فرص تحتوي على المشكلة المختارة، مجموعة المستخدمين المتأثرة، الأدلة المتاحة بالفعل، سبب أهمية القضية، وأسئلة لمزيد من التحقيق." },
+      { id: 37, en: "DAY 2: Understand the People - User Empathy and Needs", ar: "اليوم الثاني: فهم الأشخاص - التعاطف مع المستخدم والاحتياجات" },
+      { id: 38, en: "How can we understand what people really need?", ar: "كيف يمكننا فهم ما يحتاجه الناس حقاً؟" },
+      { id: 39, en: "Day 2 Output: User Need Card containing the primary user, situation, need, current difficulty, evidence, user goal and one question that still requires testing.", ar: "الناتج اليومي: بطاقة حاجة مستخدم تحتوي على المستخدم الأساسي، الموقف، الحاجة، الصعوبة الحالية، الأدلة، هدف المستخدم، وسؤال واحد لا يزال بحاجة إلى اختبار." },
+      { id: 40, en: "DAY 3: Create the Value - Idea Generation and Simple Value Proposition", ar: "اليوم الثالث: خلق القيمة - توليد الأفكار وعرض القيمة البسيط" },
+      { id: 41, en: "How can we create an idea that is useful and worth choosing?", ar: "كيف يمكننا إنشاء فكرة مفيدة تستحق الاختيار؟" },
+      { id: 42, en: "Day 3 Output: Project Idea Card and Simple Value Proposition containing the user, need, selected solution, benefit, technical connection, reason for selection and main assumption to test.", ar: "الناتج اليومي: بطاقة فكرة مشروع وعرض قيمة بسيط يحتويان على المستخدم، الحاجة، الحل المختار، الفائدة، الاتصال التقني، سبب الاختيار، والافتراض الرئيسي للاختبار." },
+      { id: 43, en: "DAY 4: Build, Test and Improve - Prototyping and Feedback", ar: "اليوم الرابع: البناء والاختبار والتحسين - النماذج الأولية والتغذية الراجعة" },
+      { id: 44, en: "How can a simple prototype help us learn quickly?", ar: "كيف يمكن لنموذج أولي بسيط مساعدتنا على التعلم بسرعة؟" },
+      { id: 45, en: "Day 4 Output: Low-Fidelity Prototype and a Test and Improvement Log recording the testing question, observations, feedback, changes made and remaining uncertainty.", ar: "الناتج اليومي: نموذج أولي منخفض الدقة وسجل اختبار وتحسين يسجل سؤال الاختبار، الملاحظات، التغذية الراجعة، التغييرات التي تم إجراؤها، وعدم اليقين المتبقي." },
+      { id: 46, en: "DAY 5: Pitch the Possibility - Storytelling and Demo Day", ar: "اليوم الخامس: عرض الإمكانية - السرد القصصي ويوم العرض" },
+      { id: 47, en: "How can we clearly show the problem, value and learning?", ar: "كيف يمكننا إظهار المشكلة، القيمة، والتعلم بوضوح؟" },
+      { id: 48, en: "Day 5 Output: Mini Project One-Pager, an improved low-fidelity prototype and a 3-4-minute Demo Day pitch that explains the problem, user, value, testing evidence, improvement and next step.", ar: "الناتج اليومي: صفحة مشروع مصغرة، نموذج أولي محسّن منخفض الدقة، وعرض يوم عرض مدته ٣-٤ دقائق يشرح المشكلة، المستخدم، القيمة، أدلة الاختبار، التحسين، والخطوة التالية." },
+      
+      // Assessment & Materials
+      { id: 49, en: "Assessment Strategy: Formative assessment embedded in games, team discussions, practical outputs, prototype testing and reflection. No formal exam.", ar: "استراتيجية التقييم: تقييم تكويني مدمج في الألعاب، مناقشات الفرق، المخرجات العملية، اختبار النماذج الأولية، والتأمل. لا يوجد امتحان رسمي." },
+      { id: 50, en: "Formative Assessment Indicators: Ability to define a problem before proposing a solution. Use of observations, questions and evidence to understand the user. Quantity and variety of ideas generated before selection. Connection between user need, solution and expected value. Quality and testability of the prototype. Use of specific feedback for improvement. Balanced contribution, role ownership and respectful teamwork. Clarity of final pitch and honesty when answering questions.", ar: "مؤشرات التقييم التكويني: القدرة على تحديد المشكلة قبل اقتراح الحل. استخدام الملاحظات، الأسئلة، والأدلة لفهم المستخدم. كمية وتنوع الأفكار المولدة قبل الاختيار. الارتباط بين حاجة المستخدم، الحل، والقيمة المتوقعة. جودة وقابلية اختبار النموذج الأولي. استخدام تغذية راجعة محددة للتحسين. المساهمة المتوازنة، ملكية الدور، والعمل الجماعي المحترم. وضوح العرض النهائي وصدق الإجابة على الأسئلة." },
+      { id: 51, en: "Required Materials: A4 paper, coloured paper or index cards. Pens, pencils and coloured markers. Sticky notes or small paper slips. Scissors, masking tape and glue sticks. Recycled cardboard, paper cups, string and simple craft materials. Printed challenge, user, creative prompt, technical lens and feedback cards. Simple worksheets for daily outputs. Board or presentation screen and a visible timer.", ar: "المواد المطلوبة: ورق A4، ورق ملون، أو بطاقات فهرسة. أقلام، أقلام رصاص، وأقلام تلوين ملونة. ملاحظات لاصقة أو قصاصات ورق صغيرة. مقص، شريط لاصق، وأعواد غراء. كرتون معاد تدويره، أكواب ورقية، خيوط، ومواد حرفية بسيطة. بطاقات مطبوعة: تحديات، مستخدمين، محفزات إبداعية، عدسات تقنية، وتغذية راجعة. أوراق عمل بسيطة للمخرجات اليومية. لوح أو شاشة عرض ومؤقت مرئي." },
+      { id: 52, en: "Low-Resource Requirement: Every activity must have a paper-and-pen alternative. No activity requires learner devices, internet access, programming, hardware components or a technically functional product.", ar: "متطلب منخفض الموارد: يجب أن يكون لكل نشاط بديل ورقي بقلم. لا يتطلب أي نشاط أجهزة للمتعلمين، اتصال بالإنترنت، برمجة، مكونات أجهزة، أو منتج وظيفي تقنياً." },
+      
+      // Instructor Role
+      { id: 53, en: "Instructor Role: Acts as a facilitator, user-research coach, challenge sponsor and Demo Day panel member. Keeping the experience playful while connecting each game to an entrepreneurial concept. Stopping teams from jumping to solutions before defining the problem and user. Using familiar examples and avoiding advanced business terminology. Modelling open questions, evidence-based feedback and honest responses to uncertainty. Supporting balanced roles without selecting the idea or completing the output for the team. Encouraging use of DECI technical interests only when they create genuine value for the user. Treating a rough prototype as a learning tool, not judging visual polish or technical complexity. Protecting respectful testing and ensuring feedback focuses on the work rather than the student. Connecting every daily output to the final Demo Day story. Highlighting that Levels 4 and 5 will add Business Model Canvas, startup structure and deeper prototype development.", ar: "دور المدرب: يعمل كـ ميسر، مدرب أبحاث المستخدمين، راعي التحدي، وعضو لجنة يوم العرض. إبقاء التجربة مرحة مع ربط كل لعبة بمفهوم ريادي. منع الفرق من القفز إلى الحلول قبل تحديد المشكلة والمستخدم. استخدام أمثلة مألوفة وتجنب المصطلحات التجارية المتقدمة. نمذجة الأسئلة المفتوحة، التغذية الراجعة القائمة على الأدلة، والردود الصادقة على عدم اليقين. دعم الأدوار المتوازنة دون اختيار الفكرة أو إكمال الناتج نيابة عن الفريق. تشجيع استخدام اهتمامات DECI التقنية فقط عندما تخلق قيمة حقيقية للمستخدم. التعامل مع النموذج الأولي الخام كأداة تعلم، وليس الحكم على الإتقان البصري أو التعقيد التقني. حماية الاختبار المحترم وضمان تركيز التغذية الراجعة على العمل بدلاً من الطالب. ربط كل ناتج يومي بقصة يوم العرض النهائية. التأكيد على أن المستويين الرابع والخامس سيضيفان لوحة نموذج العمل، هيكل الشركة الناشئة، وتطوير النموذج الأولي الأعمق." }
+    ];
+
+    // ---------- Render Literal Items ----------
+    const container = document.getElementById('literalContainer');
+    function renderLiteral() {
+      let html = '';
+      literalData.forEach(item => {
+        html += `
+          <div class="literal-item" data-id="${item.id}">
+            <div class="d-flex justify-content-between align-items-start flex-wrap">
+              <div class="literal-ar"><i class="fas fa-quote-right me-2 text-secondary" style="font-size:0.8rem;"></i> ${item.ar}</div>
+              <button class="btn-toggle-original ms-2" data-target="${item.id}">
+                <i class="fas fa-eye me-1"></i> <span data-i18n="literal-show-original">إظهار الأصلي</span>
+              </button>
+            </div>
+            <div class="literal-en" id="literal-en-${item.id}">
+              <i class="fas fa-quote-left me-2 text-secondary" style="font-size:0.8rem;"></i> ${item.en}
+            </div>
+            <div class="mt-1"><span class="badge-literal">#${item.id} · ترجمة حرفية</span></div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+      document.getElementById('literalCount').textContent = `${literalData.length} عبارة`;
+
+      // Attach toggle events to each button
+      document.querySelectorAll('.btn-toggle-original').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const id = this.getAttribute('data-target');
+          const targetDiv = document.getElementById(`literal-en-${id}`);
+          if (targetDiv) {
+            targetDiv.classList.toggle('show');
+            const icon = this.querySelector('i');
+            const span = this.querySelector('span');
+            if (targetDiv.classList.contains('show')) {
+              icon.className = 'fas fa-eye-slash me-1';
+              span.textContent = span.textContent.includes('إظهار') ? 'إخفاء الأصلي' : 'Hide Original';
+              this.classList.add('active');
+            } else {
+              icon.className = 'fas fa-eye me-1';
+              span.textContent = span.textContent.includes('إخفاء') ? 'إظهار الأصلي' : 'Show Original';
+              this.classList.remove('active');
+            }
+          }
+        });
+      });
+    }
+
+    // ---------- Global Toggle All ----------
+    document.getElementById('toggleAllOriginal').addEventListener('click', function() {
+      const allEn = document.querySelectorAll('.literal-en');
+      const allBtns = document.querySelectorAll('.btn-toggle-original');
+      const isAnyVisible = Array.from(allEn).some(el => el.classList.contains('show'));
+      const action = isAnyVisible ? 'hide' : 'show';
+      
+      allEn.forEach(el => { if (action === 'show') el.classList.add('show'); else el.classList.remove('show'); });
+      allBtns.forEach(btn => {
+        const icon = btn.querySelector('i');
+        const span = btn.querySelector('span');
+        if (action === 'show') {
+          icon.className = 'fas fa-eye-slash me-1';
+          span.textContent = span.textContent.includes('إظهار') ? 'إخفاء الأصلي' : 'Hide Original';
+          btn.classList.add('active');
+        } else {
+          icon.className = 'fas fa-eye me-1';
+          span.textContent = span.textContent.includes('إخفاء') ? 'إظهار الأصلي' : 'Show Original';
+          btn.classList.remove('active');
+        }
+      });
+      const toggleSpan = this.querySelector('span');
+      toggleSpan.textContent = action === 'show' 
+        ? (toggleSpan.textContent.includes('إظهار') ? 'إخفاء كل النصوص الأصلية' : 'Hide All Originals')
+        : (toggleSpan.textContent.includes('إخفاء') ? 'إظهار كل النصوص الأصلية' : 'Show All Originals');
+    });
+
+    // ---------- Multi-language UI ----------
+    const langData = {
+      ar: {
+        "nav-overview": "نظرة عامة", "nav-literal": "ترجمة حرفية", "levelBadge": "المستوى الثالث",
+        "version": "النسخة 1.0 · أغسطس 2026",
+        "overview-title": "المخطط التفصيلي للمستوى الثالث", "overview-badge": "5 أيام · 3 ساعات يومياً",
+        "overview-subtitle": "من المشكلة إلى الإمكانية", "overview-tagline": "ريادة الأعمال من خلال الألعاب، اكتشاف المستخدم، والنماذج الأولية",
+        "overview-group": "20-25 طالباً", "overview-lang": "لغة التقديم: الإنجليزية", "overview-challenge": "يوم عرض المبتكرين",
+        "overview-level": "المستوى الثالث", "overview-bridge": "جسر بين المستويين 2 و 4-5",
+        "journey-title": "مسيرة الرحلة", "journey-step1": "اكتشف المشكلة", "journey-step2": "افهم المستخدم", "journey-step3": "ابتكر القيمة", "journey-step4": "نموذج أولي", "journey-step5": "عرض الفكرة",
+        "literal-title": "الترجمة الحرفية الكاملة للمخطط",
+        "literal-badge": "عرض النص الأصلي",
+        "literal-desc": "هنا تجد الترجمة الحرفية (كلمة بكلمة) للنص الكامل للمخطط، مع إمكانية إظهار النص الإنجليزي الأصلي أسفل كل فقرة.",
+        "literal-toggle-all": "إظهار كل النصوص الأصلية",
+        "literal-note": "الترجمة الحرفية تهدف إلى توضيح بنية الجملة الإنجليزية كما هي، لتسهيل فهم العلاقة بين اللغتين.",
+        "literal-show-original": "إظهار الأصلي"
+      },
+      en: {
+        "nav-overview": "Overview", "nav-literal": "Literal Translation", "levelBadge": "Level 3",
+        "version": "Version 1.0 · August 2026",
+        "overview-title": "Level 3 Blueprint", "overview-badge": "5 days · 3 hours per day",
+        "overview-subtitle": "From Problem to Possibility", "overview-tagline": "Entrepreneurship Through Games, User Discovery and Prototyping",
+        "overview-group": "20-25 students", "overview-lang": "Delivery Language: English", "overview-challenge": "Young Innovators Demo Day",
+        "overview-level": "Level 3", "overview-bridge": "Bridge between Level 2 and 4-5",
+        "journey-title": "Journey Progression", "journey-step1": "Spot a Problem", "journey-step2": "Understand the User", "journey-step3": "Create Value", "journey-step4": "Prototype", "journey-step5": "Pitch",
+        "literal-title": "Full Literal Translation of Blueprint",
+        "literal-badge": "Show Original Text",
+        "literal-desc": "Here you will find the literal (word-for-word) translation of the entire blueprint, with the ability to show the original English text below each paragraph.",
+        "literal-toggle-all": "Show All Originals",
+        "literal-note": "The literal translation aims to clarify the English sentence structure as is, to facilitate understanding the relationship between the two languages.",
+        "literal-show-original": "Show Original"
+      }
+    };
+
+    let currentLang = 'ar';
+    function applyLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (langData[lang] && langData[lang][key] !== undefined) el.textContent = langData[lang][key];
+      });
+      document.getElementById('levelBadge').textContent = langData[lang]['levelBadge'];
+      document.getElementById('langLabel').textContent = lang === 'ar' ? 'English' : 'العربية';
+      
+      const toggleSpan = document.querySelector('#toggleAllOriginal span');
+      if (toggleSpan) toggleSpan.textContent = langData[lang]['literal-toggle-all'];
+      document.querySelectorAll('.btn-toggle-original span').forEach(span => {
+        const isActive = span.closest('.btn-toggle-original')?.classList.contains('active');
+        span.textContent = isActive ? (lang === 'ar' ? 'إخفاء الأصلي' : 'Hide Original') : langData[lang]['literal-show-original'];
+      });
+    }
+
+    document.getElementById('langToggle').addEventListener('click', function() {
+      currentLang = (currentLang === 'ar') ? 'en' : 'ar';
+      applyLanguage(currentLang);
+      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.lang = currentLang;
+      const link = document.querySelector('link[href*="bootstrap.rtl"]');
+      link.setAttribute('href', currentLang === 'ar' 
+        ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css'
+        : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+    });
+
+    // ---------- Navigation ----------
+    const navLinks = document.querySelectorAll('[data-page]');
+    const pages = { overview: document.getElementById('page-overview'), literal: document.getElementById('page-literal') };
+    function showPage(pageId) {
+      Object.values(pages).forEach(p => p.classList.remove('active-page'));
+      if (pages[pageId]) pages[pageId].classList.add('active-page');
+      navLinks.forEach(link => link.classList.remove('active'));
+      const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(this.getAttribute('data-page'));
+      });
+    });
+
+    // Initialize
+    showPage('overview');
+    renderLiteral();
+    applyLanguage('ar');
+  })();
+</script>
+</body>
+</html>
