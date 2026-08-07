@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DECI - الدليل التفصيلي لليوم الأول</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body { background: #f4f7fc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .sidebar { min-height: 100vh; background: #1e2a47; color: #fff; padding-top: 20px; }
+    .sidebar .nav-link { color: #cfd8e6; font-weight: 500; border-radius: 0.5rem; margin-bottom: 5px; padding: 10px 16px; }
+    .sidebar .nav-link:hover, .sidebar .nav-link.active { background: #2a3a5c; color: #fff; }
+    .sidebar .nav-link i { margin-left: 10px; width: 22px; text-align: center; }
+    .main-content { padding: 30px 30px 40px; }
+    .page-section { display: none; animation: fadeIn 0.3s ease-in-out; }
+    .page-section.active-page { display: block; }
+    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+    .card-deci { border: none; border-radius: 20px; box-shadow: 0 8px 28px rgba(0,0,0,0.05); background: #fff; transition: transform 0.15s; }
+    .card-deci:hover { transform: translateY(-2px); }
+    .badge-day { background: #eef3ff; color: #1e2a47; font-weight: 600; padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; }
+    .section-title { font-weight: 700; color: #1e2a47; position: relative; padding-bottom: 12px; }
+    .section-title::after { content: ''; position: absolute; bottom: 0; right: 0; width: 70px; height: 4px; background: #1e2a47; border-radius: 4px; }
+    .lang-toggle { cursor: pointer; background: #2a3a5c; border-radius: 30px; padding: 6px 16px; color: #fff; border: 1px solid #4a5a7c; transition: 0.2s; }
+    .lang-toggle:hover { background: #3a4a6c; }
+    @media (max-width: 768px) { .sidebar { min-height: auto; padding-top: 10px; } .main-content { padding: 20px 15px; } }
+    
+    /* Original text toggle */
+    .original-text { display: none; background: #eef3fa; padding: 15px 20px; border-radius: 12px; margin-top: 12px; border: 1px dashed #bac8dc; font-size: 0.95rem; color: #2c3e5a; line-height: 1.7; }
+    .original-text.show { display: block; }
+    .btn-toggle-original { border-radius: 50px; font-size: 0.75rem; padding: 4px 14px; border: 1px solid #1e2a47; color: #1e2a47; background: transparent; transition: 0.2s; white-space: nowrap; }
+    .btn-toggle-original:hover, .btn-toggle-original.active { background: #1e2a47; color: #fff; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 15px; }
+    .table-deci { border-collapse: separate; border-spacing: 0; width: 100%; }
+    .table-deci th { background: #eef3ff; color: #1e2a47; font-weight: 600; }
+    .table-deci td, .table-deci th { padding: 12px 15px; border: 1px solid #e2e8f0; }
+    .table-deci tr:hover { background: #f8faff; }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 sidebar d-md-block">
+      <div class="text-center py-3">
+        <h5 class="fw-bold text-white"><i class="fas fa-campground me-2"></i>DECI</h5>
+        <span class="badge bg-warning text-dark">المستوى الثالث</span>
+      </div>
+      <hr class="bg-secondary opacity-25" />
+      <ul class="nav flex-column px-2">
+        <li class="nav-item"><a class="nav-link active" data-page="overview" href="../"><i class="fas fa-home"></i> نظرة عامة</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="day1-guide" href="#"><i class="fas fa-sun"></i> اليوم الأول - دليل تفصيلي</a></li>
+       <!-- <li class="nav-item"><a class="nav-link" data-page="literal" href="#"><i class="fas fa-language"></i> الترجمة الحرفية</a></li> -->
+      </ul>
+      <hr class="bg-secondary opacity-25" />
+      <div class="px-3">
+        <div class="lang-toggle d-inline-flex align-items-center" id="langToggle">
+          <i class="fas fa-globe me-1"></i> <span id="langLabel">English</span>
+        </div>
+      </div>
+      <div class="px-3 small text-secondary mt-3">
+        <i class="fas fa-calendar-alt me-1"></i> النسخة 1.0 · أغسطس 2026
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 col-lg-10 main-content">
+
+      <!-- ==================== OVERVIEW (مختصرة) ==================== -->
+      <section id="page-overview" class="page-section active-page">
+        <h1 class="section-title">المخطط التفصيلي للمستوى الثالث</h1>
+        <div class="card-deci card p-4 mb-4">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-8">
+              <h3 class="fw-bold text-deci-dark">من المشكلة إلى الإمكانية</h3>
+              <p class="lead fs-6 text-secondary">ريادة الأعمال من خلال الألعاب، اكتشاف المستخدم، والنماذج الأولية</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="day-icon mx-auto mb-2" style="width:48px;height:48px;background:#eef3ff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;">1</div>
+              <span class="fw-semibold">اليوم الأول</span>
+              <div class="small text-secondary">اكتشاف الفرصة</div>
+            </div>
+          </div>
+        </div>
+        <p class="text-secondary">اختر <strong>اليوم الأول - دليل تفصيلي</strong> من القائمة الجانبية لعرض الشرح الكامل.</p>
+      </section>
+
+      <!-- ==================== DAY 1 FULL GUIDE ==================== -->
+      <section id="page-day1-guide" class="page-section">
+        <!-- Toggle All Button -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+          <h1 class="section-title"><i class="fas fa-sun me-2"></i> اليوم الأول: اكتشاف الفرصة</h1>
+          <div class="d-flex gap-2">
+            <button class="btn-toggle-original" id="toggleAllDay1"><i class="fas fa-eye me-1"></i> إظهار النص الأصلي</button>
+          </div>
+        </div>
+        <p class="text-secondary mb-4">دليل شامل يشرح كل جوانب اليوم الأول من المخيم، مع إمكانية عرض النص الإنجليزي الأصلي أسفل كل قسم.</p>
+
+        <!-- 1. Day Overview -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-info-circle me-2 text-deci-dark"></i> 1. نظرة عامة على اليوم</h3>
+            <button class="btn-toggle-original" data-target="overview-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يقدم اليوم الأول ريادة الأعمال كطريقة عملية لملاحظة المشكلات الحقيقية، وفهم سبب أهميتها، وتحويلها إلى فرص لخلق قيمة مفيدة. يبدأ الطلاب بمواقف مألوفة من المدرسة، المجتمع، البيئة، والحياة الرقمية. يتدربون على فصل الشكاوى، المشكلات، الحلول، وأفكار المشاريع حتى لا يقفزوا إلى منتج قبل فهم الحاجة.</p>
+          <div class="original-text" id="overview-en">
+            <strong>English Original:</strong><br>
+            Day 1 introduces entrepreneurship as a practical way of noticing real problems, understanding why they matter and turning them into opportunities for useful value. Students begin with familiar situations from school, community, environmental and digital life. They practise separating complaints, problems, solutions and project ideas so they do not jump to a product before understanding the need.
+          </div>
+          <div class="row mt-3 g-3">
+            <div class="col-md-6">
+              <h6 class="fw-bold">السؤال الجوهري</h6>
+              <p class="bg-soft-primary p-3 rounded">كيف يمكن للمشكلات اليومية أن تصبح فرصاً لمشاريع؟</p>
+              <div class="original-text" id="essential-q-en"><strong>English:</strong> How can everyday problems become project opportunities?</div>
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold">الغرض من اليوم</h6>
+              <p class="bg-soft-primary p-3 rounded">يكتشف الطلاب أن ريادة الأعمال تبدأ بملاحظة مشكلة حقيقية أو حاجة غير مُلباة، وليس بإنشاء منتج أولاً. يتدربون على تحويل الشكاوى والملاحظات إلى بيانات فرصة واضحة.</p>
+              <div class="original-text" id="purpose-en"><strong>English:</strong> Students discover that entrepreneurship begins with noticing a real problem or unmet need, not with creating a product first. They practise turning complaints and observations into clear opportunity statements.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Learning Objectives -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-bullseye me-2 text-deci-dark"></i> 2. أهداف التعلم</h3>
+            <button class="btn-toggle-original" data-target="obj-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>بنهاية اليوم، سيكون الطلاب قادرين على:</p>
+          <ol>
+            <li>شرح ريادة الأعمال باستخدام دورة بسيطة: مشكلة-قيمة-اختبار.</li>
+            <li>التمييز بين المشكلة، الحل، وفكرة المشروع.</li>
+            <li>تحديد مشكلات مألوفة تؤثر على مجموعة محددة من الناس.</li>
+            <li>كتابة بيان فرصة أولي يسمي الموقف، المستخدم المتأثر، وسبب أهميته.</li>
+          </ol>
+          <div class="original-text" id="obj-en">
+            <strong>English Original:</strong><br>
+            By the end of the day, students will be able to:<br>
+            1. Explain entrepreneurship using a simple problem-value-test cycle.<br>
+            2. Distinguish between a problem, a solution and a project idea.<br>
+            3. Identify familiar problems that affect a specific group of people.<br>
+            4. Write an initial opportunity statement that names the situation, the affected user and why it matters.
+          </div>
+        </div>
+
+        <!-- 3. Content Map -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-map me-2 text-deci-dark"></i> 3. خريطة المحتوى</h3>
+            <button class="btn-toggle-original" data-target="map-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مجال المحتوى</th><th>التركيز الأساسي</th><th>التطبيق في اليوم</th></tr></thead>
+              <tbody>
+                <tr><td>عقلية ريادة الأعمال</td><td>المشكلة، القيمة، الاختبار، والتحسين</td><td>يرى الطلاب ريادة الأعمال كعملية خلق قيمة مفيدة</td></tr>
+                <tr><td>اكتشاف المشكلة</td><td>الشكوى، المشكلة، الحل، وفكرة المشروع</td><td>يصّنف الطلاب السيناريوهات ويتجنبون الخلط</td></tr>
+                <tr><td>الملاحظة</td><td>ما يراه الطلاب، يسمعونه، أو يختبرونه</td><td>تسجل الفرق المواقف القابلة للملاحظة قبل الأحكام</td></tr>
+                <tr><td>مجالات الفرص</td><td>المدرسة، المجتمع، البيئة، والحياة الرقمية</td><td>يستكشف الطلاب بيئات مألوفة ويحددون احتياجات متكررة</td></tr>
+                <tr><td>اختيار المشكلة</td><td>الأهمية، التكرار، التأثير، وملاءمة المخيم</td><td>تقارن الفرق المشكلات وتختار واحدة للتحقيق</td></tr>
+                <tr><td>بيان الفرصة</td><td>المستخدم، الموقف، المشكلة، والأهمية</td><td>ينشئ الطلاب أول وصف واضح للفرصة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="map-en"><strong>English Original:</strong> (See table above for full translation mapping)</div>
+        </div>
+
+        <!-- 4. Entrepreneurship -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-rocket me-2 text-deci-dark"></i> 4. ريادة الأعمال: من المشكلات إلى القيمة المفيدة</h3>
+            <button class="btn-toggle-original" data-target="ent-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>في هذا المخيم، تعني ريادة الأعمال تحديد مشكلة حقيقية، خلق قيمة مفيدة للناس، وتحسين حل من خلال الاختبار. نقطة البداية ليست منتجاً أو اسم شركة. نقطة البداية هي موقف يمكن أن يصبح أفضل لمجموعة محددة من الناس.</p>
+          <h6 class="fw-bold mt-3">4.1 ما يفعله رواد الأعمال حقاً</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الخطوة</th><th>النشاط</th><th>الوصف</th></tr></thead>
+              <tbody>
+                <tr><td>١</td><td>لاحظ</td><td>تحديد مشكلة حقيقية أو حاجة غير مُلباة</td></tr>
+                <tr><td>٢</td><td>افهم</td><td>تعلم من يتأثر وماذا يختبرون</td></tr>
+                <tr><td>٣</td><td>ابتكر</td><td>تطوير طرق ممكنة لتقديم القيمة</td></tr>
+                <tr><td>٤</td><td>اختبر</td><td>استخدام نموذج بسيط للتحقق من الافتراضات الرئيسية</td></tr>
+                <tr><td>٥</td><td>حسّن</td><td>تغيير الفكرة باستخدام أدلة مفيدة</td></tr>
+                <tr><td>٦</td><td>شارك</td><td>شرح المشكلة، القيمة، والتعلم بوضوح</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 p-3 bg-light rounded"><strong>المبدأ الأساسي:</strong> تبدأ ريادة الأعمال بمشكلة تستحق الفهم، وليس بمنتج يبحث عن مشكلة.</div>
+          <div class="original-text" id="ent-en"><strong>English Original:</strong> (Full content available in the original blueprint)</div>
+        </div>
+
+        <!-- 5. Complaint vs Problem etc -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-exchange-alt me-2 text-deci-dark"></i> 5. الشكوى، المشكلة، الحل، وفكرة المشروع</h3>
+            <button class="btn-toggle-original" data-target="terms-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المصطلح</th><th>المعنى</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>الشكوى</td><td>رد فعل سلبي أو تصريح عن تجربة</td><td>"معلومات النادي المدرسي مربكة"</td></tr>
+                <tr><td>المشكلة</td><td>صعوبة محددة تؤثر على مستخدم محدد</td><td>يفوّت الطلاب تسجيل النادي لأن المعلومات موزعة</td></tr>
+                <tr><td>الحل</td><td>طريقة مقترحة لتقليل المشكلة</td><td>جمع معلومات النادي في مكان واحد</td></tr>
+                <tr><td>فكرة المشروع</td><td>مفهوم محدد يربط المستخدم، الحاجة، الحل، والفائدة</td><td>لوحة معلومات بسيطة للعثور على الأندية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="terms-en"><strong>English:</strong> Complaint, Problem, Solution, Project Idea definitions and examples.</div>
+        </div>
+
+        <!-- 6. Gaps -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-arrows-h me-2 text-deci-dark"></i> 6. المشكلات كفجوات بين التجارب الحالية والأفضل</h3>
+            <button class="btn-toggle-original" data-target="gap-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>التجربة الحالية</th><th>التجربة الأفضل</th><th>الفجوة لاستكشافها</th></tr></thead>
+              <tbody>
+                <tr><td>يكتشف الطلاب المواعيد النهائية من رسائل مختلفة وغالباً ما يفوتون التحديثات</td><td>يمكن للطلاب العثور على مواعيد نهائية دقيقة</td><td>من الصعب تحديد المعلومات المهمة وتأكيدها</td></tr>
+                <tr><td>تبقى أضواء الفصول الدراسية مضاءة بعد مغادرة الطلاب</td><td>تستخدم الطاقة فقط عندما تكون الغرفة مشغولة</td><td>لا توجد عادة موثوقة تدعم الاستخدام المسؤول</td></tr>
+                <tr><td>يتلقى الطلاب روابط لكن لا يمكنهم الحكم على سلامتها</td><td>يمكن للطلاب التعرف على علامات التحذير</td><td>عملية القرار غير واضحة أو لا تستخدم باستمرار</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="gap-en"><strong>English:</strong> Current vs Better Experience tables.</div>
+        </div>
+
+        <!-- 7. Observation -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-eye me-2 text-deci-dark"></i> 7. الملاحظة قبل الحكم</h3>
+            <button class="btn-toggle-original" data-target="obs-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الملاحظة</th><th>الحكم أو الافتراض</th><th>متابعة أكثر فائدة</th></tr></thead>
+              <tbody>
+                <tr><td>سأل ثلاثة طلاب أين تم نشر جدول النادي</td><td>"المدرسة لا تشارك المعلومات بشكل صحيح"</td><td>أين يتم مشاركة الجدول حالياً، ومن يمكنه الوصول؟</td></tr>
+                <tr><td>كان ضوءان في الفصل مضاءين بعد أن أصبحت الغرفة فارغة</td><td>"الطلاب لا يهتمون بالطاقة"</td><td>متى تُترك الأضواء مضاءة، ومن يلاحظ ذلك؟</td></tr>
+                <tr><td>توقف طالب قبل فتح رابط من مرسل غير معروف</td><td>"الطلاب لا يفهمون الأمن السيبراني"</td><td>ما العلامات التي يتحقق منها الطالب قبل الفتح؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-2"><strong>جمل بداية الملاحظة:</strong> "لاحظت أن..." | "سمعت..." | "حدث هذا عندما..." | "واجه الشخص صعوبة في..."</p>
+          <div class="original-text" id="obs-en"><strong>English:</strong> Observation vs Judgement examples.</div>
+        </div>
+
+        <!-- 8. Opportunity Areas -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-map-pin me-2 text-deci-dark"></i> 8. مجالات الفرص</h3>
+            <button class="btn-toggle-original" data-target="areas-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المجال</th><th>ما يمكن ملاحظته</th><th>اتجاهات المشكلة المحتملة</th></tr></thead>
+              <tbody>
+                <tr><td>الحياة المدرسية</td><td>المعلومات، الواجبات، الأندية، المهام المشتركة</td><td>مواعيد نهائية ضائعة، مسؤوليات غير واضحة</td></tr>
+                <tr><td>الحياة المجتمعية</td><td>الأماكن العامة، الخدمات البسيطة، التواصل</td><td>اتجاهات صعبة، وصول ضعيف للمعلومات</td></tr>
+                <tr><td>البيئة</td><td>النفايات، الطاقة، الماء، العادات المسؤولة</td><td>نفايات متكررة، أضواء تُترك مضاءة</td></tr>
+                <tr><td>الحياة الرقمية</td><td>السلامة، السلوك المحترم، التنظيم، الوصول</td><td>روابط غير آمنة، معلومات رقمية مربكة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="areas-en"><strong>English:</strong> Opportunity areas table.</div>
+        </div>
+
+        <!-- 9. Initial Evidence -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-clipboard-list me-2 text-deci-dark"></i> 9. ما الذي يعتبر دليلاً أولياً؟</h3>
+            <button class="btn-toggle-original" data-target="evidence-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مثال الدليل الأولي</th><th>ما لا يثبته بعد</th></tr></thead>
+              <tbody>
+                <tr><td>سأل عدة طلاب أين تم نشر نفس المعلومات</td><td>لماذا يصعب العثور على المعلومات لكل مستخدم</td></tr>
+                <tr><td>فات أعضاء الفريق تحديثات مماثلة أكثر من مرة</td><td>أن جميع الطلاب يعانون بنفس الطريقة</td></tr>
+                <tr><td>تحتوي صناديق النفايات على عناصر قابلة لإعادة الاستخدام</td><td>الأسباب الدقيقة للتخلص منها</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="evidence-en"><strong>English:</strong> Initial evidence examples.</div>
+        </div>
+
+        <!-- 10. Need or Nice -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-filter me-2 text-deci-dark"></i> 10. حاجة أم رفاهية؟ اختيار مشكلة</h3>
+            <button class="btn-toggle-original" data-target="select-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>سؤال الاختيار</th><th>ما تبحث عنه الفرق</th></tr></thead>
+              <tbody>
+                <tr><td>هل هي مهمة؟</td><td>تؤثر على هدف هادف، قرار، سلامة، وصول</td></tr>
+                <tr><td>هل تحدث بشكل متكرر؟</td><td>تتكرر أو من المحتمل أن تظهر مرة أخرى</td></tr>
+                <tr><td>هل لها تأثير ملحوظ؟</td><td>تغير ما يمكن للمستخدم فعله أو فهمه</td></tr>
+                <tr><td>هل يمكننا فهمها؟</td><td>يمكن وصف السياق وتحديد المستخدمين</td></tr>
+                <tr><td>هل يمكن استكشافها في المخيم؟</td><td>مركزة بما يكفي للتحقيق في خمسة أيام</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="select-en"><strong>English:</strong> Problem selection criteria.</div>
+        </div>
+
+        <!-- 11. Opportunity Statement -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-pen-fancy me-2 text-deci-dark"></i> 11. كتابة بيان فرصة أولي</h3>
+            <button class="btn-toggle-original" data-target="stmt-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="p-3 bg-soft-primary rounded mb-3">
+            <strong>القالب:</strong> [مجموعة المستخدمين] يعاني/تعاني من [مشكلة محددة] عندما أو حيث [الموقف]، وهذا مهم لأن [التأثير أو السبب].
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الجزء</th><th>السؤال</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>مجموعة المستخدمين</td><td>من يعاني؟</td><td>الطلاب الذين يحاولون الانضمام إلى نادي مدرسي</td></tr>
+                <tr><td>المشكلة المحددة</td><td>ما الصعوبة؟</td><td>لا يمكنهم العثور على معلومات تسجيل كاملة</td></tr>
+                <tr><td>الموقف</td><td>متى/أين؟</td><td>خلال الأيام التي تسبق إغلاق التسجيل</td></tr>
+                <tr><td>سبب الأهمية</td><td>ما التأثير؟</td><td>قد يفوتون الموعد النهائي أو يختارون بدون معلومات</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="stmt-en"><strong>English:</strong> Opportunity statement template and examples.</div>
+        </div>
+
+        <!-- 12. Opportunity Map -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-map-signs me-2 text-deci-dark"></i> 12. خريطة الفرص: المعيار المحتوى</h3>
+            <button class="btn-toggle-original" data-target="omap-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الحقل</th><th>ما تسجله الفرق</th><th>فحص الجودة</th></tr></thead>
+              <tbody>
+                <tr><td>المشكلة المختارة</td><td>وصف مركز للصعوبة الحالية</td><td>تصف المشكلة دون وصف الحل النهائي</td></tr>
+                <tr><td>مجموعة المستخدمين</td><td>الأشخاص المحددون المتأثرون</td><td>المجموعة أكثر تحديداً من "الجميع"</td></tr>
+                <tr><td>أين أو متى</td><td>الموقف، المكان، أو الوقت</td><td>يمكن لشخص آخر تخيل السياق</td></tr>
+                <tr><td>الأدلة المتاحة</td><td>ملاحظات، تجارب متكررة، أنماط</td><td>واضح ما تم ملاحظته وما هو مفترض</td></tr>
+                <tr><td>سبب الأهمية</td><td>التأثير على هدف المستخدم</td><td>يشرح التأثير سبب استحقاق القضية</td></tr>
+                <tr><td>أسئلة للتحقيق</td><td>معلومات لا تزال بحاجة إليها</td><td>تساعد على فهم المستخدم في اليوم الثاني</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="omap-en"><strong>English:</strong> Opportunity Map fields and quality criteria.</div>
+        </div>
+
+        <!-- 13. Activities -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-tasks me-2 text-deci-dark"></i> 13. روابط المحتوى بالأنشطة التعليمية</h3>
+            <button class="btn-toggle-original" data-target="act-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>النشاط</th><th>المحتوى الممارس</th><th>دليل التعلم المتوقع</th></tr></thead>
+              <tbody>
+                <tr><td>ماذا ستصلح؟</td><td>ملاحظة المشكلات الصغيرة في أماكن مألوفة</td><td>يولد الطلاب ملاحظات من بطاقة مكان</td></tr>
+                <tr><td>مشكلة، حل، أم فكرة؟</td><td>تمييز أجزاء القصة الريادية</td><td>تصنيف السيناريوهات وتبرير الاختيارات</td></tr>
+                <tr><td>ما يفعله رواد الأعمال</td><td>دورة المشكلة-القيمة-الاختبار</td><td>شرح لماذا تبدأ ريادة الأعمال بمشكلة</td></tr>
+                <tr><td>صيد الفرص</td><td>مجالات الفرص والملاحظة</td><td>تسجيل مشكلات من مجالات متنوعة</td></tr>
+                <tr><td>حاجة أم رفاهية؟</td><td>الأهمية، التكرار، التأثير، الملاءمة</td><td>مقارنة المشكلات دون اختيار حل</td></tr>
+                <tr><td>بناء خريطة الفرص</td><td>المستخدم، المشكلة، السياق، الأدلة</td><td>إنتاج ناتج اليوم الأول</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="act-en"><strong>English:</strong> Activity content connections.</div>
+        </div>
+
+        <!-- 14. Misconceptions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-exclamation-triangle me-2 text-deci-dark"></i> 14. المفاهيم الخاطئة وتصحيحاتها</h3>
+            <button class="btn-toggle-original" data-target="mis-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المفهوم الخاطئ</th><th>التصحيح</th></tr></thead>
+              <tbody>
+                <tr><td>ريادة الأعمال تعني بدء شركة فوراً</td><td>تبدأ بفهم المشكلة، خلق القيمة، والتعلم من خلال الاختبار</td></tr>
+                <tr><td>الشكوى هي بالفعل مشكلة واضحة</td><td>يجب ترجمتها إلى صعوبة محددة تؤثر على مستخدم محدد</td></tr>
+                <tr><td>الحل الأول هو الأفضل</td><td>نبقي المشكلة مفتوحة لفهم المستخدم وتوليد عدة أفكار</td></tr>
+                <tr><td>نعرف كل شيء لأننا نعاني من المشكلة</td><td>الخبرة الشخصية دليل أولي، لكن اليوم الثاني يختبر الافتراضات</td></tr>
+                <tr><td>إضافة التكنولوجيا تجعل الفكرة ريادية</td><td>التكنولوجيا مفيدة فقط عندما تدعم حاجة حقيقية</td></tr>
+                <tr><td>المشكلة الأكبر هي دائماً الأفضل</td><td>يجب أن تكون هادفة ومركزة وممكنة في خمسة أيام</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="mis-en"><strong>English:</strong> Common misconceptions and corrections.</div>
+        </div>
+
+        <!-- 15. Takeaways -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-key me-2 text-deci-dark"></i> 15. النقاط الرئيسية</h3>
+            <button class="btn-toggle-original" data-target="take-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ul>
+            <li>تبدأ ريادة الأعمال بملاحظة مشكلة حقيقية وخلق قيمة مفيدة للناس.</li>
+            <li>تصف الشكوى، المشكلة، الحل، وفكرة المشروع أجزاء مختلفة من الرحلة.</li>
+            <li>الملاحظات هي نقاط بداية أقوى من الأحكام أو الافتراضات غير المختبرة.</li>
+            <li>تسمي الفرصة المفيدة مستخدماً محدداً، موقفاً، صعوبة، وتأثيراً هادفاً.</li>
+            <li>يجب على الفرق مقارنة المشكلات قبل اختيار واحدة وترك الحل مفتوحاً في اليوم الأول.</li>
+            <li>تسجل خريطة الفرص ما تعرفه الفرق، لماذا تهم المشكلة، وما لا يزال يحتاج إلى تحقيق.</li>
+          </ul>
+          <div class="original-text" id="take-en"><strong>English:</strong> Key takeaways list.</div>
+        </div>
+
+        <!-- 16. Reflection -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-comment-dots me-2 text-deci-dark"></i> 16. أسئلة التأمل</h3>
+            <button class="btn-toggle-original" data-target="ref-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ol>
+            <li>ما الذي تغير عندما وصفنا المشكلة دون اقتراح حل؟</li>
+            <li>أي مشكلة تبدو أكثر أهمية للمستخدم، وليس فقط لفريقنا؟</li>
+            <li>ما الذي لا يزال يتعين علينا تعلمه قبل إنشاء فكرة؟</li>
+          </ol>
+          <div class="original-text" id="ref-en"><strong>English:</strong> Reflection questions.</div>
+        </div>
+
+        <!-- 17. Summary -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-file-alt me-2 text-deci-dark"></i> 17. ملخص المحتوى اليومي</h3>
+            <button class="btn-toggle-original" data-target="sum-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <tbody>
+                <tr><th>المهارة الرئيسية</th><td>عقلية ريادة الأعمال واكتشاف المشكلات</td></tr>
+                <tr><th>السؤال الجوهري</th><td>كيف يمكن للمشكلات اليومية أن تصبح فرصاً لمشاريع؟</td></tr>
+                <tr><th>المفاهيم الأساسية</th><td>دورة ريادة الأعمال؛ الشكوى، المشكلة، الحل، والفكرة؛ الملاحظة؛ اختيار الفرصة؛ بيان الفرصة</td></tr>
+                <tr><th>الناتج اليومي</th><td>خريطة فرص تحتوي على المشكلة المختارة، مجموعة المستخدمين، الأدلة، سبب الأهمية، وأسئلة للتحقيق</td></tr>
+                <tr><th>الاستخدام في الرحلة</th><td>تصبح خريطة الفرص نقطة البداية لاكتشاف المستخدم في اليوم الثاني</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="sum-en"><strong>English:</strong> Daily content summary.</div>
+        </div>
+
+      </section>
+
+      <!-- ==================== LITERAL (placeholder) ==================== -->
+      <section id="page-literal" class="page-section">
+        <h1 class="section-title">الترجمة الحرفية</h1>
+        <p class="text-secondary">يمكنك العودة إلى صفحة الترجمة الحرفية الكاملة من القائمة الجانبية.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function() {
+    // ---------- Navigation ----------
+    const navLinks = document.querySelectorAll('[data-page]');
+    const pages = {
+      overview: document.getElementById('page-overview'),
+      'day1-guide': document.getElementById('page-day1-guide'),
+      literal: document.getElementById('page-literal')
+    };
+
+    function showPage(pageId) {
+      Object.values(pages).forEach(p => p.classList.remove('active-page'));
+      if (pages[pageId]) pages[pageId].classList.add('active-page');
+      navLinks.forEach(link => link.classList.remove('active'));
+      const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(this.getAttribute('data-page'));
+      });
+    });
+
+    // ---------- Toggle Original Text (per section) ----------
+    document.querySelectorAll('.btn-toggle-original[data-target]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const targetDiv = document.getElementById(targetId);
+        if (targetDiv) {
+          targetDiv.classList.toggle('show');
+          const icon = this.querySelector('i');
+          const isActive = targetDiv.classList.contains('show');
+          icon.className = isActive ? 'fas fa-eye-slash me-1' : 'fas fa-eye me-1';
+          this.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+          this.classList.toggle('active', isActive);
+        }
+      });
+    });
+
+    // ---------- Toggle All Original Texts (Day 1 Guide) ----------
+    document.getElementById('toggleAllDay1').addEventListener('click', function() {
+      const allOriginals = document.querySelectorAll('#page-day1-guide .original-text');
+      const allButtons = document.querySelectorAll('#page-day1-guide .btn-toggle-original[data-target]');
+      const anyVisible = Array.from(allOriginals).some(el => el.classList.contains('show'));
+      const action = anyVisible ? 'hide' : 'show';
+
+      allOriginals.forEach(el => {
+        if (action === 'show') el.classList.add('show');
+        else el.classList.remove('show');
+      });
+
+      allButtons.forEach(btn => {
+        const isActive = action === 'show';
+        btn.classList.toggle('active', isActive);
+        btn.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+      });
+
+      this.innerHTML = action === 'show' ? '<i class="fas fa-eye-slash me-1"></i> إخفاء النص الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار النص الأصلي';
+    });
+
+    // ---------- Language Toggle (UI only) ----------
+    let currentLang = 'ar';
+    document.getElementById('langToggle').addEventListener('click', function() {
+      currentLang = (currentLang === 'ar') ? 'en' : 'ar';
+      document.getElementById('langLabel').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.lang = currentLang;
+      const link = document.querySelector('link[href*="bootstrap.rtl"]');
+      link.setAttribute('href', currentLang === 'ar' 
+        ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css'
+        : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+    });
+
+    // Default page
+    showPage('day1-guide');
+  })();
+</script>
+</body>
+</html>
