@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DECI - الدليل التفصيلي لليوم الخامس</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body { background: #f4f7fc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .sidebar { min-height: 100vh; background: #1e2a47; color: #fff; padding-top: 20px; }
+    .sidebar .nav-link { color: #cfd8e6; font-weight: 500; border-radius: 0.5rem; margin-bottom: 5px; padding: 10px 16px; }
+    .sidebar .nav-link:hover, .sidebar .nav-link.active { background: #2a3a5c; color: #fff; }
+    .sidebar .nav-link i { margin-left: 10px; width: 22px; text-align: center; }
+    .main-content { padding: 30px 30px 40px; }
+    .page-section { display: none; animation: fadeIn 0.3s ease-in-out; }
+    .page-section.active-page { display: block; }
+    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+    .card-deci { border: none; border-radius: 20px; box-shadow: 0 8px 28px rgba(0,0,0,0.05); background: #fff; transition: transform 0.15s; }
+    .card-deci:hover { transform: translateY(-2px); }
+    .badge-day { background: #eef3ff; color: #1e2a47; font-weight: 600; padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; }
+    .section-title { font-weight: 700; color: #1e2a47; position: relative; padding-bottom: 12px; }
+    .section-title::after { content: ''; position: absolute; bottom: 0; right: 0; width: 70px; height: 4px; background: #1e2a47; border-radius: 4px; }
+    .lang-toggle { cursor: pointer; background: #2a3a5c; border-radius: 30px; padding: 6px 16px; color: #fff; border: 1px solid #4a5a7c; transition: 0.2s; }
+    .lang-toggle:hover { background: #3a4a6c; }
+    @media (max-width: 768px) { .sidebar { min-height: auto; padding-top: 10px; } .main-content { padding: 20px 15px; } }
+    .original-text { display: none; background: #eef3fa; padding: 15px 20px; border-radius: 12px; margin-top: 12px; border: 1px dashed #bac8dc; font-size: 0.95rem; color: #2c3e5a; line-height: 1.7; }
+    .original-text.show { display: block; }
+    .btn-toggle-original { border-radius: 50px; font-size: 0.75rem; padding: 4px 14px; border: 1px solid #1e2a47; color: #1e2a47; background: transparent; transition: 0.2s; white-space: nowrap; }
+    .btn-toggle-original:hover, .btn-toggle-original.active { background: #1e2a47; color: #fff; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 15px; }
+    .table-deci { border-collapse: separate; border-spacing: 0; width: 100%; }
+    .table-deci th { background: #eef3ff; color: #1e2a47; font-weight: 600; }
+    .table-deci td, .table-deci th { padding: 12px 15px; border: 1px solid #e2e8f0; }
+    .table-deci tr:hover { background: #f8faff; }
+    .bg-soft-primary { background: #eef3ff; }
+    .handout-badge { background: #dce3ef; color: #1e2a47; padding: 2px 12px; border-radius: 30px; font-size: 0.7rem; }
+    .print-icon { color: #1e2a47; }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 sidebar d-md-block">
+      <div class="text-center py-3">
+        <h5 class="fw-bold text-white"><i class="fas fa-campground me-2"></i>DECI</h5>
+        <span class="badge bg-warning text-dark">المستوى الثالث</span>
+      </div>
+      <hr class="bg-secondary opacity-25" />
+      <ul class="nav flex-column px-2">
+        <li class="nav-item"><a class="nav-link" data-page="overview" href="../"><i class="fas fa-home"></i> نظرة عامة</a></li>
+       <!-- <li class="nav-item"><a class="nav-link" data-page="day1-guide" href="#"><i class="fas fa-sun"></i> اليوم الأول</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="day2-guide" href="#"><i class="fas fa-users"></i> اليوم الثاني</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="day3-guide" href="#"><i class="fas fa-lightbulb"></i> اليوم الثالث</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="day4-guide" href="#"><i class="fas fa-cogs"></i> اليوم الرابع</a></li> -->
+        <li class="nav-item"><a class="nav-link active" data-page="day5-guide" href="#"><i class="fas fa-flag-checkered"></i> اليوم الخامس</a></li>
+      </ul>
+      <hr class="bg-secondary opacity-25" />
+      <div class="px-3">
+        <div class="lang-toggle d-inline-flex align-items-center" id="langToggle">
+          <i class="fas fa-globe me-1"></i> <span id="langLabel">English</span>
+        </div>
+      </div>
+      <div class="px-3 small text-secondary mt-3">
+        <i class="fas fa-calendar-alt me-1"></i> النسخة 1.0 · أغسطس 2026
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 col-lg-10 main-content">
+
+      <!-- ========== OVERVIEW ========== -->
+      <section id="page-overview" class="page-section">
+        <h1 class="section-title">المخطط التفصيلي للمستوى الثالث</h1>
+        <div class="card-deci card p-4 mb-4">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-8">
+              <h3 class="fw-bold text-deci-dark">من المشكلة إلى الإمكانية</h3>
+              <p class="lead fs-6 text-secondary">ريادة الأعمال من خلال الألعاب، اكتشاف المستخدم، والنماذج الأولية</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="day-icon mx-auto mb-2" style="width:48px;height:48px;background:#eef3ff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;">5</div>
+              <span class="fw-semibold">اليوم الخامس</span>
+              <div class="small text-secondary">عرض الإمكانية</div>
+            </div>
+          </div>
+        </div>
+        <p class="text-secondary">اختر <strong>اليوم الخامس</strong> من القائمة الجانبية لعرض الشرح الكامل.</p>
+      </section>
+
+      <!-- ========== DAYS 1-4 (مختصر) ========== -->
+      <section id="page-day1-guide" class="page-section"><div class="card-deci card p-4"><p>الدليل التفصيلي لليوم الأول موجود في الصفحة السابقة.</p></div></section>
+      <section id="page-day2-guide" class="page-section"><div class="card-deci card p-4"><p>الدليل التفصيلي لليوم الثاني موجود في الصفحة السابقة.</p></div></section>
+      <section id="page-day3-guide" class="page-section"><div class="card-deci card p-4"><p>الدليل التفصيلي لليوم الثالث موجود في الصفحة السابقة.</p></div></section>
+      <section id="page-day4-guide" class="page-section"><div class="card-deci card p-4"><p>الدليل التفصيلي لليوم الرابع موجود في الصفحة السابقة.</p></div></section>
+
+      <!-- ========== DAY 5 FULL GUIDE ========== -->
+      <section id="page-day5-guide" class="page-section active-page">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+          <h1 class="section-title"><i class="fas fa-flag-checkered me-2"></i> اليوم الخامس: عرض الإمكانية</h1>
+          <div class="d-flex gap-2">
+            <button class="btn-toggle-original" id="toggleAllDay5"><i class="fas fa-eye me-1"></i> إظهار النص الأصلي</button>
+          </div>
+        </div>
+        <p class="text-secondary mb-4">دليل شامل يشرح كل جوانب اليوم الخامس من المخيم، مع إمكانية عرض النص الإنجليزي الأصلي أسفل كل قسم.</p>
+
+        <!-- Day 5 Handout Index -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-print me-2 text-deci-dark"></i> فهرس المواد القابلة للطباعة - اليوم الخامس</h3>
+            <button class="btn-toggle-original" data-target="d5-handouts-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>النشاط</th><th>المادة القابلة للطباعة</th><th>النوع</th><th>التوزيع</th></tr></thead>
+              <tbody>
+                <tr><td>لغز العرض</td><td>مجموعة بطاقات لغز العرض</td><td>نشاط جماعي</td><td>مجموعة واحدة مقطعة لكل فريق</td></tr>
+                <tr><td>لغز العرض</td><td>ورقة تسجيل لغز العرض</td><td>نشاط جماعي</td><td>ورقة واحدة لكل فريق</td></tr>
+                <tr><td>بناء قصة يوم العرض</td><td>منشئ المشروع بجملة واحدة</td><td>نشاط جماعي</td><td>ورقة واحدة لكل فريق</td></tr>
+                <tr><td>بناء قصة يوم العرض</td><td>صفحة المشروع المصغرة</td><td>نشاط جماعي</td><td>ورقة عمل + نسخة نهائية لكل فريق</td></tr>
+                <tr><td>بناء قصة يوم العرض</td><td>مخطط قصة يوم العرض</td><td>نشاط جماعي</td><td>ورقة واحدة لكل فريق</td></tr>
+                <tr><td>بناء قصة يوم العرض</td><td>خطة الأدوار والتوقيت</td><td>نشاط جماعي</td><td>ورقة واحدة لكل فريق</td></tr>
+                <tr><td>بناء قصة يوم العرض</td><td>ورقة إشارات عرض النموذج الأولي</td><td>نشاط جماعي</td><td>ورقة واحدة لكل فريق</td></tr>
+                <tr><td>بناء قصة يوم العرض</td><td>فحص جودة قصة يوم العرض</td><td>نشاط جماعي</td><td>قائمة مراجعة واحدة لكل فريق</td></tr>
+                <tr><td>دائرة التغذية الراجعة</td><td>ورقة مراجعة دائرة التغذية الراجعة</td><td>نشاط الأقران/الجمهور</td><td>ورقتان لكل فريق</td></tr>
+                <tr><td>دائرة التغذية الراجعة</td><td>بطاقة لغة التغذية الراجعة</td><td>نشاط الأقران/الجماعي</td><td>بطاقة واحدة لكل فريق</td></tr>
+                <tr><td>مراجعة وتدريب</td><td>مصفوفة قرارات المراجعة</td><td>نشاط جماعي</td><td>ورقة واحدة لكل فريق</td></tr>
+                <tr><td>مراجعة وتدريب</td><td>سجل توقيت التدريب</td><td>نشاط جماعي</td><td>ورقة واحدة لكل فريق</td></tr>
+                <tr><td>مراجعة وتدريب</td><td>بطاقات تحديات الأسئلة والأجوبة</td><td>نشاط جماعي</td><td>مجموعة مقطعة للغرفة</td></tr>
+                <tr><td>مراجعة وتدريب</td><td>قائمة مراجعة الجاهزية النهائية</td><td>نشاط جماعي</td><td>قائمة مراجعة واحدة لكل فريق</td></tr>
+                <tr><td>يوم عرض المبتكرين الصغار</td><td>ملاحظات أدلة الجمهور</td><td>نشاط فردي للجمهور</td><td>واحدة لكل طالب / كتلة عرض</td></tr>
+                <tr><td>يوم عرض المبتكرين الصغار</td><td>معايير يوم العرض</td><td>نشاط الجمهور/المراجع</td><td>واحدة لكل مراجع</td></tr>
+                <tr><td>تأمل رحلة الخمسة أيام</td><td>تأمل رحلة الفريق</td><td>نشاط جماعي</td><td>ورقة واحدة لكل فريق</td></tr>
+                <tr><td>الختام</td><td>بطاقة خروج المبتكر الصغير</td><td>نشاط فردي</td><td>بطاقة واحدة لكل متعلم</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d5-handouts-en"><strong>English:</strong> Day 5 Handout Index - all printable materials listed.</div>
+        </div>
+
+        <!-- 1. Day Overview -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-info-circle me-2 text-deci-dark"></i> 1. نظرة عامة على اليوم</h3>
+            <button class="btn-toggle-original" data-target="d5-overview-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يجمع اليوم الخامس رحلة مبتكري المستوى الثالث معاً. تنظم الفرق المشكلة، أدلة المستخدم، فكرة المشروع، عرض القيمة، النموذج الأولي، وتعلم الاختبار في قصة ريادية واحدة واضحة. ينشئون صفحة مشروع مصغرة، يتدربون مع فريق آخر، يراجعون رسالتهم، ويقدمون عرضاً مدته ٣-٤ دقائق مع عرض نموذج أولي قصير وأسئلة جمهور موجزة.</p>
+          <div class="original-text" id="d5-overview-en"><strong>English:</strong> Day 5 brings the Level 3 Young Innovators journey together. Teams organise the problem, user evidence, project idea, value proposition, prototype and testing learning into one clear entrepreneurial story. They create a Mini Project One-Pager, practise with another team, revise their message and deliver a 3-4-minute pitch with a short prototype demonstration and brief audience questions.</div>
+          <div class="row mt-3 g-3">
+            <div class="col-md-6">
+              <h6 class="fw-bold">السؤال الجوهري</h6>
+              <p class="bg-soft-primary p-3 rounded">كيف يمكننا إظهار المشكلة، القيمة، والتعلم بوضوح؟</p>
+              <div class="original-text" id="d5-eq-en"><strong>English:</strong> How can we clearly show the problem, value and learning?</div>
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold">الغرض من اليوم</h6>
+              <p class="bg-soft-primary p-3 rounded">يتعلم الطلاب أن عرض يوم العرض القوي لا يظهر فكرة فقط. بل يشرح لماذا تهم المشكلة، من يحتاج الحل، ما تم اختباره، ما تغير، وما سوف يستكشفه الفريق بعد ذلك.</p>
+              <div class="original-text" id="d5-purpose-en"><strong>English:</strong> Students learn that a strong Demo Day presentation does not only show an idea. It explains why the problem matters, who needs the solution, what was tested, what changed and what the team would explore next.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Learning Objectives -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-bullseye me-2 text-deci-dark"></i> 2. أهداف التعلم</h3>
+            <button class="btn-toggle-original" data-target="d5-obj-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>بنهاية اليوم، سيكون الطلاب قادرين على:</p>
+          <ol>
+            <li>تنظيم رحلة المشروع التي استمرت خمسة أيام في قصة واضحة: مشكلة-مستخدم-قيمة-نموذج أولي-تعلم.</li>
+            <li>تقديم عرض فريق منسق مدته ٣-٤ دقائق مدعوم بعرض نموذج أولي هادف.</li>
+            <li>تقديم واستخدام تغذية راجعة محددة من الأقران لتحسين الوضوح، الأدلة، والتقديم.</li>
+            <li>الرد على أسئلة الجمهور الموجزة باستخدام أدلة المشروع وتفكير صادق في الخطوة التالية.</li>
+          </ol>
+          <h6 class="fw-bold mt-3">2.1 معايير النجاح لليوم</h6>
+          <ul>
+            <li>يمكن للجمهور تحديد المشكلة، المستخدم الأساسي، والقيمة الرئيسية.</li>
+            <li>يجعل عرض النموذج الأولي تجربة مستخدم أساسية واحدة مرئية.</li>
+            <li>يشرح الفريق رؤية اختبار واحدة وتحسيناً واحداً قائماً على الأدلة.</li>
+            <li>يساهم كل عضو ويبقى العرض الكامل ضمن ٣-٤ دقائق.</li>
+            <li>يحدد الخاتمة عدم يقين متبقي صادق أو خطوة تالية.</li>
+          </ul>
+          <div class="original-text" id="d5-obj-en"><strong>English:</strong> Learning objectives and success criteria.</div>
+        </div>
+
+        <!-- 3. Content Map -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-map me-2 text-deci-dark"></i> 3. خريطة المحتوى</h3>
+            <button class="btn-toggle-original" data-target="d5-map-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مجال المحتوى</th><th>التركيز الأساسي</th><th>التطبيق في اليوم</th></tr></thead>
+              <tbody>
+                <tr><td>الغرض من يوم العرض</td><td>مشاركة رحلة المشروع والتعلم</td><td>يقدم الفريق الفكرة كإمكانية مختبرة، وليس شركة منتهية أو حلاً مضموناً</td></tr>
+                <tr><td>هيكل العرض</td><td>مشكلة، مستخدم، قيمة، نموذج أولي، اختبار، تحسين، وخطوة تالية</td><td>ترتب الفرق القصة بترتيب منطقي وتزيل التفاصيل المتكررة</td></tr>
+                <tr><td>رؤية القيمة</td><td>ربط الحل بفائدة مستخدم هادفة</td><td>تشرح الفرق كيف تساعد الفكرة المستخدم المختار ولماذا تستحق النظر</td></tr>
+                <tr><td>الدليل</td><td>استخدام الملاحظات، الاقتباسات، نتائج المهام، وتغييرات النموذج الأولي</td><td>تدعم الفرق الادعاءات المهمة بأدلة تم إنشاؤها خلال الأيام ١-٤</td></tr>
+                <tr><td>عرض النموذج الأولي</td><td>إظهار تجربة مستخدم أساسية واحدة بوضوح</td><td>يظهر الفريق النموذج الأولي دون السماح للعرض باستبدال القصة</td></tr>
+                <tr><td>تقديم الفريق</td><td>أدوار مشتركة، انتقالات، صوت، توقيت، ولغة جسد</td><td>يساهم كل عضو بشكل مرئي ويفهم المشروع بالكامل</td></tr>
+                <tr><td>التغذية الراجعة والمراجعة</td><td>تحسين العرض باستخدام معايير متفق عليها</td><td>تختار الفرق تغذية راجعة مفيدة وتتدرب على النسخة المراجعة</td></tr>
+                <tr><td>الأسئلة والتأمل</td><td>الإجابة بصدق وربط التجربة بتعلم DECI</td><td>يستجيب الطلاب بإيجاز ويحددون خطوة تالية واقعية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d5-map-en"><strong>English:</strong> Content Map table.</div>
+        </div>
+
+        <!-- 4. From Project Work to Demo Story -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-arrow-right me-2 text-deci-dark"></i> 4. من العمل في المشروع إلى قصة العرض</h3>
+            <button class="btn-toggle-original" data-target="d5-story-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>تحتوي أوراق العمل من الأيام ١-٤ على معلومات أكثر مما يمكن استخدامه في عرض قصير للجمهور. يجب على الفريق اختيار أقوى الأدلة وربط كل مرحلة من المشروع في قصة واحدة. يجب أن يكون الجمهور قادراً على فهم كيف انتقل الفريق من مشكلة يومية إلى فكرة مشروع محسّنة.</p>
+          <div class="row text-center g-2 mt-2">
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">١. المشكلة</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٢. المستخدم</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٣. القيمة</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٤. النموذج الأولي</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٥. التعلم</span></div>
+          </div>
+          <h6 class="fw-bold mt-3">4.1 سلسلة الأدلة خلال خمسة أيام</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>اليوم</th><th>دليل المشروع</th><th>كيف يظهر في العرض</th></tr></thead>
+              <tbody>
+                <tr><td>اليوم الأول</td><td>خريطة الفرص</td><td>المشكلة، المجموعة المتأثرة، وسبب أهمية الفرصة</td></tr>
+                <tr><td>اليوم الثاني</td><td>بطاقة حاجة المستخدم</td><td>المستخدم الأساسي، الموقف، الحاجة، والدليل أو الرؤية</td></tr>
+                <tr><td>اليوم الثالث</td><td>بطاقة فكرة المشروع + عرض القيمة</td><td>الحل المختار، الفائدة المقصودة، والافتراض الرئيسي</td></tr>
+                <tr><td>اليوم الرابع</td><td>النموذج الأولي + سجل الاختبار والتحسين</td><td>التجربة المختبرة، الأدلة المجمعة، التغيير الذي تم، وعدم اليقين المتبقي</td></tr>
+                <tr><td>اليوم الخامس</td><td>صفحة المشروع المصغرة + عرض يوم العرض</td><td>قصة موجزة واحدة تظهر الرحلة، النموذج الأولي، والخطوة التالية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="p-3 bg-light rounded"><strong>مبدأ الاختيار:</strong> لا تقرأ كل ورقة عمل. استخدم كل ورقة عمل كدليل، ثم اختر فقط التفاصيل التي يحتاجها الجمهور لمتابعة القصة.</div>
+          <div class="original-text" id="d5-story-en"><strong>English:</strong> From project work to demo story content.</div>
+        </div>
+
+        <!-- 5. What Demo Day Is - and Is Not -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-check-circle me-2 text-deci-dark"></i> 5. ما هو يوم العرض - وما ليس كذلك</h3>
+            <button class="btn-toggle-original" data-target="d5-whatis-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>يوم العرض هو</th><th>يوم العرض ليس</th></tr></thead>
+              <tbody>
+                <tr><td>فرصة لشرح مشكلة، حاجة مستخدم، وفكرة مشروع مفيدة</td><td>مسابقة للادعاء بأن كل فكرة جاهزة لتصبح شركة</td></tr>
+                <tr><td>عرض قصير لنموذج أولي منخفض الدقة</td><td>شرط لبناء تطبيق كامل، جهاز، نموذج ذكاء اصطناعي، أو نظام أمن سيبراني</td></tr>
+                <tr><td>دليل على أن الفريق اختبر الفكرة وحسّنها</td><td>أداء يخفي الارتباك، الاختبارات الفاشلة، أو الأسئلة المتبقية</td></tr>
+                <tr><td>قصة فريق منسقة بمشاركة مشتركة</td><td>متحدث واثق واحد يقدم بينما يبقى بقية الفريق غير مرئي</td></tr>
+                <tr><td>تأمل في كيف يمكن لمهارات DECI المساهمة في الحلول</td><td>محاضرة تقنية تسرد الأدوات دون شرح قيمة المستخدم</td></tr>
+                <tr><td>لحظة لتلقي الأسئلة وتحديد الخطوات التالية</td><td>وعد بالنجاح، الإيرادات، التأثير، أو الأداء التقني دون دليل</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">5.1 المستوى المناسب من الطموح</h6>
+          <p>تقدم فرق المستوى الثالث إمكانية مشروع مختبر. لا يُتوقع منهم إظهار لوحة نموذج عمل كاملة، نموذج إيرادات، حجم سوق، هيكل قانوني، أو تقنية جاهزة للإنتاج. تنتمي قرارات الشركات الناشئة الأعمق إلى المستويين الرابع والخامس. يكون عرض المستوى الثالث ناجحاً عندما يظهر تفكيراً واضحاً، أدلة، تكراراً، وتعلماً.</p>
+          <div class="p-3 bg-light rounded"><strong>تحديد الموقف بصدق:</strong> قل: "أنشأنا واختبرنا نموذجاً أولياً مبكراً." لا تقل: "منتجنا النهائي مثبت أنه يعمل" ما لم تكن الأدلة تدعم هذا الادعاء حقاً.</div>
+          <div class="original-text" id="d5-whatis-en"><strong>English:</strong> What Demo Day is and is not content.</div>
+        </div>
+
+        <!-- 6. Audience and Purpose -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-users me-2 text-deci-dark"></i> 6. الجمهور والغرض</h3>
+            <button class="btn-toggle-original" data-target="d5-audience-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يصبح العرض أوضح عندما يعرف الفريق ما يحتاجه الجمهور. لم يكمل الجمهور أوراق عمل المشروع، لذلك يجب على المقدمين تقديم سياق كافٍ لجعل الفكرة مفهومة دون شرح كل نقاش أو نشاط.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>سؤال الجمهور</th><th>قسم العرض الذي يجيب عليه</th></tr></thead>
+              <tbody>
+                <tr><td>ما المشكلة التي تحاول حلها؟</td><td>بيان المشكلة والفرصة</td></tr>
+                <tr><td>من يعاني من المشكلة؟</td><td>المستخدم الأساسي وأدلة المستخدم</td></tr>
+                <tr><td>ماذا تقترح؟</td><td>فكرة المشروع وشرح الحل البسيط</td></tr>
+                <tr><td>لماذا يهتم المستخدم؟</td><td>الفائدة، عرض القيمة، والتغيير المتوقع</td></tr>
+                <tr><td>كيف يمكنني فهم التجربة؟</td><td>عرض نموذج أولي قصير</td></tr>
+                <tr><td>هل استجاب أي شخص للفكرة؟</td><td>أدلة الاختبار والتغذية الراجعة</td></tr>
+                <tr><td>ما الذي تغير بعد الاختبار؟</td><td>تحسين النسخة ١ إلى النسخة ٢</td></tr>
+                <tr><td>ما الذي لا يزال بحاجة للتعلم؟</td><td>عدم اليقين المتبقي والخطوة التالية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">6.1 عرض واحد، رسالة رئيسية واحدة</h6>
+          <p>يجب أن يكون الفريق قادراً على ذكر المشروع في جملة واحدة قبل بناء العرض الكامل. تحافظ هذه الجملة على تركيز القصة وتساعد المقدمين على تجنب الميزات غير ذات الصلة أو التفاصيل التقنية.</p>
+          <div class="p-3 bg-soft-primary rounded">
+            <strong>قالب مشروع بجملة واحدة:</strong><br>
+            نحن نساعد [المستخدم الأساسي] الذي يعاني من [مشكلة محددة] من خلال إنشاء [فكرة المشروع] بحيث [فائدة المستخدم الرئيسية].
+          </div>
+          <div class="original-text" id="d5-audience-en"><strong>English:</strong> Audience and purpose content.</div>
+        </div>
+
+        <!-- 7. Pitch Structure -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-sitemap me-2 text-deci-dark"></i> 7. هيكل عرض المبتكرين الصغار</h3>
+            <button class="btn-toggle-original" data-target="d5-structure-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>قسم العرض</th><th>السؤال الذي يجيب عليه</th><th>المحتوى الموصى به</th></tr></thead>
+              <tbody>
+                <tr><td>١. الافتتاحية</td><td>لماذا يجب على الجمهور الانتباه؟</td><td>موقف قصير يمكن الارتباط به، سؤال، أو ملاحظة مرتبطة بالمشكلة</td></tr>
+                <tr><td>٢. المشكلة</td><td>ماذا يحدث؟</td><td>بيان مشكلة واضح ومن يتأثر</td></tr>
+                <tr><td>٣. أدلة المستخدم</td><td>كيف نعرف أن الحاجة تهم؟</td><td>ملاحظة أو اثنتين مفيدتين، اقتباسات، سلوكيات، أو نتائج</td></tr>
+                <tr><td>٤. فكرة المشروع</td><td>ماذا نقترح؟</td><td>شرح بسيط للفكرة وكيف سيجربها المستخدم</td></tr>
+                <tr><td>٥. القيمة</td><td>لماذا الفكرة مفيدة؟</td><td>الفائدة الرئيسية وعرض القيمة البسيط</td></tr>
+                <tr><td>٦. عرض النموذج الأولي</td><td>كيف تبدو التجربة؟</td><td>أظهر تدفقاً واحداً، تفاعلاً، عملية، أو استجابة</td></tr>
+                <tr><td>٧. الاختبار والتحسين</td><td>ماذا تعلمنا؟</td><td>سؤال الاختبار، دليل مهم، وتغيير هادف واحد</td></tr>
+                <tr><td>٨. الخطوة التالية</td><td>ماذا سوف نستكشف بعد ذلك؟</td><td>اختبار تالي واقعي، تحسين، أو سؤال تقني</td></tr>
+                <tr><td>٩. الخاتمة</td><td>ماذا يجب أن يتذكر الجمهور؟</td><td>أعد صياغة المشكلة، قيمة المستخدم، وإمكانية المشروع في سطر واحد</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">7.1 روابط منطقية بين الأقسام</h6>
+          <ul>
+            <li>يجب أن تشرح أدلة المستخدم لماذا الحل المختار ذو صلة.</li>
+            <li>يجب أن يصف عرض القيمة فائدة، وليس فقط قائمة ميزات.</li>
+            <li>يجب أن يظهر عرض النموذج الأولي القيمة الموعودة في العمل.</li>
+            <li>يجب أن تتصل أدلة الاختبار بالافتراض الرئيسي من اليوم الثالث.</li>
+            <li>يجب أن يستجيب التحسين للأدلة بدلاً من التفضيل الشخصي.</li>
+            <li>يجب أن تعالج الخطوة التالية عدم يقين متبقياً، وليس تقديم مشروع غير مرتبط.</li>
+          </ul>
+          <div class="original-text" id="d5-structure-en"><strong>English:</strong> Pitch structure content.</div>
+        </div>
+
+        <!-- 8. Making the Value Visible -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-chart-line me-2 text-deci-dark"></i> 8. جعل القيمة مرئية</h3>
+            <button class="btn-toggle-original" data-target="d5-value-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يصبح العرض أقوى عندما يتمكن الجمهور من رؤية الارتباط بين مشكلة المستخدم، الحل، والفائدة المتوقعة. تسمية الميزات ليست كافية. يجب على الفريق شرح ما يصبح أسهل، أكثر أماناً، أوضح، أسرع، أكثر سهولة في الوصول، أو أكثر فائدة للمستخدم المختار.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>بيان مركّز على الميزة</th><th>بيان مركّز على القيمة</th></tr></thead>
+              <tbody>
+                <tr><td>"تطبيقنا يحتوي على إشعارات تذكير."</td><td>"يتلقى الطلاب تذكيراً واضحاً قبل الموعد النهائي، مما يساعدهم على تجنب المهام الفائتة."</td></tr>
+                <tr><td>"جهازنا يستخدم حساس الفصل الدراسي."</td><td>"يتلقى الفصل تنبيهًا بسيطاً عندما تُهدر الطاقة، مما يساعد المستخدمين على التصرف بسرعة."</td></tr>
+                <tr><td>"فكرتنا تتضمن توصيات الذكاء الاصطناعي."</td><td>"يتلقى المستخدم اقتراحات بناءً على الاحتياجات المختارة، مع شرح واضح لسبب ظهور كل خيار."</td></tr>
+                <tr><td>"موقعنا لديه تسجيل دخول آمن."</td><td>"يمكن للمستخدمين الوصول إلى معلومات مخصصة مع مشاركة البيانات اللازمة للخدمة فقط."</td></tr>
+                <tr><td>"حملتنا تستخدم الرسوم التوضيحية الرقمية."</td><td>"تصبح الرسالة أسهل في الملاحظة والفهم للجمهور المستهدف."</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">8.1 فحص بيان القيمة</h6>
+          <ul>
+            <li>يسمي المستخدم الأساسي.</li>
+            <li>يتصل مباشرة بالحاجة المختارة.</li>
+            <li>يشرح التغيير أو الفائدة المفيدة.</li>
+            <li>يتجنب الوعود غير المدعومة مثل "مثالي"، "مضمون"، أو "للجميع".</li>
+            <li>يمكن رؤيته أو استكشافه من خلال النموذج الأولي والأدلة.</li>
+          </ul>
+          <div class="p-3 bg-light rounded"><strong>اختبار القيمة:</strong> بعد سماع بيان القيمة، يجب أن يكون الجمهور قادراً على الإجابة: "لماذا سيختار هذا المستخدم الفكرة أو يستخدمها؟"</div>
+          <div class="original-text" id="d5-value-en"><strong>English:</strong> Making the value visible content.</div>
+        </div>
+
+        <!-- 9. Evidence Before Claims -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-check-double me-2 text-deci-dark"></i> 9. الأدلة قبل الادعاءات</h3>
+            <button class="btn-toggle-original" data-target="d5-evidence-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يجب على الفرق استخدام الأدلة التي تم إنشاؤها خلال المخيم بدلاً من تقديم ادعاءات واسعة. لا تحتاج الأدلة إلى أن تكون كبيرة أو علمية في هذا المستوى. يجب وصفها بدقة وربطها بما تعلمه الفريق.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>نوع الادعاء</th><th>نسخة ضعيفة</th><th>نسخة قائمة على الأدلة</th></tr></thead>
+              <tbody>
+                <tr><td>أهمية المشكلة</td><td>"كل الطلاب يعانون من هذه المشكلة."</td><td>"في نشاطنا، وصف عدة طلاب تفويت معلومات تسجيل النادي والمواعيد النهائية."</td></tr>
+                <tr><td>حاجة المستخدم</td><td>"يحتاج المستخدمون إلى تطبيق."</td><td>"المستخدمون الذين استكشفناهم يحتاجون إلى طريقة واضحة لمقارنة الخيارات ومعرفة الإجراء التالي."</td></tr>
+                <tr><td>وضوح النموذج الأولي</td><td>"النموذج الأولي سهل."</td><td>"أكمل المختبر خطوة المقارنة لكنه توقف قبل التسجيل، لذلك وضّحنا تسمية الإجراء التالي."</td></tr>
+                <tr><td>التحسين</td><td>"النسخة الثانية أفضل."</td><td>"نقلنا رسالة السلامة قبل التأكيد لأن المختبر فاتها في نهاية التدفق."</td></tr>
+                <tr><td>التأثير المستقبلي</td><td>"هذا سيحل المشكلة تماماً."</td><td>"قد تقلل الفكرة الارتباك، لكنها لا تزال بحاجة إلى اختبار مع المزيد من المستخدمين ومعلومات واقعية."</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">9.1 مصادر الأدلة المفيدة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مصدر الدليل</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>الملاحظة</td><td>اختار المختبر الإجراء الخاطئ أو تردد عند تسمية</td></tr>
+                <tr><td>اقتباس مباشر</td><td>"اعتقدت أن هذه الأيقونة تعني الإعدادات."</td></tr>
+                <tr><td>نتيجة المهمة</td><td>أكمل المختبر الخطوتين الأوليين لكنه لم يجد الإجراء النهائي</td></tr>
+                <tr><td>المقارنة</td><td>قللت النسخة الثانية عدد الخيارات غير الواضحة من أربعة إلى اثنين</td></tr>
+                <tr><td>قرار الفريق</td><td>أزال الفريق ميزة لأنها لا تدعم حاجة المستخدم أو سؤال الاختبار</td></tr>
+                <tr><td>سؤال متبقي</td><td>لا يزال الفريق بحاجة لمعرفة ما إذا كان المستخدمون الحقيقيون يثقون بمصدر المعلومات المقترح</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d5-evidence-en"><strong>English:</strong> Evidence before claims content.</div>
+        </div>
+
+        <!-- 10. Mini Project One-Pager -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-file-alt me-2 text-deci-dark"></i> 10. صفحة المشروع المصغرة: المعيار المحتوى</h3>
+            <button class="btn-toggle-original" data-target="d5-onepager-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>صفحة المشروع المصغرة هي الملخص المكتوب الموجز للفريق وأداة التخطيط ليوم العرض. يجب أن تتناسب القصة الكاملة في صفحة واحدة باستخدام عبارات قصيرة، أدلة مختارة، ومرجع نموذج أولي بسيط. إنها ليست تقريراً كاملاً.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>حقل الصفحة المصغرة</th><th>ما يتضمنه الفريق</th><th>فحص الجودة</th></tr></thead>
+              <tbody>
+                <tr><td>اسم المشروع</td><td>اسم قصير وواضح لا يحتاج شرحاً</td><td>هل الاسم مناسب للفكرة والجمهور؟</td></tr>
+                <tr><td>المشكلة</td><td>بيان واحد مركز يصف الموقف ومن يتأثر</td><td>هل البيان محدد بدلاً من شكوى عامة؟</td></tr>
+                <tr><td>المستخدم الأساسي</td><td>الشخص الرئيسي أو المجموعة التي صمم الفريق من أجلها</td><td>هل المستخدم متسق مع الأدلة والنموذج الأولي؟</td></tr>
+                <tr><td>الدليل</td><td>ملاحظة أو اثنتين، اقتباسات، أو نتائج</td><td>هل يدعم الدليل الحاجة دون مبالغة؟</td></tr>
+                <tr><td>فكرة المشروع</td><td>شرح بسيط للتجربة أو الحل المقترح</td><td>هل يمكن لشخص آخر فهمها في جملة أو اثنتين؟</td></tr>
+                <tr><td>عرض القيمة</td><td>المستخدم، الحاجة، الفكرة، والفائدة المقصودة</td><td>هل يشرح القيمة بدلاً من سرد الميزات؟</td></tr>
+                <tr><td>النموذج الأولي</td><td>التنسيق والتجربة الأساسية للمستخدم التي يتم عرضها</td><td>هل يظهر العرض القيمة الموعودة؟</td></tr>
+                <tr><td>الاختبار والتعلم</td><td>سؤال الاختبار الرئيسي، أقوى دليل، ونتيجة مهمة</td><td>هل التعلم مرتبط بالافتراض الرئيسي؟</td></tr>
+                <tr><td>التحسين</td><td>التغيير الهادف الذي تم بعد الاختبار ولماذا</td><td>هل يمكن للجمهور تحديد النسخة ١ والنسخة ٢؟</td></tr>
+                <tr><td>الخطوة التالية</td><td>اختبار واقعي واحد، تحسين، أو سؤال تقني</td><td>هل يعالج عدم اليقين المتبقي؟</td></tr>
+                <tr><td>مهارات DECI المستخدمة</td><td>المهارات التقنية أو الإبداعية التي دعمت الفكرة</td><td>هل المهارات مرتبطة بمساهمة مرئية؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">10.1 أسلوب كتابة الصفحة المصغرة</h6>
+          <ul>
+            <li>استخدم جمل قصيرة، تسميات، ونقاط أدلة بدلاً من فقرات طويلة.</li>
+            <li>استخدم نفس مصطلحات المشروع في جميع أنحاء الصفحة والعرض.</li>
+            <li>افصل ما تم ملاحظته عما يفترضه الفريق.</li>
+            <li>اذكر السلوك التقني المحاكى أو غير المبني بوضوح.</li>
+            <li>احتفظ فقط بالمعلومات التي تدعم قصة يوم العرض.</li>
+          </ul>
+          <div class="original-text" id="d5-onepager-en"><strong>English:</strong> Mini Project One-Pager content.</div>
+        </div>
+
+        <!-- 11. Sharing Team Roles -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-user-friends me-2 text-deci-dark"></i> 11. مشاركة أدوار الفريق</h3>
+            <button class="btn-toggle-original" data-target="d5-roles-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يجب أن يظهر عرض يوم العرض العمل الجماعي. تُخصص الأدوار وفقاً للقصة، احتياجات النموذج الأولي، واستعداد كل عضو. يجب أن يفهم كل طالب المشروع بالكامل حتى عند تقديم قسم واحد.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الدور المحتمل</th><th>المسؤولية الرئيسية</th><th>ملاحظة مهمة</th></tr></thead>
+              <tbody>
+                <tr><td>مقدم الافتتاحية والمشكلة</td><td>تقديم الموقف، المشكلة، والمستخدم المتأثر</td><td>أبقِ الافتتاحية موجزة ومتصلة بالأدلة</td></tr>
+                <tr><td>مقدم المستخدم والقيمة</td><td>شرح رؤية المستخدم، الفكرة، وعرض القيمة</td><td>اجعل الفائدة مفهومة دون مصطلحات تقنية</td></tr>
+                <tr><td>مقدم عرض النموذج الأولي</td><td>توجيه الجمهور خلال تجربة مستخدم أساسية واحدة</td><td>نسق العرض مع المقدم وتجنب الميزات غير الضرورية</td></tr>
+                <tr><td>مقدم الاختبار والتعلم</td><td>شرح الاختبار، الدليل، التحسين، وعدم اليقين المتبقي</td><td>أظهر ما تغير ولماذا، وليس فقط أن التغذية الراجعة تم تلقيها</td></tr>
+                <tr><td>قائد الخاتمة والأسئلة</td><td>ذكر الخطوة التالية، اختتام القصة، وتوجيه الأسئلة لأعضاء الفريق</td><td>لا تجيب على كل سؤال بمفردك عندما يمتلك عضو آخر الدليل</td></tr>
+                <tr><td>ضابط الوقت / مسؤول المواد</td><td>تحضير النموذج الأولي، الصفحة المصغرة، وإشارات التوقيت</td><td>يمكن دمج هذا الدور مع دور متحدث ليشارك كل طالب بشكل مرئي</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">11.1 معيار مشاركة الفريق</h6>
+          <ul>
+            <li>لكل طالب مساهمة مرئية في التحدث، العرض، أو الرد على الأسئلة.</li>
+            <li>تُخطط الانتقالات بحيث يشعر العرض وكأنه قصة فريق واحدة.</li>
+            <li>يمكن لجميع أعضاء الفريق شرح المشكلة، المستخدم، القيمة، والتعلم الرئيسي.</li>
+            <li>يعرف مشغل النموذج الأولي بالضبط متى وكيف يبدأ العرض وينتهي.</li>
+            <li>يتفق الفريق على من سيجيب أولاً على أنواع الأسئلة المختلفة.</li>
+          </ul>
+          <div class="original-text" id="d5-roles-en"><strong>English:</strong> Team roles content.</div>
+        </div>
+
+        <!-- 12. Managing the 3-4-Minute Pitch -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-clock me-2 text-deci-dark"></i> 12. إدارة العرض المدة ٣-٤ دقائق</h3>
+            <button class="btn-toggle-original" data-target="d5-timing-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يتطلب العرض القصير اختياراً. لا يجب على الفرق التحدث بشكل أسرع لتشمل كل ورقة عمل. يجب أن تحمي القصة الأكثر أهمية وتزيل التكرار، المقدمات الطويلة، والتفاصيل التقنية غير الضرورية.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>قسم العرض</th><th>الوقت المقترح</th><th>التركيز</th></tr></thead>
+              <tbody>
+                <tr><td>الافتتاحية + المشكلة</td><td>٢٥-٣٥ ثانية</td><td>إنشاء الصلة وذكر المشكلة المركزة</td></tr>
+                <tr><td>المستخدم + الدليل</td><td>٣٠-٤٠ ثانية</td><td>تسمية المستخدم الأساسي ورؤية أو اثنتين</td></tr>
+                <tr><td>الفكرة + القيمة</td><td>٣٥-٤٥ ثانية</td><td>شرح المشروع ولماذا هو مفيد</td></tr>
+                <tr><td>عرض النموذج الأولي</td><td>٥٠-٧٠ ثانية</td><td>إظهار رحلة أو تفاعل أساسي واحد</td></tr>
+                <tr><td>الاختبار + التحسين</td><td>٤٠-٥٥ ثانية</td><td>شرح الاختبار، الدليل، والتغيير</td></tr>
+                <tr><td>الخطوة التالية + الخاتمة</td><td>٢٠-٣٠ ثانية</td><td>ذكر عدم اليقين المتبقي والرسالة النهائية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">12.1 قرارات التوقيت</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>عندما يكون العرض طويلاً جداً</th><th>عندما يكون العرض قصيراً جداً</th></tr></thead>
+              <tbody>
+                <tr><td>أزل تفاصيل الخلفية المتكررة</td><td>أضف نقطة دليل مفيدة بدلاً من شرح عام</td></tr>
+                <tr><td>اختصر قائمة الميزات إلى التجربة الأساسية</td><td>وضح كيف يجرب المستخدم الفكرة</td></tr>
+                <tr><td>عرض مسار واحد بدلاً من كل مسار ممكن</td><td>أظهر التغيير من النسخة ١ إلى النسخة ٢</td></tr>
+                <tr><td>استبدل الشرح التقني الطويل بقيمة المستخدم</td><td>اذكر خطوة تالية واقعية واحدة أو عدم يقين متبقي</td></tr>
+                <tr><td>انقل التفاصيل الاختيارية إلى فترة الأسئلة</td><td>قوّي الانتقالات لتشعر القصة بأنها كاملة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="p-3 bg-light rounded"><strong>قاعدة التوقيت:</strong> قصة واضحة مدتها ٣ دقائق أقوى من قائمة مدتها ٤ دقائق متسرعة لكل ما أنتجه الفريق.</div>
+          <div class="original-text" id="d5-timing-en"><strong>English:</strong> Managing the pitch timing content.</div>
+        </div>
+
+        <!-- 13. Demonstrating the Prototype -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-video me-2 text-deci-dark"></i> 13. عرض النموذج الأولي</h3>
+            <button class="btn-toggle-original" data-target="d5-demo-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يجب أن يجعل عرض النموذج الأولي قيمة المستخدم الرئيسية مرئية. يقدم المقدم مهمة المستخدم، ويظهر التفاعل الأساسي، ويربط العرض بما تعلمه الفريق. النموذج الأولي هو دليل داخل العرض، وليس نشاطاً منفصلاً بدون شرح.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مرحلة العرض</th><th>إجراء المقدم</th><th>فهم الجمهور</th></tr></thead>
+              <tbody>
+                <tr><td>تحديد السياق</td><td>سمّي المستخدم والموقف في جملة واحدة</td><td>من يستخدم النموذج الأولي ولماذا؟</td></tr>
+                <tr><td>ذكر المهمة</td><td>اشرح ما يحاول المستخدم فعله</td><td>ما النتيجة التي يجب أن يدعمها النموذج الأولي؟</td></tr>
+                <tr><td>إظهار التدفق الأساسي</td><td>عرض فقط الخطوات أو التفاعل الأساسي</td><td>كيف تخلق الفكرة قيمة؟</td></tr>
+                <tr><td>تسليط الضوء على التغيير</td><td>أشر إلى الجزء الذي تمت مراجعته بعد الاختبار</td><td>ما الذي حسّنه الفريق ولماذا؟</td></tr>
+                <tr><td>الاعتراف بالمحاكاة</td><td>حدد أي سلوك ورق، تمثيل أدوار، أو محاكاة تقنية</td><td>أي الأجزاء هي نماذج أولية بدلاً من أنظمة عاملة؟</td></tr>
+                <tr><td>العودة إلى القصة</td><td>أنهِ العرض برؤية الاختبار أو الخطوة التالية</td><td>ما الذي ساعد العرض الفريق على تعلمه؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">13.1 مخاطر العرض الشائعة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الخطر</th><th>الممارسة الأفضل</th></tr></thead>
+              <tbody>
+                <tr><td>يشرح المقدم كل شاشة أو مكون</td><td>اعرض فقط المسار المرتبط بحاجة المستخدم الرئيسية وسؤال الاختبار</td></tr>
+                <tr><td>لا يمكن للجمهور رؤية النموذج الورقي</td><td>استخدم بطاقات أكبر، امسك النموذج على مستوى الصدر، أو ادعُ مختبراً واحداً مرئياً</td></tr>
+                <tr><td>يفشل النموذج الأولي أو تتحرك المواد خارج الترتيب</td><td>أعد تسميات، رقّم التسلسل، وتدرب على جملة استرداد</td></tr>
+                <tr><td>يدعي الفريق أن سلوك الذكاء الاصطناعي المحاكى أو الجهاز حقيقي</td><td>اذكر بوضوح كيف يتم محاكاة الاستجابة وما الذي سيحتاج إلى تطوير تقني</td></tr>
+                <tr><td>يستخدم العرض معظم وقت العرض</td><td>حدد وقتاً ودع المتحدث يتحكم في البداية والنهاية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d5-demo-en"><strong>English:</strong> Prototype demonstration content.</div>
+        </div>
+
+        <!-- 14. Clear and Coordinated Delivery -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-microphone me-2 text-deci-dark"></i> 14. تقديم واضح ومنسق</h3>
+            <button class="btn-toggle-original" data-target="d5-delivery-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مهارة التقديم</th><th>ممارسة فعالة</th><th>تجنب</th></tr></thead>
+              <tbody>
+                <tr><td>الصوت</td><td>استخدم حجم صوت واضح، وتيرة طبيعية، وتأكيد على الكلمات المفتاحية</td><td>التحدث بهدوء شديد، الصراخ، أو التسرع في كل جملة</td></tr>
+                <tr><td>لغة الجسد</td><td>استخدم وقفة ثابتة، إيماءات طبيعية، واتصال مرئي مع الجمهور</td><td>التفت بالكامل نحو الشاشة، النموذج الأولي، أو الملاحظات طوال العرض</td></tr>
+                <tr><td>الملاحظات</td><td>استخدم محفزات قصيرة للترتيب، الأدلة، والانتقالات</td><td>قراءة فقرات كاملة أو الحفظ دون فهم</td></tr>
+                <tr><td>الانتقالات</td><td>سمّي الفكرة التالية والمتحدث بوضوح</td><td>توقفات طويلة، مقدمات متكررة، أو مقاطعة زملاء الفريق</td></tr>
+                <tr><td>المصطلحات التقنية</td><td>اشرح فقط المصطلحات المطلوبة لفهم قيمة المستخدم</td><td>استخدام كلمات متخصصة لتبدو متقدماً دون شرح المعنى</td></tr>
+                <tr><td>التعامل مع النموذج الأولي</td><td>أعد الترتيب، الموقع، وحركة المواد</td><td>البحث عن البطاقات أو تغيير التدفق خلال العرض المباشر</td></tr>
+                <tr><td>الوعي بالوقت</td><td>استخدم إشارة متفق عليها واحدة وأنهِ الرسالة الختامية</td><td>التوقف فجأة عندما ينتهي الوقت دون إكمال القصة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">14.1 الثقة لا تعني الكمال</h6>
+          <p>الثقة تعني معرفة الغرض، الدليل، والفكرة التالية. قد يتوقف الطالب، يتحقق من ملاحظة موجزة، أو يدعو زميلاً. الهدف هو التواصل الواضح والعمل الجماعي، وليس الأداء المحفوظ.</p>
+          <div class="p-3 bg-light rounded">
+            <strong>جمل استرداد:</strong><br>
+            "دعني أعيد صياغة نقطتنا الرئيسية." | "هذا الجزء محاكى في نموذجنا الأولي." | "لا نعرف ذلك بعد؛ سيستكشفه اختبارنا التالي."
+          </div>
+          <div class="original-text" id="d5-delivery-en"><strong>English:</strong> Clear and coordinated delivery content.</div>
+        </div>
+
+        <!-- 15. Feedback Carousel and Revision -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-exchange-alt me-2 text-deci-dark"></i> 15. دائرة التغذية الراجعة والمراجعة</h3>
+            <button class="btn-toggle-original" data-target="d5-feedback-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يجب أن تركز تغذية الراجعة التدريبية على ما إذا كان الجمهور يمكنه متابعة القصة وفهم القيمة، الأدلة، والتعلم. يستخدم المراجعون معايير مشتركة بدلاً من التفضيل الشخصي. تستمع الفرق المقدمة، تسجل، وتوضح قبل أن تقرر ما ستغيره.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>معيار التغذية الراجعة</th><th>سؤال المراجع</th></tr></thead>
+              <tbody>
+                <tr><td>وضوح المشكلة</td><td>هل يمكنني شرح المشكلة والمستخدم المتأثر بعد سماع العرض؟</td></tr>
+                <tr><td>أدلة المستخدم</td><td>هل أظهر الفريق ما تعلمه بدلاً من ذكر افتراض فقط؟</td></tr>
+                <tr><td>القيمة</td><td>هل من الواضح كيف تساعد الفكرة المستخدم؟</td></tr>
+                <tr><td>استخدام النموذج الأولي</td><td>هل جعل العرض التجربة الأساسية مفهومة؟</td></tr>
+                <tr><td>الاختبار والتحسين</td><td>هل شرح الفريق ما تغير ولماذا؟</td></tr>
+                <tr><td>تدفق القصة</td><td>هل ارتبط كل قسم بشكل منطقي بالقسم التالي؟</td></tr>
+                <tr><td>تقديم الفريق</td><td>هل كانت الأدوار، الانتقالات، السرعة، والتوقيت منسقة؟</td></tr>
+                <tr><td>الصدق والخطوة التالية</td><td>هل شرح الفريق الحدود وإجراءً تالياً واقعياً؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">15.1 لغة تغذية راجعة مفيدة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الغرض</th><th>بداية الجملة</th></tr></thead>
+              <tbody>
+                <tr><td>تسمية قوة</td><td>"أوضح جزء كان ... لأن ..."</td></tr>
+                <tr><td>تحديد ارتباك</td><td>"كنت غير متأكد من ... عندما ..."</td></tr>
+                <tr><td>طلب دليل</td><td>"ما الدليل الذي يدعم الادعاء بأن ...؟"</td></tr>
+                <tr><td>تقوية القيمة</td><td>"ستكون فائدة المستخدم أوضح إذا ..."</td></tr>
+                <tr><td>تحسين العرض</td><td>"أثناء العرض، توقعت ..."</td></tr>
+                <tr><td>تحسين القصة</td><td>"يمكن أن يكون الارتباط بين ... و ... أوضح."</td></tr>
+                <tr><td>حماية الوقت</td><td>"يمكن اختصار هذا القسم عن طريق ..."</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">15.2 اختيار التغذية الراجعة</h6>
+          <ul>
+            <li>استخدم التغذية الراجعة التي تحسّن الوضوح، القيمة، الأدلة، فهم النموذج الأولي، أو الوقت.</li>
+            <li>أعط الأولوية للارتباك المتكرر أو القضايا التي تمنع الجمهور من متابعة القصة.</li>
+            <li>لا تضف كل ميزة مقترحة أو تعيد كتابة المشروع بأكمله قبل يوم العرض.</li>
+            <li>أكمل مراجعة هادفة واحدة على الأقل واشرح السبب.</li>
+          </ul>
+          <div class="original-text" id="d5-feedback-en"><strong>English:</strong> Feedback carousel content.</div>
+        </div>
+
+        <!-- 16. Responding to Audience Questions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-question-circle me-2 text-deci-dark"></i> 16. الرد على أسئلة الجمهور</h3>
+            <button class="btn-toggle-original" data-target="d5-qa-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>تساعد الأسئلة الجمهور على استكشاف تفكير الفريق وتساعد الفريق على تحديد التعلم المستقبلي. يجب على المقدمين الاستماع إلى السؤال كاملاً، الإجابة مباشرة، واستخدام أدلة المشروع عندما يكون ذلك ممكناً. عدم اليقين الصادق أقوى من اختراع إجابة.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>نوع السؤال</th><th>نهج الرد المحتمل</th></tr></thead>
+              <tbody>
+                <tr><td>المشكلة أو المستخدم</td><td>ارجع إلى خريطة الفرص، بطاقة حاجة المستخدم، أو أدلة المستخدم</td></tr>
+                <tr><td>الميزة أو التفاصيل التقنية</td><td>اشرح ما إذا كانت الميزة موجودة في النموذج الأولي، محاكاة، أم تنتمي إلى نسخة مستقبلية</td></tr>
+                <tr><td>الدليل</td><td>اذكر ما لاحظه الفريق أو اختبره وتجنب التعميم بما يتجاوز ذلك الدليل</td></tr>
+                <tr><td>السلامة، الخصوصية، أو العدالة</td><li>اشرح الحدود التي تم النظر فيها والفحوصات الإضافية المطلوبة</li></tr>
+                <tr><td>لماذا هذه الفكرة؟</td><td>اربط الحل بحاجة المستخدم، معايير المقارنة، وعرض القيمة</td></tr>
+                <tr><td>ما يأتي بعد ذلك؟</td><td>اذكر اختباراً واقعياً واحداً، مجموعة مستخدمين، مهمة تقنية، أو تحسين النموذج الأولي</td></tr>
+                <tr><td>غير معروف</td><td>اذكر ما لا تعرفه وكيف يمكن للفريق التحقيق فيه</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">16.1 عملية بسيطة للرد على الأسئلة</h6>
+          <div class="row text-center g-2 mt-2">
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">١. استمع</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٢. توقف</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٣. أجب</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٤. ادعُ</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٥. اختتم</span></div>
+          </div>
+          <div class="p-3 bg-light rounded"><strong>إجابة صادقة:</strong> "لم نختبر ذلك بعد. ستكون خطوتنا التالية اختباره مع [المستخدم] بواسطة [الطريقة]."</div>
+          <div class="original-text" id="d5-qa-en"><strong>English:</strong> Responding to audience questions content.</div>
+        </div>
+
+        <!-- 17. Responsible and Honest Pitching -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-shield-alt me-2 text-deci-dark"></i> 17. تقديم العرض بمسؤولية وصدق</h3>
+            <button class="btn-toggle-original" data-target="d5-responsible-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المجال</th><th>الممارسة المطلوبة</th></tr></thead>
+              <tbody>
+                <tr><td>الدليل</td><td>صف حجم ونوع الاختبار بصدق. لا تقدم نشاط الأقران كدليل على أن جميع المستخدمين سيستجيبون بنفس الطريقة.</td></tr>
+                <tr><td>التكنولوجيا</td><td>حدد سلوك الذكاء الاصطناعي المحاكى، الويب، الأنظمة المدمجة، أو الأمن السيبراني وتجنب ادعاء أن الوظائف غير المبنية تعمل.</td></tr>
+                <tr><td>الخصوصية</td><td>لا تعرض كلمات مرور حقيقية، تفاصيل شخصية، رسائل خاصة، عناوين، معلومات طبية، أو بيانات حساب.</td></tr>
+                <tr><td>السلامة</td><td>لا تظهر أجهزة غير آمنة، اختراق سيبراني حقيقي، تجارب ضارة، أو نصائح طبية، قانونية، أو مالية غير مدعومة.</td></tr>
+                <tr><td>العدالة والاندماج</td><td>تجنب الصور النمطية، الافتراضات الاستبعادية، والتصاميم التي تعتمد فقط على اللون أو اللغة الصعبة.</td></tr>
+                <tr><td>الملكية الفكرية</td><td>استخدم محتوى أصلي، خيالي، أو مرخص بشكل مناسب واعترف بالأطر أو الأصول المقترضة عند الحاجة.</td></tr>
+                <tr><td>ادعاءات التأثير</td><td>استخدم كلمات مثل "قد"، "يهدف إلى"، أو "يمكن أن يساعد" عندما لا تكون النتيجة قد تم قياسها.</td></tr>
+                <tr><td>الأسئلة</td><td>قل ما لا يعرفه الفريق وحدد طريقة واقعية لمعرفة المزيد.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d5-responsible-en"><strong>English:</strong> Responsible and honest pitching content.</div>
+        </div>
+
+        <!-- 18. Demo Day Quality Criteria -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-star me-2 text-deci-dark"></i> 18. معايير جودة يوم العرض</h3>
+            <button class="btn-toggle-original" data-target="d5-criteria-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المعيار</th><th>ما يبدو عليه الدليل القوي</th><th>الوزن</th></tr></thead>
+              <tbody>
+                <tr><td>المشكلة والمستخدم</td><td>مشكلة مركزة، مستخدم أساسي واضح، وحاجة ذات صلة</td><td>٢٠٪</td></tr>
+                <tr><td>القيمة والفكرة</td><td>حل بسيط مرتبط بفائدة مستخدم هادفة</td><td>٢٠٪</td></tr>
+                <tr><td>النموذج الأولي</td><td>تجربة أساسية مرئية تدعم القصة</td><td>٢٠٪</td></tr>
+                <tr><td>الاختبار والتحسين</td><td>دليل محدد، تعلم، وتغيير هادف</td><td>٢٠٪</td></tr>
+                <tr><td>قصة الفريق والتقديم</td><td>هيكل منطقي، أدوار مشتركة، توقيت واضح، وعرض منسق</td><td>١٥٪</td></tr>
+                <tr><td>التأمل والخطوة التالية</td><td>حدود صادقة، ارتباط بمهارة DECI، وإجراء تالٍ واقعي</td><td>٥٪</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>توجه المعايير التغذية الراجعة والتأمل. لا ينبغي أن تحوّل الجلسة إلى منافسة تجارية عالية الضغط. الهدف الرئيسي هو جعل التعلم مرئياً.</p>
+          <div class="original-text" id="d5-criteria-en"><strong>English:</strong> Demo Day quality criteria.</div>
+        </div>
+
+        <!-- 19. Activities -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-tasks me-2 text-deci-dark"></i> 19. روابط المحتوى بالأنشطة التعليمية</h3>
+            <button class="btn-toggle-original" data-target="d5-activities-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>النشاط</th><th>المحتوى الممارس</th><th>دليل التعلم المتوقع</th></tr></thead>
+              <tbody>
+                <tr><td>لغز العرض</td><td>هيكل العرض والترتيب المنطقي</td><td>ترتب الفرق القصة الريادية وتبرر التسلسل</td></tr>
+                <tr><td>بناء قصة يوم العرض</td><td>معيار الصفحة المصغرة، تخصيص الأدوار، واختيار الأدلة</td><td>تكمل الفرق خطة قصة موجزة وتخصص مساهمات مرئية</td></tr>
+                <tr><td>جعل القيمة مرئية</td><td>ارتباط الميزة-الفائدة-القيمة والادعاءات القائمة على الأدلة</td><td>تقوي الفرق فائدة المستخدم وتزيل العبارات غير المدعومة</td></tr>
+                <tr><td>دائرة التغذية الراجعة</td><td>معايير المراجعة المشتركة ولغة التغذية الراجعة المحترمة</td><td>تتلقى الفرق ملاحظات محددة حول الوضوح، القيمة، الأدلة، العرض، والتقديم</td></tr>
+                <tr><td>مراجعة وتدريب</td><td>اختيار التغذية الراجعة، التوقيت، الانتقالات، وتحضير الأسئلة</td><td>تنتج الفرق صفحة مصغرة مراجعة وعرضاً منسقاً مدته ٣-٤ دقائق</td></tr>
+                <tr><td>يوم عرض المبتكرين الصغار</td><td>السرد القصصي، عرض النموذج الأولي، الأسئلة والأجوبة، والتأمل</td><td>تقدم الفرق المشكلة، المستخدم، القيمة، الأدلة، التحسين، والخطوة التالية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d5-activities-en"><strong>English:</strong> Activity connections.</div>
+        </div>
+
+        <!-- 20. Misconceptions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-exclamation-triangle me-2 text-deci-dark"></i> 20. المفاهيم الخاطئة وتصحيحاتها</h3>
+            <button class="btn-toggle-original" data-target="d5-mis-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المفهوم الخاطئ</th><th>التصحيح</th></tr></thead>
+              <tbody>
+                <tr><td>العرض هو ملخص لكل ورقة عمل</td><td>يختار العرض أقوى التفاصيل ويربطها في قصة واحدة للجمهور</td></tr>
+                <tr><td>يجب أن يتحدث النموذج الأولي عن نفسه</td><td>يجب على الفريق شرح المستخدم، المهمة، القيمة، الأدلة، والتحسين حول العرض</td></tr>
+                <tr><td>المزيد من الميزات يجعل الفكرة أكثر إثارة للإعجاب</td><td>التجربة الأساسية المركزة أسهل في الفهم والاختبار</td></tr>
+                <tr><td>يجب أن نخفي التغذية الراجعة السلبية</td><td>غالباً ما يأتي التعلم المفيد من الارتباك، المهام الفاشلة، والتغييرات التي تم إجراؤها</td></tr>
+                <tr><td>اللغة التقنية تثبت أن المشروع متقدم</td><td>تكون الأفكار التقنية مهمة عندما تخلق قيمة مستخدم مفهومة</td></tr>
+                <tr><td>يجب أن يقدم متحدث قوي واحد كل شيء</td><td>تظهر المشاركة المشتركة العمل الجماعي وتبني مهارات التواصل</td></tr>
+                <tr><td>يجب أن نقبل كل اقتراح من الأقران</td><td>تختار الفرق التغذية الراجعة باستخدام حاجة المستخدم، الدليل، النطاق، والوقت</td></tr>
+                <tr><td>يجب أن نجيب على كل سؤال بثقة حتى عندما نكون غير متأكدين</td><td>عدم اليقين الصادق واختبار تالٍ واضح أقوى من الادعاءات المختلقة</td></tr>
+                <tr><td>يوم العرض يعني أن العمل جاهز للإطلاق</td><td>يقدم المستوى الثالث إمكانية مشروع مختبر، وليس شركة ناشئة كاملة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d5-mis-en"><strong>English:</strong> Misconceptions.</div>
+        </div>
+
+        <!-- 21. Takeaways -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-key me-2 text-deci-dark"></i> 21. النقاط الرئيسية</h3>
+            <button class="btn-toggle-original" data-target="d5-takeaways-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ul>
+            <li>يشرح عرض يوم العرض القوي الرحلة من المشكلة إلى الإمكانية المختبرة.</li>
+            <li>يحتاج الجمهور إلى مستخدم واضح، حاجة، فكرة، قيمة، وسلسلة أدلة.</li>
+            <li>تشرح القيمة التغيير المفيد للمستخدم، وليس فقط ميزات الحل.</li>
+            <li>يجب أن تدعم الأدلة الادعاءات المهمة وتُوصف بصدق.</li>
+            <li>يجب أن يظهر عرض النموذج الأولي تجربة مستخدم أساسية واحدة وتحسيناً هادفاً واحداً.</li>
+            <li>تختار صفحة المشروع المصغرة أهم المعلومات من الأيام ١-٤.</li>
+            <li>تخلق أدوار التحدث والعرض المشتركة قصة فريق منسقة.</li>
+            <li>يتطلب العرض المدة ٣-٤ دقائق اختياراً، توقيتاً، وانتقالات واضحة.</li>
+            <li>تساعد التغذية الراجعة المحددة من الأقران الفرق على تحسين الوضوح، الأدلة، والتقديم.</li>
+            <li>يجب الإجابة على أسئلة الجمهور مباشرة باستخدام الأدلة وتفكير صادق في الخطوة التالية.</li>
+            <li>ينتهي المستوى الثالث بفكرة مختبرة وتأمل، بينما ينتمي النمذجة التجارية الأعمق إلى المستويين الرابع والخامس.</li>
+          </ul>
+          <div class="original-text" id="d5-takeaways-en"><strong>English:</strong> Key takeaways.</div>
+        </div>
+
+        <!-- 22. Reflection Questions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-comment-dots me-2 text-deci-dark"></i> 22. أسئلة التأمل</h3>
+            <button class="btn-toggle-original" data-target="d5-reflection-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ol>
+            <li>أي جزء من رحلتنا التي استمرت خمسة أيام غير الفكرة النهائية أكثر؟</li>
+            <li>ما الذي ساعدنا نموذجنا الأولي واختبارنا على فهمه عن المستخدم؟</li>
+            <li>أي مهارة من DECI ساهمت بشكل أوضح في مشروعنا؟</li>
+            <li>ماذا سنختبر أو نبني بعد ذلك إذا كان لدينا أسبوع إضافي؟</li>
+          </ol>
+          <div class="original-text" id="d5-reflection-en"><strong>English:</strong> Reflection questions.</div>
+        </div>
+
+        <!-- 23. Journey Reflection -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-road me-2 text-deci-dark"></i> 23. تأمل الرحلة</h3>
+            <button class="btn-toggle-original" data-target="d5-journey-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مرحلة الرحلة</th><th>محفز التأمل</th></tr></thead>
+              <tbody>
+                <tr><td>اكتشاف الفرصة</td><td>ما المشكلة التي تعلمنا ملاحظتها بعناية أكبر؟</td></tr>
+                <tr><td>فهم الأشخاص</td><td>ما الافتراض الذي تغير بعد النظر إلى المستخدم؟</td></tr>
+                <tr><td>خلق القيمة</td><td>لماذا اخترنا هذه الفكرة بدلاً من البدائل؟</td></tr>
+                <tr><td>البناء والاختبار والتحسين</td><td>ما الدليل الذي أدى إلى التغيير الأكثر معنى؟</td></tr>
+                <tr><td>عرض الإمكانية</td><td>ما الذي يمكننا شرحه بوضوح الآن ولم نستطع شرحه في اليوم الأول؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d5-journey-en"><strong>English:</strong> Journey reflection prompts.</div>
+        </div>
+
+        <!-- 24. Summary -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-file-alt me-2 text-deci-dark"></i> 24. ملخص المحتوى اليومي</h3>
+            <button class="btn-toggle-original" data-target="d5-summary-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <tbody>
+                <tr><th>المهارة الرئيسية</th><td>السرد القصصي ويوم العرض</td></tr>
+                <tr><th>السؤال الجوهري</th><td>كيف يمكننا إظهار المشكلة، القيمة، والتعلم بوضوح؟</td></tr>
+                <tr><th>المفاهيم الأساسية</th><td>الجمهور والغرض؛ سلسلة أدلة المشروع؛ هيكل عرض ريادة الأعمال؛ القيمة؛ الادعاءات القائمة على الأدلة؛ صفحة المشروع المصغرة؛ أدوار الفريق؛ التوقيت؛ عرض النموذج الأولي؛ التغذية الراجعة من الأقران؛ المراجعة؛ الأسئلة والأجوبة؛ العرض المسؤول</td></tr>
+                <tr><th>الناتج اليومي</th><td>صفحة مشروع مصغرة، نموذج أولي محسّن منخفض الدقة، وعرض يوم عرض منسق مدته ٣-٤ دقائق مع أسئلة جمهور موجزة</td></tr>
+                <tr><th>دليل الرحلة النهائي</th><td>يظهر الفريق المشكلة، المستخدم الأساسي، الدليل، فكرة المشروع، عرض القيمة، النموذج الأولي، رؤية الاختبار، التحسين، عدم اليقين المتبقي، والخطوة التالية</td></tr>
+                <tr><th>الارتباط بالمستويين ٤ و ٥</th><td>يكمل الطلاب رحلة ريادية تمهيدية. في المستويين ٤ و ٥، توسع الفرق متعددة المسارات هذا التفكير من خلال التحقق الأعمق، عمل لوحة نموذج العمل، تخطيط الحد الأدنى من المنتج القابل للتطبيق، والتكامل التقني الأقوى</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d5-summary-en"><strong>English:</strong> Daily content summary.</div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function() {
+    // Navigation
+    const navLinks = document.querySelectorAll('[data-page]');
+    const pages = {
+      overview: document.getElementById('page-overview'),
+      'day1-guide': document.getElementById('page-day1-guide'),
+      'day2-guide': document.getElementById('page-day2-guide'),
+      'day3-guide': document.getElementById('page-day3-guide'),
+      'day4-guide': document.getElementById('page-day4-guide'),
+      'day5-guide': document.getElementById('page-day5-guide')
+    };
+
+    function showPage(pageId) {
+      Object.values(pages).forEach(p => p.classList.remove('active-page'));
+      if (pages[pageId]) pages[pageId].classList.add('active-page');
+      navLinks.forEach(link => link.classList.remove('active'));
+      const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(this.getAttribute('data-page'));
+      });
+    });
+
+    // Toggle Original Text (per section)
+    document.querySelectorAll('.btn-toggle-original[data-target]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const targetDiv = document.getElementById(targetId);
+        if (targetDiv) {
+          targetDiv.classList.toggle('show');
+          const isActive = targetDiv.classList.contains('show');
+          this.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+          this.classList.toggle('active', isActive);
+        }
+      });
+    });
+
+    // Toggle All Originals for Day 5
+    document.getElementById('toggleAllDay5').addEventListener('click', function() {
+      const allOriginals = document.querySelectorAll('#page-day5-guide .original-text');
+      const allButtons = document.querySelectorAll('#page-day5-guide .btn-toggle-original[data-target]');
+      const anyVisible = Array.from(allOriginals).some(el => el.classList.contains('show'));
+      const action = anyVisible ? 'hide' : 'show';
+
+      allOriginals.forEach(el => {
+        if (action === 'show') el.classList.add('show');
+        else el.classList.remove('show');
+      });
+
+      allButtons.forEach(btn => {
+        const isActive = action === 'show';
+        btn.classList.toggle('active', isActive);
+        btn.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+      });
+
+      this.innerHTML = action === 'show' ? '<i class="fas fa-eye-slash me-1"></i> إخفاء النص الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار النص الأصلي';
+    });
+
+    // Language Toggle
+    let currentLang = 'ar';
+    document.getElementById('langToggle').addEventListener('click', function() {
+      currentLang = (currentLang === 'ar') ? 'en' : 'ar';
+      document.getElementById('langLabel').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.lang = currentLang;
+      const link = document.querySelector('link[href*="bootstrap.rtl"]');
+      link.setAttribute('href', currentLang === 'ar' 
+        ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css'
+        : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+    });
+
+    // Default page: day5-guide
+    showPage('day5-guide');
+  })();
+</script>
+</body>
+</html>
