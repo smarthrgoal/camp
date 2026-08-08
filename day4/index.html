@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DECI - الدليل التفصيلي لليوم الرابع</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body { background: #f4f7fc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .sidebar { min-height: 100vh; background: #1e2a47; color: #fff; padding-top: 20px; }
+    .sidebar .nav-link { color: #cfd8e6; font-weight: 500; border-radius: 0.5rem; margin-bottom: 5px; padding: 10px 16px; }
+    .sidebar .nav-link:hover, .sidebar .nav-link.active { background: #2a3a5c; color: #fff; }
+    .sidebar .nav-link i { margin-left: 10px; width: 22px; text-align: center; }
+    .main-content { padding: 30px 30px 40px; }
+    .page-section { display: none; animation: fadeIn 0.3s ease-in-out; }
+    .page-section.active-page { display: block; }
+    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+    .card-deci { border: none; border-radius: 20px; box-shadow: 0 8px 28px rgba(0,0,0,0.05); background: #fff; transition: transform 0.15s; }
+    .card-deci:hover { transform: translateY(-2px); }
+    .badge-day { background: #eef3ff; color: #1e2a47; font-weight: 600; padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; }
+    .section-title { font-weight: 700; color: #1e2a47; position: relative; padding-bottom: 12px; }
+    .section-title::after { content: ''; position: absolute; bottom: 0; right: 0; width: 70px; height: 4px; background: #1e2a47; border-radius: 4px; }
+    .lang-toggle { cursor: pointer; background: #2a3a5c; border-radius: 30px; padding: 6px 16px; color: #fff; border: 1px solid #4a5a7c; transition: 0.2s; }
+    .lang-toggle:hover { background: #3a4a6c; }
+    @media (max-width: 768px) { .sidebar { min-height: auto; padding-top: 10px; } .main-content { padding: 20px 15px; } }
+    .original-text { display: none; background: #eef3fa; padding: 15px 20px; border-radius: 12px; margin-top: 12px; border: 1px dashed #bac8dc; font-size: 0.95rem; color: #2c3e5a; line-height: 1.7; }
+    .original-text.show { display: block; }
+    .btn-toggle-original { border-radius: 50px; font-size: 0.75rem; padding: 4px 14px; border: 1px solid #1e2a47; color: #1e2a47; background: transparent; transition: 0.2s; white-space: nowrap; }
+    .btn-toggle-original:hover, .btn-toggle-original.active { background: #1e2a47; color: #fff; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 15px; }
+    .table-deci { border-collapse: separate; border-spacing: 0; width: 100%; }
+    .table-deci th { background: #eef3ff; color: #1e2a47; font-weight: 600; }
+    .table-deci td, .table-deci th { padding: 12px 15px; border: 1px solid #e2e8f0; }
+    .table-deci tr:hover { background: #f8faff; }
+    .bg-soft-primary { background: #eef3ff; }
+    .priority-badge { font-size: 0.7rem; padding: 2px 10px; border-radius: 30px; }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 sidebar d-md-block">
+      <div class="text-center py-3">
+        <h5 class="fw-bold text-white"><i class="fas fa-campground me-2"></i>DECI</h5>
+        <span class="badge bg-warning text-dark">المستوى الثالث</span>
+      </div>
+      <hr class="bg-secondary opacity-25" />
+      <ul class="nav flex-column px-2">
+        <li class="nav-item"><a class="nav-link" data-page="overview" href="../"><i class="fas fa-home"></i> نظرة عامة</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" data-page="day1-guide" href="#"><i class="fas fa-sun"></i> اليوم الأول - دليل</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="day2-guide" href="#"><i class="fas fa-users"></i> اليوم الثاني - دليل</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="day3-guide" href="#"><i class="fas fa-lightbulb"></i> اليوم الثالث - دليل</a></li> -->
+        <li class="nav-item"><a class="nav-link active" data-page="day4-guide" href="#"><i class="fas fa-cogs"></i> اليوم الرابع - دليل</a></li>
+      </ul>
+      <hr class="bg-secondary opacity-25" />
+      <div class="px-3">
+        <div class="lang-toggle d-inline-flex align-items-center" id="langToggle">
+          <i class="fas fa-globe me-1"></i> <span id="langLabel">English</span>
+        </div>
+      </div>
+      <div class="px-3 small text-secondary mt-3">
+        <i class="fas fa-calendar-alt me-1"></i> النسخة 1.0 · أغسطس 2026
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 col-lg-10 main-content">
+
+      <!-- ========== OVERVIEW ========== -->
+      <section id="page-overview" class="page-section">
+        <h1 class="section-title">المخطط التفصيلي للمستوى الثالث</h1>
+        <div class="card-deci card p-4 mb-4">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-8">
+              <h3 class="fw-bold text-deci-dark">من المشكلة إلى الإمكانية</h3>
+              <p class="lead fs-6 text-secondary">ريادة الأعمال من خلال الألعاب، اكتشاف المستخدم، والنماذج الأولية</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="day-icon mx-auto mb-2" style="width:48px;height:48px;background:#eef3ff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;">4</div>
+              <span class="fw-semibold">اليوم الرابع</span>
+              <div class="small text-secondary">البناء والاختبار والتحسين</div>
+            </div>
+          </div>
+        </div>
+        <p class="text-secondary">اختر <strong>اليوم الرابع - دليل</strong> من القائمة الجانبية لعرض الشرح الكامل.</p>
+      </section>
+
+      <!-- ========== DAY 1, 2, 3 (مختصر) ========== -->
+      <section id="page-day1-guide" class="page-section"><div class="card-deci card p-4"><p>الدليل التفصيلي لليوم الأول موجود في الصفحة السابقة.</p></div></section>
+      <section id="page-day2-guide" class="page-section"><div class="card-deci card p-4"><p>الدليل التفصيلي لليوم الثاني موجود في الصفحة السابقة.</p></div></section>
+      <section id="page-day3-guide" class="page-section"><div class="card-deci card p-4"><p>الدليل التفصيلي لليوم الثالث موجود في الصفحة السابقة.</p></div></section>
+
+      <!-- ========== DAY 4 FULL GUIDE ========== -->
+      <section id="page-day4-guide" class="page-section active-page">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+          <h1 class="section-title"><i class="fas fa-cogs me-2"></i> اليوم الرابع: البناء والاختبار والتحسين</h1>
+          <div class="d-flex gap-2">
+            <button class="btn-toggle-original" id="toggleAllDay4"><i class="fas fa-eye me-1"></i> إظهار النص الأصلي</button>
+          </div>
+        </div>
+        <p class="text-secondary mb-4">دليل شامل يشرح كل جوانب اليوم الرابع من المخيم، مع إمكانية عرض النص الإنجليزي الأصلي أسفل كل قسم.</p>
+
+        <!-- 1. Day Overview -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-info-circle me-2 text-deci-dark"></i> 1. نظرة عامة على اليوم</h3>
+            <button class="btn-toggle-original" data-target="d4-overview-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يحوّل اليوم الرابع فكرة المشروع المختارة إلى شيء يمكن لأشخاص آخرين رؤيته أو استخدامه أو الاستجابة له. يبني الطلاب نموذجاً أولياً منخفض الدقة يمثل الجزء الأكثر أهمية من تجربة المستخدم، ويختبرونه مع الأقران ويحسّنونه باستخدام أدلة محددة. الغرض ليس إنشاء منتج نهائي مصقول. الغرض هو التعلم بسرعة قبل استثمار المزيد من الوقت والمواد أو الجهد التقني.</p>
+          <div class="original-text" id="d4-overview-en"><strong>English:</strong> Day 4 turns the selected project idea into something other people can see, use or respond to. Students build a low-fidelity prototype that represents the most important part of the user experience, test it with peers and improve it using specific evidence. The purpose is not to create a polished final product. The purpose is to learn quickly before investing more time, materials or technical effort.</div>
+          <div class="row mt-3 g-3">
+            <div class="col-md-6">
+              <h6 class="fw-bold">السؤال الجوهري</h6>
+              <p class="bg-soft-primary p-3 rounded">كيف يمكن لنموذج أولي بسيط مساعدتنا على التعلم بسرعة؟</p>
+              <div class="original-text" id="d4-eq-en"><strong>English:</strong> How can a simple prototype help us learn quickly?</div>
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold">الغرض من اليوم</h6>
+              <p class="bg-soft-primary p-3 rounded">يختبر الطلاب دورة البناء-الاختبار-التعلم-التحسين ويكتشفون أن التغذية الراجعة تصبح مفيدة فقط عندما تكون مرتبطة بملاحظة، سؤال، أو حاجة مستخدم واضحة.</p>
+              <div class="original-text" id="d4-purpose-en"><strong>English:</strong> Students experience the build-test-learn-improve cycle and discover that feedback becomes useful only when it is connected to an observation, a question or a clear user need.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Learning Objectives -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-bullseye me-2 text-deci-dark"></i> 2. أهداف التعلم</h3>
+            <button class="btn-toggle-original" data-target="d4-obj-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>بنهاية اليوم، سيكون الطلاب قادرين على:</p>
+          <ol>
+            <li>اختيار تنسيق نموذج أولي منخفض الدقة مناسب لفكرة المشروع المختارة.</li>
+            <li>بناء نموذج أولي يجعل تجربة مستخدم رئيسية أو افتراضاً واحداً مرئياً وقابلاً للاختبار.</li>
+            <li>جمع تغذية راجعة وملاحظات محددة باستخدام أسئلة اختبار متفق عليها.</li>
+            <li>مراجعة جزء واحد على الأقل من النموذج الأولي وشرح الدليل وراء التغيير.</li>
+          </ol>
+          <div class="original-text" id="d4-obj-en"><strong>English:</strong> By the end of the day, students will be able to: 1. Select a suitable low-fidelity prototype format for the selected project idea. 2. Build a prototype that makes one main user experience or assumption visible and testable. 3. Collect specific feedback and observations using agreed testing questions. 4. Revise at least one part of the prototype and explain the evidence behind the change.</div>
+        </div>
+
+        <!-- 3. Content Map -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-map me-2 text-deci-dark"></i> 3. خريطة المحتوى</h3>
+            <button class="btn-toggle-original" data-target="d4-map-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مجال المحتوى</th><th>التركيز الأساسي</th><th>التطبيق في اليوم</th></tr></thead>
+              <tbody>
+                <tr><td>الغرض من النموذج الأولي</td><td>التعلم قبل بناء الحل الكامل</td><td>يستخدم الفريق نموذجاً خاماً للإجابة على سؤال مهم واحد</td></tr>
+                <tr><td>نطاق النموذج الأولي</td><td>تمثيل تجربة المستخدم الأساسية</td><td>يختار الفريق ما يجب إظهاره الآن وما يمكن أن يبقى خارج النموذج</td></tr>
+                <tr><td>تنسيقات النموذج الأولي</td><td>مطابقة التنسيق مع الفكرة وسؤال الاختبار</td><td>يختار الفريق الشاشات الورقية، القصة المصورة، تمثيل دور الخدمة، نموذج الجهاز، خريطة العملية، أو تنسيق بسيط آخر</td></tr>
+                <tr><td>الاختبار</td><td>مراقبة المستخدمين بدلاً من الدفاع عن الفكرة</td><td>يتفاعل المختبرون بينما يشاهد المبتكرون، يستمعون، ويسجلون الأدلة</td></tr>
+                <tr><td>التغذية الراجعة</td><td>محددة، محترمة، ومتصلة بالاستخدام</td><td>تجمع الفرق ما كان واضحاً، مربكاً، مفقوداً، والمتوقع بعد ذلك</td></tr>
+                <tr><td>التكرار</td><td>استخدام الأدلة لتحسين الفكرة</td><td>تحتفظ الفرق، تغير، أو تزيل أجزاء وتشرح السبب</td></tr>
+                <tr><td>التوثيق</td><td>تسجيل التعلم، وليس فقط النموذج النهائي</td><td>تكمل الفرق سجل الاختبار والتحسين لليوم الخامس</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-map-en"><strong>English:</strong> Content Map table.</div>
+        </div>
+
+        <!-- 4. What Is a Prototype? -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-cube me-2 text-deci-dark"></i> 4. ما هو النموذج الأولي؟</h3>
+            <button class="btn-toggle-original" data-target="d4-whatis-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>النموذج الأولي هو تمثيل مؤقت لفكرة تم إنشاؤها لتعلم شيء ما قبل بناء الحل الكامل. يمكن أن يعرض شاشة، تفاعل، عملية، جسم مادي، تجربة خدمة، أو تدفق قرارات. يكون النموذج الأولي مفيداً عندما يمكن لشخص آخر الاستجابة للجزء من الفكرة الذي يحتاج الفريق لفهمه.</p>
+          <div class="p-3 bg-light rounded"><strong>تعريف بسيط:</strong> النموذج الأولي هو نموذج سريع يستخدم للإجابة على سؤال، وليس منتجاً نهائياً يستخدم للإبهار.</div>
+          <h6 class="fw-bold mt-3">4.1 النموذج الأولي، المنتج، والعرض التقديمي</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>العنصر</th><th>الغرض الرئيسي</th><th>المستوى المتوقع في اليوم الرابع</th></tr></thead>
+              <tbody>
+                <tr><td>النموذج الأولي</td><td>استكشاف افتراض وجمع أدلة</td><td>مطلوب: خام، مركز، مفهوم، وقابل للاختبار</td></tr>
+                <tr><td>المنتج النهائي</td><td>تقديم حل كامل وموثوق</td><td>غير مطلوب: لا يُتوقع من الفرق برمجة، تصنيع، أو إطلاق الفكرة الكاملة</td></tr>
+                <tr><td>العرض التقديمي البصري</td><td>شرح فكرة لجمهور</td><td>غير كافٍ بحد ذاته: قد يشرح الملصق الفكرة لكن يجب أن يسمح بتفاعل أو اختبار هادف ليعمل كنموذج أولي</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">4.2 ما الذي يجعل النموذج الأولي مفيداً؟</h6>
+          <ul>
+            <li>يمثل المستخدم المختار وحاجة المستخدم من اليومين الثاني والثالث.</li>
+            <li>يركز على تجربة مهمة واحدة، رحلة، أو افتراض.</li>
+            <li>يمكن لشخص آخر التفاعل معه، الاستجابة له، أو فهم التدفق المقصود.</li>
+            <li>بسيط بما يكفي للتغيير بعد الاختبار.</li>
+            <li>يتجنب التفاصيل غير الضرورية التي لا تساعد الفريق على التعلم.</li>
+            <li>آمن، محترم، وصادق بشأن أي سلوك محاكى.</li>
+          </ul>
+          <div class="original-text" id="d4-whatis-en"><strong>English:</strong> What is a prototype content.</div>
+        </div>
+
+        <!-- 5. Low-Fidelity Prototyping -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-pencil-ruler me-2 text-deci-dark"></i> 5. النماذج الأولية منخفضة الدقة</h3>
+            <button class="btn-toggle-original" data-target="d4-lofi-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>منخفض الدقة يعني أن النموذج الأولي بسيط عمداً. يستخدم مواد أساسية، رسومات سريعة، تسميات، تمثيل أدوار، أو تفاعلات محاكاة بدلاً من التصميم المصقول والتكنولوجيا الكاملة. تجعل النماذج الأولية منخفضة الدقة التغيير أسهل لأن الفرق أقل تعلقاً بالنسخة الأولى ويمكنها مراجعتها بسرعة.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>خاصية منخفض الدقة</th><th>كيف تبدو</th><th>لماذا تساعد</th></tr></thead>
+              <tbody>
+                <tr><td>سريع</td><td>تم بناؤه خلال نشاط قصير باستخدام مواد بسيطة</td><td>يقضي الفريق وقتاً في التعلم بدلاً من التلميع</td></tr>
+                <tr><td>خام</td><td>شاشات مرسومة يدوياً، تحكمات ورقية، تسميات، أو نماذج بسيطة</td><td>يركز المختبرون على الفكرة والتدفق، وليس الكمال البصري</td></tr>
+                <tr><td>مركز</td><td>يعرض فقط التفاعل الأساسي أو رحلة المستخدم</td><td>يمكن للفريق اختبار افتراض مهم واحد بوضوح</td></tr>
+                <tr><td>قابل للتغيير</td><td>يمكن نقل الأجزاء، إعادة كتابتها، استبدالها، أو إزالتها</td><td>يمكن للأدلة أن تؤدي إلى تكرار فوري</td></tr>
+                <tr><td>محاكى</td><td>يُمثل التكنولوجيا غير المبنية بصدق بواسطة شخص، بطاقة، سهم، أو استجابة مكتوبة</td><td>يمكن للطلاب استكشاف مفاهيم الذكاء الاصطناعي، الويب، الأمن السيبراني، أو الأنظمة المدمجة بأمان دون ادعاء نظام عامل</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="p-3 bg-light rounded"><strong>مبدأ الجودة:</strong> تُحكم جودة النموذج الأولي بمدى دعمه للتعلم، وليس بمدى تكلفته أو تفصيله أو جماله.</div>
+          <div class="original-text" id="d4-lofi-en"><strong>English:</strong> Low-fidelity prototyping content.</div>
+        </div>
+
+        <!-- 6. Choosing the Right Format -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-th-large me-2 text-deci-dark"></i> 6. اختيار تنسيق النموذج الأولي المناسب</h3>
+            <button class="btn-toggle-original" data-target="d4-formats-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يعتمد التنسيق الأفضل على فكرة المشروع، الافتراض الرئيسي، والجزء من التجربة الذي يحتاج إلى اختبار. يجب على الفرق اختيار أبسط تنسيق يسمح لشخص آخر بالاستجابة بشكل هادف.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>تنسيق النموذج الأولي</th><th>أفضل استخدام لـ</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>الشاشات الورقية</td><td>مواقع الويب، التطبيقات، لوحات المعلومات، النماذج، أو الرحلات الرقمية</td><td>سلسلة من الشاشات المرسومة يدوياً للعثور على نادٍ مدرسي والتسجيل فيه</td></tr>
+                <tr><td>القصة المصورة</td><td>تجارب تحدث عبر الزمن أو عدة مواقع</td><td>قصة من ستة إطارات تظهر كيف يلاحظ الطالب الفكرة ويستخدمها ويستفيد منها</td></tr>
+                <tr><td>تمثيل دور الخدمة</td><td>التفاعلات البشرية، خدمات الدعم، أو عمليات الفريق</td><td>طالب يلعب دور الخدمة، آخر يلعب دور المستخدم، وثالث يراقب</td></tr>
+                <tr><td>النموذج المادي</td><td>الأجهزة، الأشياء، المساحات، أو مفاهيم الأنظمة المدمجة</td><td>نموذج جهاز من الكرتون يظهر المدخلات، المخرجات، التنبيهات، وإجراءات المستخدم</td></tr>
+                <tr><td>تدفق العملية أو النظام</td><td>القواعد، القرارات، حركة المعلومات، أو رحلات الأمن السيبراني</td><td>تدفق يظهر تسجيل الدخول، الإذن، التعامل الآمن مع البيانات، وخطوة المستخدم التالية</td></tr>
+                <tr><td>حملة أو عرض بصري وهمي</td><td>الفن الرقمي، التوعية، التواصل، أو أفكار الهوية</td><td>مجموعة صغيرة من الرسائل البصرية المختبرة من حيث الوضوح والعمل</td></tr>
+                <tr><td>محاكاة ساحر أوز</td><td>سلوك الذكاء الاصطناعي أو الأتمتة التي لا يمكن بناؤها خلال المخيم</td><td>يختار عضو الفريق الاستجابة سراً بينما يختبر المختبر توصية محاكاة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-formats-en"><strong>English:</strong> Prototype formats content.</div>
+        </div>
+
+        <!-- 7. From Project Idea to Prototype Scope -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-cut me-2 text-deci-dark"></i> 7. من فكرة المشروع إلى نطاق النموذج الأولي</h3>
+            <button class="btn-toggle-original" data-target="d4-scope-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>قد تحتوي بطاقة فكرة المشروع من اليوم الثالث على عدة ميزات. يتطلب اليوم الرابع من الفريق تقليص الفكرة إلى شريحة قابلة للاختبار. يجب أن يظهر النموذج الأولي أصغر تجربة هادفة تسمح للفريق بالتعلم.</p>
+          <h6 class="fw-bold mt-3">7.1 التجربة الأساسية</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>السؤال</th><th>الغرض</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>من يستخدم النموذج الأولي؟</td><td>أبقِ المستخدم الأساسي مرئياً</td><td>طالب جديد يختار نادياً مدرسياً</td></tr>
+                <tr><td>ما الذي يحاول المستخدم فعله؟</td><td>حدد مهمة هادفة واحدة</td><td>مقارنة ناديين وتحديد خطوة التسجيل التالية</td></tr>
+                <tr><td>ماذا يرى المستخدم أو يتلقى؟</td><td>حدد المعلومات الأساسية، الإجراء، أو الاستجابة</td><td>بطاقات مقارنة وتعليمات تسجيل واضحة</td></tr>
+                <tr><td>ماذا يجب أن يحدث بعد ذلك؟</td><td>اجعل الرحلة المقصودة مرئية</td><td>يختار الطالب نادياً ويعرف أين يسجل</td></tr>
+                <tr><td>ماذا يجب أن نتعلم؟</td><td>اربط النموذج الأولي بالافتراض الرئيسي</td><td>هل يمكن للطالب فهم المقارنة والعثور على الخطوة التالية دون شرح؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">7.2 يجب إظهاره، يمكن إظهاره، وليس الآن</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الأولوية</th><th>المعنى</th><th>مثال لدليل النادي</th></tr></thead>
+              <tbody>
+                <tr><td><span class="badge bg-danger">يجب إظهاره</span></td><td>الجزء المطلوب لاختبار التجربة الرئيسية</td><td>خياران للنادي، معلومات المقارنة، وخطوة التسجيل</td></tr>
+                <tr><td><span class="badge bg-warning text-dark">يمكن إظهاره</span></td><td>إضافة مفيدة فقط إذا بقي وقت</td><td>فلتر لنوع النشاط أو يوم الاجتماع</td></tr>
+                <tr><td><span class="badge bg-secondary">ليس الآن</span></td><td>ميزة تضيف تعقيداً لكنها لا تساعد في الإجابة على سؤال الاختبار</td><td>حسابات حقيقية، إشعارات، قواعد بيانات حية، أو هوية بصرية كاملة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="p-3 bg-light rounded"><strong>قاعدة النطاق:</strong> النموذج الأولي الأصغر الذي يجيب على سؤال واحد أقوى من النموذج الكبير الذي لا يختبر شيئاً بوضوح.</div>
+          <div class="original-text" id="d4-scope-en"><strong>English:</strong> Prototype scope content.</div>
+        </div>
+
+        <!-- 8. Connect to Main Assumption -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-link me-2 text-deci-dark"></i> 8. ربط النموذج الأولي بالافتراض الرئيسي</h3>
+            <button class="btn-toggle-original" data-target="d4-assumption-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يعطي الافتراض الرئيسي المختار في اليوم الثالث للنموذج الأولي هدفاً تعليمياً. لا ينبغي للفريق أن يسأل ببساطة ما إذا كان المختبرون يحبون الفكرة. يجب أن يخلق موقفاً يساعد في الكشف عما إذا كان الافتراض يبدو معقولاً، غير واضح، أو غير مدعوم.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الافتراض</th><th>استجابة النموذج الأولي</th><th>الأدلة للمراقبة</th></tr></thead>
+              <tbody>
+                <tr><td>يمكن للمستخدمين مقارنة الخيارات دون ارتباك</td><td>أنشئ بطاقتي مقارنة واطلب من المختبر اختيار واحدة</td><td>ما المعلومات التي يلاحظها المختبر، يتجاهلها، أو يسأل عنها</td></tr>
+                <tr><td>يفهم المستخدمون توصية ذكاء اصطناعي محاكاة</td><td>اعرض توصية مع سبب قصير واسمح للمختبر بقبولها أو رفضها</td><td>هل يفهم المختبر سبب ظهور التوصية وهل يثق بها؟</td></tr>
+                <tr><td>يلاحظ المستخدمون ويفهمون تنبيه نظام مدمج</td><td>أنشئ نموذج جهاز مع تنبيه مرئي واسأل عن الإجراء الذي يجب أن يحدث بعد ذلك</td><td>هل يُلاحظ التنبيه وهل الإجراء المتوقع واضح؟</td></tr>
+                <tr><td>يمكن للمستخدمين إكمال رحلة تسجيل دخول آمنة</td><td>أنشئ شاشات ورقية تظهر الوصول إلى الحساب وخيارات الإذن</td><td>أين يتردد المختبر أو يشارك معلومات يجب أن تبقى خاصة</td></tr>
+                <tr><td>رسالة بصرية تشجع الإجراء المقصود</td><td>اعرض رسالتين مسودتين واسأل المختبر عما تطلبه كل منهما</td><td>هل المعنى والإجراء مفهومان بشكل صحيح؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">8.1 الافتراض القابل للاختبار محدد</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>افتراض ضعيف</th><th>افتراض قابل للاختبار أقوى</th></tr></thead>
+              <tbody>
+                <tr><td>سيحب الناس مشروعنا</td><td>يمكن للطالب الجديد تحديد نادٍ مناسب وخطوة التسجيل التالية باستخدام النموذج الأولي</td></tr>
+                <tr><td>التصميم جيد</td><td>يفهم المستخدمون الزر الرئيسي ويمكنهم توقع ما يحدث بعد اختياره</td></tr>
+                <tr><td>سيعمل الجهاز</td><td>يلاحظ المستخدمون التنبيه ويعرفون الإجراء الذي يطلبه التنبيه</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-assumption-en"><strong>English:</strong> Connecting to main assumption content.</div>
+        </div>
+
+        <!-- 9. Build-Test-Learn-Improve Cycle -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-sync-alt me-2 text-deci-dark"></i> 9. دورة البناء-الاختبار-التعلم-التحسين</h3>
+            <button class="btn-toggle-original" data-target="d4-cycle-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>التكرار يعني تكرار دورة التعلم. لا يُتوقع أن يكون النموذج الأولي الأول صحيحاً. إنه يخلق أدلة تساعد الفريق على تحديد ما يجب تغييره بعد ذلك.</p>
+          <div class="row text-center g-3 mt-2">
+            <div class="col-md-3"><div class="p-3 bg-soft-primary rounded"><i class="fas fa-hammer fa-2x mb-2 d-block text-deci-dark"></i><strong>١. ابنِ</strong><br><small>مثل التجربة الأساسية بسرعة</small></div></div>
+            <div class="col-md-3"><div class="p-3 bg-soft-primary rounded"><i class="fas fa-vial fa-2x mb-2 d-block text-deci-dark"></i><strong>٢. اختبر</strong><br><small>دع شخصاً آخر يتفاعل بينما يراقب الفريق</small></div></div>
+            <div class="col-md-3"><div class="p-3 bg-soft-primary rounded"><i class="fas fa-brain fa-2x mb-2 d-block text-deci-dark"></i><strong>٣. تعلم</strong><br><small>حدد الأنماط، الارتباك، وردود الفعل المفيدة</small></div></div>
+            <div class="col-md-3"><div class="p-3 bg-soft-primary rounded"><i class="fas fa-arrow-up fa-2x mb-2 d-block text-deci-dark"></i><strong>٤. حسّن</strong><br><small>غيّر جزءاً واحداً أو أكثر لسبب واضح</small></div></div>
+          </div>
+          <h6 class="fw-bold mt-3">9.1 ما ينتجه كل مرحلة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المرحلة</th><th>إجراء الفريق</th><th>الدليل المنتج</th></tr></thead>
+              <tbody>
+                <tr><td>البناء</td><td>إنشاء النسخة الأولى وتحضير مهمة الاختبار</td><td>النموذج الأولي النسخة ١ وسؤال اختبار رئيسي واحد</td></tr>
+                <tr><td>الاختبار</td><td>دعوة فريق آخر للتفاعل دون شرح غير ضروري</td><td>أفعال، تعليقات، أسئلة، ترددات، ونتائج المهام</td></tr>
+                <tr><td>التعلم</td><td>فصل الأدلة عن التفضيل الشخصي وتحديد القضية الأكثر أهمية</td><td>قائمة قصيرة من النتائج وعدم اليقين المتبقي</td></tr>
+                <tr><td>التحسين</td><td>الاحتفاظ، التغيير، أو إزالة العناصر بناءً على النتائج</td><td>النموذج الأولي النسخة ٢ وسبب موثق لكل تغيير مهم</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-cycle-en"><strong>English:</strong> Build-Test-Learn-Improve cycle content.</div>
+        </div>
+
+        <!-- 10. Planning a Useful Test -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-clipboard-check me-2 text-deci-dark"></i> 10. التخطيط لاختبار مفيد</h3>
+            <button class="btn-toggle-original" data-target="d4-testplan-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يعطي الاختبار المفيد المختبر مهمة واقعية ويعطي الفريق سبباً واضحاً للملاحظة. لا يجب أن تكشف المهمة الإجابة المتوقعة أو تشرح كيفية استخدام النموذج الأولي قبل أن تتاح للمختبر فرصة للاستجابة بشكل طبيعي.</p>
+          <h6 class="fw-bold mt-3">10.1 سؤال الاختبار الرئيسي</h6>
+          <div class="p-3 bg-soft-primary rounded mb-3">
+            <strong>قالب سؤال الاختبار:</strong><br>
+            هل يمكن لـ [مستخدم محدد] استخدام أو فهم [التجربة الأساسية] بشكل كافٍ لـ [النتيجة المقصودة]؟
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>نوع المشروع</th><th>مثال سؤال اختبار</th></tr></thead>
+              <tbody>
+                <tr><td>موقع ورقي أو تطبيق</td><td>هل يمكن للطالب الجديد مقارنة خيارين للنادي والعثور على خطوة التسجيل التالية؟</td></tr>
+                <tr><td>مفهوم فيزيائي أو مدمج</td><td>هل يمكن لمستخدم الفصل ملاحظة التنبيه وفهم إجراء توفير الطاقة الذي يجب اتخاذه؟</td></tr>
+                <tr><td>محاكاة الذكاء الاصطناعي</td><td>هل يمكن للمستخدم فهم سبب إجراء التوصية وتحديد ما إذا كانت تناسب حاجته؟</td></tr>
+                <tr><td>رحلة الأمن السيبراني</td><td>هل يمكن للمستخدم إكمال تدفق الوصول دون مشاركة معلومات شخصية غير ضرورية؟</td></tr>
+                <tr><td>حملة بصرية</td><td>هل يمكن للمشاهد تحديد الرسالة والإجراء المطلوب في غضون بضع ثوان؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">10.2 ثلاثة محفزات اختبار أساسية</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المحفز</th><th>ما يكشفه</th></tr></thead>
+              <tbody>
+                <tr><td>ما الواضح؟</td><td>الأجزاء التي تنقل المعنى أو الإجراء المقصود</td></tr>
+                <tr><td>ما المربك؟</td><td>التسميات، التسلسل، التعليمات، أو التوقعات التي تحتاج إلى مراجعة</td></tr>
+                <tr><td>ماذا ستفعل بعد ذلك؟</td><td>ما إذا كانت رحلة المستخدم والإجراء التالي مرئيين</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-testplan-en"><strong>English:</strong> Planning a useful test content.</div>
+        </div>
+
+        <!-- 11. Roles During Testing -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-user-tag me-2 text-deci-dark"></i> 11. الأدوار أثناء اختبار النموذج الأولي</h3>
+            <button class="btn-toggle-original" data-target="d4-roles-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يعمل الاختبار بشكل أفضل عندما تكون أدوار الفريق واضحة. يجب على فريق المبتكرين تجنب تعليم أو تصحيح أو الدفاع عن النموذج الأولي أثناء استخدام المختبر له. يمكن للصمت أن يكشف أين تحتاج التجربة إلى تحسين.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الدور</th><th>المسؤولية الرئيسية</th><th>تجنب</th></tr></thead>
+              <tbody>
+                <tr><td>الميسر</td><td>أعط المهمة، ذكر المختبر بالتفكير بصوت عالٍ، واطرح المحفزات المتفق عليها</td><td>شرح المسار الصحيح أو قيادة المختبر إلى إجابة</td></tr>
+                <tr><td>المراقب</td><td>سجل الأفعال، التعليقات، الأسئلة، الترددات، ونتائج المهام</td><td>كتابة حكم شخصي بدلاً من دليل مرئي</td></tr>
+                <tr><td>مشغل النموذج الأولي</td><td>حرّك الشاشات الورقية أو حاكِ السلوك التقني عند الحاجة</td><td>تغيير الاستجابة لجعل الفكرة تبدو ناجحة</td></tr>
+                <tr><td>المختبر</td><td>تفاعل بشكل طبيعي، قل ما تتوقع، وصف ما هو واضح أو مربك</td><td>محاولة حماية مشاعر المبتكرين بإعطاء تعليقات إيجابية فقط</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">11.1 راقب دون دفاع</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>رد فعل المبتكر</th><th>سلوك اختبار أفضل</th></tr></thead>
+              <tbody>
+                <tr><td>"لا، يجب أن تضغط هنا."</td><td>سجل أين ضغط المختبر واسأل: "ماذا توقعت أن يحدث؟"</td></tr>
+                <tr><td>"أنت لم تفهم فكرتنا."</td><td>اسأل أي جزء كان غير واضح ولاحظ أي شرح فشل النموذج الأولي في تقديمه</td></tr>
+                <tr><td>"لكن الجميع أعجبوا بها."</td><td>ركز على الدليل الحالي وابحث عن أنماط عبر المختبرين</td></tr>
+                <tr><td>"يمكننا إضافة كل ميزة اقترحتها."</td><td>اسأل ما إذا كان الاقتراح يدعم حاجة المستخدم والافتراض الرئيسي</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="p-3 bg-light rounded"><strong>عقلية الاختبار:</strong> الارتباك ليس فشلاً. إنه معلومات لم يتمكن الفريق من اكتشافها بمناقشة الفكرة وحدها.</div>
+          <div class="original-text" id="d4-roles-en"><strong>English:</strong> Testing roles content.</div>
+        </div>
+
+        <!-- 12. Evidence, Feedback and Opinion -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-list-ul me-2 text-deci-dark"></i> 12. الدليل، التغذية الراجعة، والرأي</h3>
+            <button class="btn-toggle-original" data-target="d4-evidence-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يجب على الفرق جمع أنواع مختلفة من المعلومات وتجنب التعامل مع كل تعليق على أنه مهم بنفس القدر. غالباً ما يوفر السلوك المرئي والأنماط المتكررة دليلاً أقوى من تفضيل شخصي واحد.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>نوع المعلومات</th><th>مثال</th><th>كيفية استخدامه</th></tr></thead>
+              <tbody>
+                <tr><td>الملاحظة</td><td>نظر المختبر إلى ثلاث تسميات قبل اختيار الإجراء الرئيسي</td><td>راجع ما إذا كانت التسميات والترتيب البصري واضحين</td></tr>
+                <tr><td>اقتباس مباشر</td><td>"اعتقدت أن هذا الزر سيظهر المزيد من التفاصيل."</td><td>قارن الإجراء المتوقع مع الإجراء المقصود</td></tr>
+                <tr><td>نتيجة المهمة</td><td>أكمل المختبر الرحلة لكنه فاتته تحذير السلامة</td><td>احتفظ بالمسار الناجح وحسّن التحذير</td></tr>
+                <tr><td>سؤال</td><td>"من أين تأتي هذه المعلومات؟"</td><td>حدد معلومات الثقة، المصدر، أو الشرح المفقودة</td></tr>
+                <tr><td>تفضيل</td><td>"أفضّل الأخضر بدلاً من الأزرق."</td><td>استخدم فقط عندما يؤثر التفضيل البصري على المعنى، إمكانية الوصول، أو سؤال الاختبار</td></tr>
+                <tr><td>اقتراح</td><td>"أضف ميزة محادثة."</td><td>تحقق مما إذا كان يدعم حاجة المستخدم، النطاق، والأدلة قبل اعتماده</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">12.1 تغذية راجعة محددة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>تغذية راجعة ضعيفة</th><th>تغذية راجعة أقوى</th></tr></thead>
+              <tbody>
+                <tr><td>"إنه جيد."</td><td>"كانت بطاقات المقارنة واضحة، لكنني لم أعرف أي إجراء أكمل التسجيل."</td></tr>
+                <tr><td>"لا يعجبني."</td><td>"توقعت أن يشرح التنبيه الإجراء الذي يجب اتخاذه، لكنه أظهر فقط رمز تحذير."</td></tr>
+                <tr><td>"أضف المزيد من الميزات."</td><td>"كنت بحاجة إلى طريقة واحدة لمقارنة أوقات الاجتماع قبل اختيار خيار."</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-evidence-en"><strong>English:</strong> Evidence, feedback and opinion content.</div>
+        </div>
+
+        <!-- 13. Deciding What to Change -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-edit me-2 text-deci-dark"></i> 13. تحديد ما يجب تغييره</h3>
+            <button class="btn-toggle-original" data-target="d4-decide-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>بعد الاختبار، تراجع الفرق الأدلة وتقرر ما تحتفظ به، تغيره، أو تزيله. الهدف ليس اتباع كل اقتراح. الهدف هو جعل النموذج الأولي أكثر فائدة، وضوحاً، وانسجاماً مع حاجة المستخدم المختارة.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>القرار</th><th>متى تستخدم</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td><span class="badge bg-success">احتفظ</span></td><td>يظهر الدليل أن العنصر واضح ويدعم رحلة المستخدم</td><td>فهم المختبرون بطاقات المقارنة واستخدموها بنجاح</td></tr>
+                <tr><td><span class="badge bg-warning text-dark">غيّر</span></td><td>العنصر مهم لكنه مربك، غير مكتمل، أو صعب الاستخدام</td><td>أعد كتابة إجراء التسجيل وضعه مباشرة بعد الاختيار</td></tr>
+                <tr><td><span class="badge bg-danger">أزل</span></td><td>العنصر يشتت عن المهمة الرئيسية، يخلق خطراً، أو يضيف تعقيداً غير ضروري</td><td>أزل ميزة محادثة محاكاة لم تدعم سؤال الاختبار</td></tr>
+                <tr><td><span class="badge bg-info text-dark">حقّق لاحقاً</span></td><td>القضية مهمة لكن لا يمكن الإجابة عليها من خلال الاختبار الحالي</td><td>تحقق من كيفية تحديث معلومات النادي الحقيقية في نسخة مستقبلية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">13.1 تحديد أولويات التغييرات</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الأولوية</th><th>الوصف</th></tr></thead>
+              <tbody>
+                <tr><td><span class="priority-badge bg-danger text-white">١ - يعوق المستخدم</span></td><td>لا يمكن للمستخدم فهم أو متابعة أو إكمال المهمة الأساسية</td></tr>
+                <tr><td><span class="priority-badge bg-warning text-dark">٢ - يخلق خطراً</span></td><td>يمكن أن تخلق التجربة مخاوف تتعلق بالخصوصية، الأمن السيبراني، السلامة الفيزيائية، العدالة، أو الثقة</td></tr>
+                <tr><td><span class="priority-badge bg-warning text-dark">٣ - يضعف القيمة</span></td><td>لا يجعل النموذج الأولي الفائدة الموعودة مرئية</td></tr>
+                <tr><td><span class="priority-badge bg-info text-dark">٤ - يحسّن الوضوح</span></td><td>تعمل الرحلة، لكن الصياغة، الترتيب، أو الإشارات يمكن أن تكون أوضح</td></tr>
+                <tr><td><span class="priority-badge bg-secondary text-white">٥ - تفضيل بصري</span></td><td>يؤثر الاقتراح على المظهر لكن ليس على سؤال التعلم الحالي</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">13.2 اشرح السبب</h6>
+          <div class="p-3 bg-soft-primary rounded">
+            <strong>قالب بيان التغيير:</strong><br>
+            غيّرنا [الجزء] لأن [الدليل]. يجب أن يساعد هذا المستخدم على [التحسين المتوقع].
+          </div>
+          <div class="original-text" id="d4-decide-en"><strong>English:</strong> Deciding what to change content.</div>
+        </div>
+
+        <!-- 14. Test and Improvement Log -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-clipboard-list me-2 text-deci-dark"></i> 14. سجل الاختبار والتحسين: المعيار المحتوى</h3>
+            <button class="btn-toggle-original" data-target="d4-log-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يسجل سجل الاختبار والتحسين التعلم وراء النموذج الأولي المراجع. يصبح دليلاً لقصة يوم العرض في اليوم الخامس ويمنع العرض النهائي من إظهار النسخة النهائية فقط.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>حقل السجل</th><th>ما تسجله الفرق</th><th>فحص الجودة</th></tr></thead>
+              <tbody>
+                <tr><td>نسخة النموذج الأولي</td><td>وصف قصير أو مرجع صورة للنسخة ١ والنسخة ٢</td><td>هل يمكن لشخص آخر تحديد ما تغير؟</td></tr>
+                <tr><td>الافتراض الرئيسي</td><td>الاعتقاد المهم المختار في اليوم الثالث</td><td>هل هو محدد بما يكفي لاستكشافه من خلال النموذج الأولي؟</td></tr>
+                <tr><td>سؤال الاختبار</td><td>السؤال الذي صمم الاختبار للإجابة عليه</td><td>هل يركز على مستخدم واحد وتجربة أساسية واحدة؟</td></tr>
+                <tr><td>مهمة الاختبار</td><td>ما طُلب من المختبر فعله</td><td>هل المهمة واقعية دون الكشف عن الإجابة؟</td></tr>
+                <tr><td>ما لاحظناه</td><td>أفعال، تعليقات، أسئلة، تردد، ونتائج المهام</td><td>هل يصف السجل الأدلة بدلاً من الحكم الشخصي؟</td></tr>
+                <tr><td>ما كان واضحاً</td><td>الأجزاء التي عملت كما هو مقصود</td><td>هل الاستنتاج مدعوم بالاختبار؟</td></tr>
+                <tr><td>ما كان مربكاً أو مفقوداً</td><td>حواجز مهمة، سوء فهم، أو فجوات</td><td>هل يركز على رحلة المستخدم الأساسية؟</td></tr>
+                <tr><td>القرار</td><td>ما ستحتفظ به الفرق، تغيره، تزيله، أو تحقق فيه لاحقاً</td><td>هل القرار مرتبط بالدليل؟</td></tr>
+                <tr><td>التغيير الذي تم</td><td>المراجعة المكتملة بعد الاختبار</td><td>هل يوجد تغيير هادف واحد على الأقل مرئي؟</td></tr>
+                <tr><td>سبب التغيير</td><td>لماذا تم اختيار المراجعة</td><td>هل يشرح السبب كيف قد يساعد التغيير المستخدم؟</td></tr>
+                <tr><td>عدم اليقين المتبقي</td><td>ما لا يزال الفريق لا يعرفه</td><td>هل الفريق صادق بشأن الحدود والأسئلة التالية؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">14.1 الحد الأدنى من أدلة اليوم الرابع</h6>
+          <ul>
+            <li>النموذج الأولي النسخة ١ يمثل تجربة المستخدم الأساسية.</li>
+            <li>سؤال اختبار رئيسي واحد ومهمة واقعية.</li>
+            <li>تفاعل اختبار مع الأقران واحد على الأقل.</li>
+            <li>ملاحظات وتغذية راجعة محددة.</li>
+            <li>مراجعة هادفة واحدة على الأقل.</li>
+            <li>شرح مكتمل لما تغير ولماذا.</li>
+            <li>عدم يقين متبقي أو سؤال تالي واحد.</li>
+          </ul>
+          <div class="original-text" id="d4-log-en"><strong>English:</strong> Test and Improvement Log content.</div>
+        </div>
+
+        <!-- 15. Responsible and Safe Prototyping -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-shield-alt me-2 text-deci-dark"></i> 15. نمذجة أولية مسؤولة وآمنة</h3>
+            <button class="btn-toggle-original" data-target="d4-safe-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>قد يمثل الطلاب أفكاراً مرتبطة بتطوير الويب، الذكاء الاصطناعي، الأنظمة المدمجة، الفن الرقمي، أو الأمن السيبراني. يجب تسمية جميع السلوكيات غير المبنية على أنها محاكاة، ويجب أن يظل جميع الاختبارات آمناً ومحترماً.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المجال</th><th>الحدود المطلوبة</th></tr></thead>
+              <tbody>
+                <tr><td>البيانات الشخصية</td><td>لا تجمع كلمات مرور حقيقية، تفاصيل حسابات، معلومات طبية، عناوين دقيقة، أو بيانات حساسة أخرى</td></tr>
+                <tr><td>الأمن السيبراني</td><td>لا تحاول الوصول إلى حسابات حقيقية، مسح، تجاوز ضوابط، أو تجارب أمنية ضارة. استخدم سيناريوهات خيالية وتدفقات ورقية</td></tr>
+                <tr><td>الذكاء الاصطناعي</td><td>لا تدعي أن النموذج الأولي يستخدم نموذجاً حقيقياً عندما تكون الاستجابات محاكاة. اشرح أن شخصاً أو قاعدة تولد الاستجابة</td></tr>
+                <tr><td>الأنظمة المدمجة</td><td>استخدم الكرتون، الورق، مواد حرفية آمنة، ومدخلات أو مخرجات محاكاة. لا تستخدم كهرباء التيار الكهربائي، أدوات خطيرة، أو أجزاء متحركة غير آمنة</td></tr>
+                <tr><td>الصور والمحتوى</td><td>استخدم مواد أصلية، خيالية، أو مرخصة بشكل مناسب. تجنب الصور النمطية الضارة والادعاءات غير المدعومة</td></tr>
+                <tr><td>إمكانية الوصول</td><td>استخدم تسميات قابلة للقراءة، تباين واضح، لغة مفهومة، وأكثر من اللون وحده للتواصل مع المعنى المهم</td></tr>
+                <tr><td>احترام الاختبار</td><td>اطلب الإذن، ركز التغذية الراجعة على العمل، ولا تحرج أو تضغط على المختبرين</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-safe-en"><strong>English:</strong> Responsible and safe prototyping content.</div>
+        </div>
+
+        <!-- 16. Activities -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-tasks me-2 text-deci-dark"></i> 16. روابط المحتوى بالأنشطة التعليمية</h3>
+            <button class="btn-toggle-original" data-target="d4-activities-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>النشاط</th><th>المحتوى الممارس</th><th>دليل التعلم المتوقع</th></tr></thead>
+              <tbody>
+                <tr><td>مطابقة النماذج الأولية</td><td>تنسيقات النماذج الأولية وملاءمتها لسؤال الاختبار</td><td>تختار الفرق التنسيقات المناسبة وتبرر المطابقة</td></tr>
+                <tr><td>ابنِه في خمس دقائق</td><td>البناء منخفض الدقة والتعلم من خلال النماذج الخام</td><td>يحدد الطلاب ما يكشفه النموذج السريع وما لا يمكنه إظهاره</td></tr>
+                <tr><td>نموذج أولي للتعلم، لا للإبهار</td><td>الغرض، النطاق، أسئلة الاختبار، والتكرار</td><td>يشرح الطلاب لماذا النموذج الخام المركز مناسب</td></tr>
+                <tr><td>سباق النموذج الأولي</td><td>التجربة الأساسية، نطاق يجب إظهاره، والمحاكاة</td><td>ينشئ كل فريق النموذج الأولي النسخة ١</td></tr>
+                <tr><td>اختبار مع ثلاثة أسئلة</td><td>الملاحظة، أدوار المختبرين، والتغذية الراجعة المحددة</td><td>تسجل الفرق ما هو واضح، مربك، والمتوقع بعد ذلك</td></tr>
+                <tr><td>تحسين وتوثيق</td><td>التكرار القائم على الأدلة وتوثيق التعلم</td><td>تنتج الفرق النسخة ٢ وتكمل سجل الاختبار والتحسين</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-activities-en"><strong>English:</strong> Activity connections.</div>
+        </div>
+
+        <!-- 17. Misconceptions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-exclamation-triangle me-2 text-deci-dark"></i> 17. المفاهيم الخاطئة وتصحيحاتها</h3>
+            <button class="btn-toggle-original" data-target="d4-mis-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المفهوم الخاطئ</th><th>التصحيح</th></tr></thead>
+              <tbody>
+                <tr><td>يجب أن يعمل النموذج الأولي كمنتج نهائي</td><td>يحتاج النموذج الأولي فقط إلى تمثيل الجزء المطلوب للتعلم</td></tr>
+                <tr><td>النموذج الأولي الجميل هو تلقائياً نموذج قوي</td><td>التلميع البصري مهم فقط عندما يدعم الوضوح أو سؤال الاختبار</td></tr>
+                <tr><td>يجب أن نظهر كل ميزة مخطط لها</td><td>يجب أن يركز النموذج الأولي على أصغر تجربة هادفة</td></tr>
+                <tr><td>يجب أن نشرح النموذج الأولي قبل أن يستخدمه المختبر</td><td>يمكن للشرح غير الضروري إخفاء الارتباك الذي يحتاج الفريق لاكتشافه</td></tr>
+                <tr><td>إذا كان المختبر مرتبكاً، فقد أخطأ المختبر</td><td>الارتباك هو دليل على الصياغة، الترتيب، الإشارات، أو التوقعات</td></tr>
+                <tr><td>يجب قبول جميع التغذية الراجعة</td><td>تستخدم الفرق الأدلة، حاجة المستخدم، النطاق، السلامة، والأنماط لتقرر ما تعتمده</td></tr>
+                <tr><td>الاقتراح هو نفس الدليل</td><td>الاقتراح هو احتمال واحد؛ يتضمن الدليل السلوك المرصود، الاقتباسات، ونتائج المهام</td></tr>
+                <tr><td>إضافة الميزات هو الطريقة الرئيسية للتحسين</td><td>قد يعني التحسين التبسيط، إعادة الترتيب، إعادة التسمية، أو إزالة أجزاء</td></tr>
+                <tr><td>التكنولوجيا المحاكاة غير صادقة</td><td>المحاكاة مناسبة عندما تكون مسماة بوضوح وتستخدم لاختبار تجربة بأمان</td></tr>
+                <tr><td>النسخة الثانية نهائية</td><td>تسجل النسخة ٢ التعلم الحالي؛ تتطلب المشاريع الحقيقية مزيداً من الاختبار والتكرار</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-mis-en"><strong>English:</strong> Misconceptions.</div>
+        </div>
+
+        <!-- 18. Takeaways -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-key me-2 text-deci-dark"></i> 18. النقاط الرئيسية</h3>
+            <button class="btn-toggle-original" data-target="d4-takeaways-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ul>
+            <li>النموذج الأولي هو أداة تعلم، وليس منتجاً نهائياً.</li>
+            <li>النماذج الأولية منخفضة الدقة سريعة، مركزة، قابلة للتغيير، وصادقة بشأن السلوك المحاكى.</li>
+            <li>أفضل تنسيق للنموذج الأولي هو أبسط تنسيق يمكنه اختبار الافتراض الرئيسي.</li>
+            <li>يجب على الفرق تمثيل تجربة مستخدم أساسية واحدة بدلاً من كل ميزة ممكنة.</li>
+            <li>يجب أن يستخدم الاختبار مهمة واقعية وسؤالاً واضحاً.</li>
+            <li>يراقب المبتكرون ويسجلون الأدلة دون الدفاع عن النموذج الأولي.</li>
+            <li>تشرح التغذية الراجعة المحددة ما هو واضح، مربك، مفقود، أو متوقع بعد ذلك.</li>
+            <li>التكرار يعني الاحتفاظ، التغيير، أو إزالة أجزاء لسبب قائم على الأدلة.</li>
+            <li>يجعل سجل الاختبار والتحسين التعلم مرئياً ليوم العرض.</li>
+          </ul>
+          <div class="original-text" id="d4-takeaways-en"><strong>English:</strong> Key takeaways.</div>
+        </div>
+
+        <!-- 19. Reflection -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-comment-dots me-2 text-deci-dark"></i> 19. أسئلة التأمل</h3>
+            <button class="btn-toggle-original" data-target="d4-reflection-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ol>
+            <li>ماذا كشف النموذج الأولي مما لم يكشفه النقاش وحده؟</li>
+            <li>أي قطعة من الأدلة كان لها التأثير الأكبر على مراجعتنا؟</li>
+            <li>ما هو السؤال المهم حول الفكرة الذي لا يزال دون إجابة؟</li>
+          </ol>
+          <div class="original-text" id="d4-reflection-en"><strong>English:</strong> Reflection questions.</div>
+        </div>
+
+        <!-- 20. Summary -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-file-alt me-2 text-deci-dark"></i> 20. ملخص المحتوى اليومي</h3>
+            <button class="btn-toggle-original" data-target="d4-summary-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <tbody>
+                <tr><th>المهارة الرئيسية</th><td>النماذج الأولية، الاختبار، والتكرار</td></tr>
+                <tr><th>السؤال الجوهري</th><td>كيف يمكن لنموذج أولي بسيط مساعدتنا على التعلم بسرعة؟</td></tr>
+                <tr><th>المفاهيم الأساسية</th><td>الغرض من النموذج الأولي؛ منخفض الدقة؛ تنسيقات النماذج الأولية؛ تجربة المستخدم الأساسية؛ الافتراض الرئيسي؛ أسئلة الاختبار؛ الملاحظة؛ التغذية الراجعة؛ الدليل؛ التكرار؛ المحاكاة المسؤولة</td></tr>
+                <tr><th>الناتج اليومي</th><td>نموذج أولي منخفض الدقة وسجل اختبار وتحسين يسجل سؤال الاختبار، الملاحظات، التغذية الراجعة، التغييرات التي تم إجراؤها، وعدم اليقين المتبقي</td></tr>
+                <tr><th>الاستخدام في الرحلة</th><td>يصبح النموذج الأولي وأدلة التحسين محور قصة يوم العرض في اليوم الخامس. يجب على الفرق إظهار ما صنعوه، ما تعلموه، وكيف تغيرت الفكرة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d4-summary-en"><strong>English:</strong> Daily content summary.</div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function() {
+    // Navigation
+    const navLinks = document.querySelectorAll('[data-page]');
+    const pages = {
+      overview: document.getElementById('page-overview'),
+      'day1-guide': document.getElementById('page-day1-guide'),
+      'day2-guide': document.getElementById('page-day2-guide'),
+      'day3-guide': document.getElementById('page-day3-guide'),
+      'day4-guide': document.getElementById('page-day4-guide')
+    };
+
+    function showPage(pageId) {
+      Object.values(pages).forEach(p => p.classList.remove('active-page'));
+      if (pages[pageId]) pages[pageId].classList.add('active-page');
+      navLinks.forEach(link => link.classList.remove('active'));
+      const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(this.getAttribute('data-page'));
+      });
+    });
+
+    // Toggle Original Text (per section)
+    document.querySelectorAll('.btn-toggle-original[data-target]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const targetDiv = document.getElementById(targetId);
+        if (targetDiv) {
+          targetDiv.classList.toggle('show');
+          const isActive = targetDiv.classList.contains('show');
+          this.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+          this.classList.toggle('active', isActive);
+        }
+      });
+    });
+
+    // Toggle All Originals for Day 4
+    document.getElementById('toggleAllDay4').addEventListener('click', function() {
+      const allOriginals = document.querySelectorAll('#page-day4-guide .original-text');
+      const allButtons = document.querySelectorAll('#page-day4-guide .btn-toggle-original[data-target]');
+      const anyVisible = Array.from(allOriginals).some(el => el.classList.contains('show'));
+      const action = anyVisible ? 'hide' : 'show';
+
+      allOriginals.forEach(el => {
+        if (action === 'show') el.classList.add('show');
+        else el.classList.remove('show');
+      });
+
+      allButtons.forEach(btn => {
+        const isActive = action === 'show';
+        btn.classList.toggle('active', isActive);
+        btn.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+      });
+
+      this.innerHTML = action === 'show' ? '<i class="fas fa-eye-slash me-1"></i> إخفاء النص الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار النص الأصلي';
+    });
+
+    // Language Toggle
+    let currentLang = 'ar';
+    document.getElementById('langToggle').addEventListener('click', function() {
+      currentLang = (currentLang === 'ar') ? 'en' : 'ar';
+      document.getElementById('langLabel').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.lang = currentLang;
+      const link = document.querySelector('link[href*="bootstrap.rtl"]');
+      link.setAttribute('href', currentLang === 'ar' 
+        ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css'
+        : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+    });
+
+    // Default page: day4-guide
+    showPage('day4-guide');
+  })();
+</script>
+</body>
+</html>
