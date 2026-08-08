@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DECI - الدليل التفصيلي لليوم الثالث</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body { background: #f4f7fc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .sidebar { min-height: 100vh; background: #1e2a47; color: #fff; padding-top: 20px; }
+    .sidebar .nav-link { color: #cfd8e6; font-weight: 500; border-radius: 0.5rem; margin-bottom: 5px; padding: 10px 16px; }
+    .sidebar .nav-link:hover, .sidebar .nav-link.active { background: #2a3a5c; color: #fff; }
+    .sidebar .nav-link i { margin-left: 10px; width: 22px; text-align: center; }
+    .main-content { padding: 30px 30px 40px; }
+    .page-section { display: none; animation: fadeIn 0.3s ease-in-out; }
+    .page-section.active-page { display: block; }
+    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+    .card-deci { border: none; border-radius: 20px; box-shadow: 0 8px 28px rgba(0,0,0,0.05); background: #fff; transition: transform 0.15s; }
+    .card-deci:hover { transform: translateY(-2px); }
+    .badge-day { background: #eef3ff; color: #1e2a47; font-weight: 600; padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; }
+    .section-title { font-weight: 700; color: #1e2a47; position: relative; padding-bottom: 12px; }
+    .section-title::after { content: ''; position: absolute; bottom: 0; right: 0; width: 70px; height: 4px; background: #1e2a47; border-radius: 4px; }
+    .lang-toggle { cursor: pointer; background: #2a3a5c; border-radius: 30px; padding: 6px 16px; color: #fff; border: 1px solid #4a5a7c; transition: 0.2s; }
+    .lang-toggle:hover { background: #3a4a6c; }
+    @media (max-width: 768px) { .sidebar { min-height: auto; padding-top: 10px; } .main-content { padding: 20px 15px; } }
+    .original-text { display: none; background: #eef3fa; padding: 15px 20px; border-radius: 12px; margin-top: 12px; border: 1px dashed #bac8dc; font-size: 0.95rem; color: #2c3e5a; line-height: 1.7; }
+    .original-text.show { display: block; }
+    .btn-toggle-original { border-radius: 50px; font-size: 0.75rem; padding: 4px 14px; border: 1px solid #1e2a47; color: #1e2a47; background: transparent; transition: 0.2s; white-space: nowrap; }
+    .btn-toggle-original:hover, .btn-toggle-original.active { background: #1e2a47; color: #fff; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 15px; }
+    .table-deci { border-collapse: separate; border-spacing: 0; width: 100%; }
+    .table-deci th { background: #eef3ff; color: #1e2a47; font-weight: 600; }
+    .table-deci td, .table-deci th { padding: 12px 15px; border: 1px solid #e2e8f0; }
+    .table-deci tr:hover { background: #f8faff; }
+    .bg-soft-primary { background: #eef3ff; }
+    .score-badge { font-size: 0.75rem; padding: 2px 12px; border-radius: 30px; }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 sidebar d-md-block">
+      <div class="text-center py-3">
+        <h5 class="fw-bold text-white"><i class="fas fa-campground me-2"></i>DECI</h5>
+        <span class="badge bg-warning text-dark">المستوى الثالث</span>
+      </div>
+      <hr class="bg-secondary opacity-25" />
+      <ul class="nav flex-column px-2">
+        <li class="nav-item"><a class="nav-link" data-page="overview" href="#"><i class="fas fa-home"></i> نظرة عامة</a></li>
+       <!-- <li class="nav-item"><a class="nav-link" data-page="day1-guide" href="#"><i class="fas fa-sun"></i> اليوم الأول - دليل</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="day2-guide" href="#"><i class="fas fa-users"></i> اليوم الثاني - دليل</a></li> -->
+        <li class="nav-item"><a class="nav-link active" data-page="day3-guide" href="#"><i class="fas fa-lightbulb"></i> اليوم الثالث - دليل</a></li>
+      </ul>
+      <hr class="bg-secondary opacity-25" />
+      <div class="px-3">
+        <div class="lang-toggle d-inline-flex align-items-center" id="langToggle">
+          <i class="fas fa-globe me-1"></i> <span id="langLabel">English</span>
+        </div>
+      </div>
+      <div class="px-3 small text-secondary mt-3">
+        <i class="fas fa-calendar-alt me-1"></i> النسخة 1.0 · أغسطس 2026
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 col-lg-10 main-content">
+
+      <!-- ========== OVERVIEW ========== -->
+      <section id="page-overview" class="page-section">
+        <h1 class="section-title">المخطط التفصيلي للمستوى الثالث</h1>
+        <div class="card-deci card p-4 mb-4">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-8">
+              <h3 class="fw-bold text-deci-dark">من المشكلة إلى الإمكانية</h3>
+              <p class="lead fs-6 text-secondary">ريادة الأعمال من خلال الألعاب، اكتشاف المستخدم، والنماذج الأولية</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="day-icon mx-auto mb-2" style="width:48px;height:48px;background:#eef3ff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;">3</div>
+              <span class="fw-semibold">اليوم الثالث</span>
+              <div class="small text-secondary">خلق القيمة</div>
+            </div>
+          </div>
+        </div>
+        <p class="text-secondary">اختر <strong>اليوم الثالث - دليل</strong> من القائمة الجانبية لعرض الشرح الكامل.</p>
+      </section>
+
+      <!-- ========== DAY 1 & 2 (مختصر) ========== -->
+      <section id="page-day1-guide" class="page-section">
+        <h1 class="section-title"><i class="fas fa-sun me-2"></i> اليوم الأول: اكتشاف الفرصة</h1>
+        <p class="text-secondary">الدليل التفصيلي لليوم الأول موجود في الصفحة السابقة.</p>
+        <div class="card-deci card p-4"><p>يمكنك العودة إلى اليوم الأول من القائمة الجانبية.</p></div>
+      </section>
+      <section id="page-day2-guide" class="page-section">
+        <h1 class="section-title"><i class="fas fa-users me-2"></i> اليوم الثاني: فهم الأشخاص</h1>
+        <p class="text-secondary">الدليل التفصيلي لليوم الثاني موجود في الصفحة السابقة.</p>
+        <div class="card-deci card p-4"><p>يمكنك العودة إلى اليوم الثاني من القائمة الجانبية.</p></div>
+      </section>
+
+      <!-- ========== DAY 3 FULL GUIDE ========== -->
+      <section id="page-day3-guide" class="page-section active-page">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+          <h1 class="section-title"><i class="fas fa-lightbulb me-2"></i> اليوم الثالث: خلق القيمة</h1>
+          <div class="d-flex gap-2">
+            <button class="btn-toggle-original" id="toggleAllDay3"><i class="fas fa-eye me-1"></i> إظهار النص الأصلي</button>
+          </div>
+        </div>
+        <p class="text-secondary mb-4">دليل شامل يشرح كل جوانب اليوم الثالث من المخيم، مع إمكانية عرض النص الإنجليزي الأصلي أسفل كل قسم.</p>
+
+        <!-- 1. Day Overview -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-info-circle me-2 text-deci-dark"></i> 1. نظرة عامة على اليوم</h3>
+            <button class="btn-toggle-original" data-target="d3-overview-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>ينقل اليوم الثالث الفرق من فهم المستخدم إلى إنشاء حلول ممكنة. يولد الطلاب أولاً العديد من الأفكار دون نقد فوري، ثم يستخدمون العدسات التقنية ومعايير القرار الواضحة لتحسينها ومقارنتها. بنهاية اليوم، تختار كل فريق فكرة واحدة، وتشرح القيمة التي تخلقها للمستخدم المحدد، وتسجل الافتراض الرئيسي الذي يجب اختباره من خلال نموذج أولي في اليوم الرابع.</p>
+          <div class="original-text" id="d3-overview-en">
+            <strong>English:</strong> Day 3 moves teams from understanding the user to creating possible solutions. Students first generate many ideas without immediate criticism, then use technical lenses and clear decision criteria to improve and compare them. By the end of the day, each team selects one idea, explains the value it creates for the named user and records the main assumption that must be tested through a prototype on Day 4.
+          </div>
+          <div class="row mt-3 g-3">
+            <div class="col-md-6">
+              <h6 class="fw-bold">السؤال الجوهري</h6>
+              <p class="bg-soft-primary p-3 rounded">كيف يمكننا إنشاء فكرة مفيدة تستحق الاختيار؟</p>
+              <div class="original-text" id="d3-eq-en"><strong>English:</strong> How can we create an idea that is useful and worth choosing?</div>
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold">الغرض من اليوم</h6>
+              <p class="bg-soft-primary p-3 rounded">يتعلم الطلاب أن فكرة المشروع القوية ليست مجرد إبداع أو تقنية. يجب أن تستجيب لحاجة مستخدم حقيقية، وتخلق فائدة واضحة، وتكون قابلة للاختبار بالوقت والمواد المتاحة.</p>
+              <div class="original-text" id="d3-purpose-en"><strong>English:</strong> Students learn that a strong project idea is not simply creative or technical. It must respond to a real user need, create a clear benefit and be possible to test with the available time and materials.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Learning Objectives -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-bullseye me-2 text-deci-dark"></i> 2. أهداف التعلم</h3>
+            <button class="btn-toggle-original" data-target="d3-obj-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>بنهاية اليوم، سيكون الطلاب قادرين على:</p>
+          <ol>
+            <li>توليد عدة حلول ممكنة لحاجة مستخدم واحدة قائمة على الأدلة.</li>
+            <li>شرح الفرق بين الميزة، الفائدة، والقيمة المخلوقة للمستخدم.</li>
+            <li>مقارنة الأفكار باستخدام الفائدة، الجدوى، الملاءمة لحاجة المستخدم، وقابلية الاختبار.</li>
+            <li>كتابة عرض قيمة بسيط وتحديد افتراض رئيسي واحد للاختبار.</li>
+          </ol>
+          <div class="original-text" id="d3-obj-en">
+            <strong>English:</strong><br>
+            By the end of the day, students will be able to:<br>
+            1. Generate several possible solutions for one evidence-based user need.<br>
+            2. Explain the difference between a feature, a benefit and the value created for a user.<br>
+            3. Compare ideas using usefulness, feasibility, user-need fit and testability.<br>
+            4. Write a simple value proposition and identify one main assumption to test.
+          </div>
+        </div>
+
+        <!-- 3. Content Map -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-map me-2 text-deci-dark"></i> 3. خريطة المحتوى</h3>
+            <button class="btn-toggle-original" data-target="d3-map-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مجال المحتوى</th><th>التركيز الأساسي</th><th>التطبيق في اليوم</th></tr></thead>
+              <tbody>
+                <tr><td>توليد الأفكار</td><td>التفكير التباعدي قبل الاختيار</td><td>تنتج الفرق العديد من الاحتمالات من خلال تحديات مرحة ومحددة زمنياً</td></tr>
+                <tr><td>الإبداع التعاوني</td><td>البناء على الأفكار بدلاً من الحكم عليها مبكراً</td><td>يطوّر الطلاب أفكار بعضهم البعض خلال سباق الأفكار</td></tr>
+                <tr><td>العدسات التقنية</td><td>استخدام تعلم DECI كمصدر للإمكانيات</td><td>تستكشف الفرق كيف يمكن للويب، الذكاء الاصطناعي، الأنظمة المدمجة، الفن الرقمي، أو الأمن السيبراني تقوية الفكرة</td></tr>
+                <tr><td>من الميزة إلى القيمة</td><td>الميزة، الفائدة، والنتيجة للمستخدم</td><td>تشرح الفرق ما يفعله الحل ولماذا يهم ذلك المستخدم</td></tr>
+                <tr><td>اختيار الفكرة</td><td>الفائدة، الجدوى، الملاءمة، وقابلية الاختبار</td><td>تقارن الفرق الأفكار القوية قبل اختيار واحدة</td></tr>
+                <tr><td>عرض القيمة</td><td>المستخدم، الحاجة، الحل، والفائدة</td><td>تكتب الفرق الوعد الواضح الذي سيوجه نموذج اليوم الرابع</td></tr>
+                <tr><td>الافتراض</td><td>ما يجب أن يكون صحيحاً لكي تعمل الفكرة</td><td>تختار الفرق افتراضاً مهماً واحداً لاختباره من خلال النموذج الأولي</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d3-map-en"><strong>English:</strong> Content Map table.</div>
+        </div>
+
+        <!-- 4. From User Need to Solutions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-arrow-right me-2 text-deci-dark"></i> 4. من حاجة المستخدم إلى الحلول الممكنة</h3>
+            <button class="btn-toggle-original" data-target="d3-need2sol-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>تعطي بطاقة حاجة المستخدم من اليوم الثاني الفريق اتجاهاً واضحاً، لكن لا ينبغي أن تفرض حلاً واحداً. بيان الحاجة المفيد يترك مجالاً لعدة أفكار محتملة. يبدأ اليوم الثالث بتوسيع عدد وتنوع الخيارات قبل أن يقرر الفريق ما سيبنيه.</p>
+          <div class="p-3 bg-light rounded"><strong>المبدأ الأساسي:</strong> حاجة واحدة يمكن أن يكون لها العديد من الحلول الممكنة. ولّد على نطاق واسع قبل أن تختار بعناية.</div>
+          <h6 class="fw-bold mt-3">4.1 الحاجة، الحل، وفكرة المشروع</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>العنصر</th><th>المعنى</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>حاجة المستخدم</td><td>النتيجة المفيدة التي يحاول المستخدم تحقيقها</td><td>يحتاج الطلاب الجدد إلى طريقة للعثور على معلومات نادي كاملة وحالية</td></tr>
+                <tr><td>حل ممكن</td><td>استجابة محتملة واحدة للحاجة</td><td>صفحة معلومات نادي واحدة، لوحة إعلانات موجهة، روبوت محادثة، أو مساعد تسجيل</td></tr>
+                <tr><td>فكرة المشروع</td><td>حل مختار موصوف بوضوح كافٍ للشرح والنمذجة الأولية</td><td>دليل نادي بسيط متوافق مع الجوال يساعد الطلاب الجدد على مقارنة الخيارات وتأكيد خطوات التسجيل</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">4.2 بيان الحاجة الجيد يبقي الحل مفتوحاً</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>البيان</th><th>التأثير على الإبداع</th></tr></thead>
+              <tbody>
+                <tr><td>"يحتاج الطلاب إلى تطبيق مع إشعارات."</td><td>ضيق جداً: يختار بالفعل المنتج والميزة</td></tr>
+                <tr><td>"يحتاج الطلاب إلى طريقة لتلقي تحديثات مواعيد نهائية موثوقة في الوقت المناسب."</td><td>مفتوح: يمكن للفرق النظر في عدة استجابات رقمية وغير رقمية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d3-need2sol-en"><strong>English:</strong> From user need to possible solutions content.</div>
+        </div>
+
+        <!-- 5. Divergent and Convergent Thinking -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-expand-arrows-alt me-2 text-deci-dark"></i> 5. التفكير التباعدي والتقاربي</h3>
+            <button class="btn-toggle-original" data-target="d3-divconv-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يستخدم حل المشكلات الإبداعي وضعين مختلفين. يوسع التفكير التباعدي الخيارات. يقارن التفكير التقاربي الخيارات ويختار اتجاهاً واحداً. الفرق القوية لا تخلط بين الاثنين في وقت مبكر جداً.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الوضع</th><th>الغرض</th><th>سلوك مفيد</th><th>الخطر الشائع</th></tr></thead>
+              <tbody>
+                <tr><td>التفكير التباعدي</td><td>إنشاء العديد من الاحتمالات المختلفة</td><td>قل "نعم، و"، ادمج الأفكار، بالغ، ارسم، وأجل الحكم</td><td>رفض الأفكار غير العادية قبل استكشاف أجزائها المفيدة</td></tr>
+                <tr><td>التفكير التقاربي</td><td>اختيار الفكرة التي تناسب الأدلة والقيود بشكل أفضل</td><td>استخدم معايير متفق عليها، اشرح القرارات، وحسّن الفكرة المختارة</td><td>اختيار الفكرة الأكثر إثارة فقط دون التحقق من الفائدة أو الجدوى</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">5.1 لماذا تأتي الكمية قبل الجودة</h6>
+          <p>غالباً ما تكون الفكرة الأولى مألوفة، واضحة، أو مبنية على عادات الفريق الحالية. إنتاج عدة خيارات يزيد من فرصة العثور على اتجاه أكثر فائدة. الكمية لا تحل محل الجودة؛ بل تخلق مجموعة أقوى من الخيارات للتقييم اللاحق.</p>
+          <h6 class="fw-bold mt-3">5.2 قواعد مرحلة توليد الأفكار</h6>
+          <ul>
+            <li>ركز على مستخدم محدد وحاجة مستخدم واحدة.</li>
+            <li>ولّد قبل أن تقيّم.</li>
+            <li>ابنِ على فكرة شخص آخر بدلاً من التنافس على الملكية.</li>
+            <li>استخدم الكلمات، الرسومات السريعة، المخططات، أو تمثيل الأدوار القصير للتعبير عن فكرة.</li>
+            <li>اسمح بالأفكار غير العادية لأنه قد يتم إنقاذ عنصر مفيد منها.</li>
+            <li>لا تطلب التكنولوجيا في كل فكرة.</li>
+            <li>أبقِ الأفكار آمنة، محترمة، ومناسبة لسياق المخيم.</li>
+          </ul>
+          <p><strong>لغة فريق مفيدة:</strong> نعم، و... / ماذا لو... / يمكننا دمج... / نسخة أخرى قد...</p>
+          <div class="original-text" id="d3-divconv-en"><strong>English:</strong> Divergent and convergent thinking content.</div>
+        </div>
+
+        <!-- 6. Playful Constraints -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-gamepad me-2 text-deci-dark"></i> 6. استخدام القيود المرحة لإنشاء الأفكار</h3>
+            <button class="btn-toggle-original" data-target="d3-playful-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يمكن أن يجعل القيد الإبداع أسهل بإعطاء الفريق قاعدة مؤقتة أو وجهة نظر غير عادية. الهدف ليس الاحتفاظ بكل فكرة غير عادية. الهدف هو كسر التفكير المتوقع واكتشاف عناصر مفيدة يمكن تكييفها.</p>
+          <h6 class="fw-bold mt-3">6.1 أفكار مستحيلة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>فكرة مستحيلة</th><th>عنصر مفيد للإنقاذ</th><th>اتجاه واقعي محتمل</th></tr></thead>
+              <tbody>
+                <tr><td>حقيبة مدرسية تتحدث وتكمل كل مهمة</td><td>تذكير في اللحظة المناسبة</td><td>نظام تذكير بصري أو صوتي بسيط للمهام المهمة</td></tr>
+                <tr><td>روبوت يتبع كل طالب ويطفئ الأضواء غير المستخدمة</td><td>كشف تلقائي وعمل في الوقت المناسب</td><td>مفهوم حساس أو قائمة مراجعة للخروج من الفصل تشير عند بقاء الأضواء مضاءة</td></tr>
+                <tr><td>درع سحري يحجب كل رابط خطير</td><td>تحذير قبل أن يفتح المستخدم أو يشارك رابطاً</td><td>دليل فحص الروابط، مفهوم تحذير المتصفح، أو أداة توعية</td></tr>
+                <tr><td>دليل نادي يعرف كل طالب تماماً</td><td>اقتراحات مخصصة بناءً على الاهتمامات</td><td>اختبار تفضيلات قصير يوصي بأندية مناسبة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">6.2 سباق الأفكار</h6>
+          <p>في سباق الأفكار، يضيف الطلاب إلى أفكار بعضهم البعض في جولات زمنية. الغرض هو تقليل ضغط الملكية وإظهار أن الأفكار يمكن أن تنمو من خلال التعاون. يجب أن يجعل كل مساهمة الفكرة أوضح، أكثر فائدة، أو أسهل في الاختبار.</p>
+          <div class="row text-center g-2 mt-2">
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">١. ابدأ: اكتب أو ارسم حلاً واحداً</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٢. مرّر: أعط الفكرة لطالب آخر</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٣. ابنِ: أضف ميزة أو فائدة أو نسخة أبسط</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٤. ادمج: اربط عناصر مفيدة من أفكار مختلفة</span></div>
+            <div class="col-auto"><i class="fas fa-arrow-left text-secondary"></i></div>
+            <div class="col"><span class="badge bg-secondary bg-opacity-25 text-dark p-2 w-100">٥. راجع: حدد أقوى الاحتمالات</span></div>
+          </div>
+          <div class="original-text" id="d3-playful-en"><strong>English:</strong> Playful constraints content.</div>
+        </div>
+
+        <!-- 7. Technical Lenses -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-microchip me-2 text-deci-dark"></i> 7. العدسات التقنية: استخدام التكنولوجيا بهدف</h3>
+            <button class="btn-toggle-original" data-target="d3-tech-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>لدى طلاب DECI خبرة في مجالات تقنية مختلفة. تساعد العدسة التقنية الفريق على التساؤل كيف يمكن لهذه المعرفة أن تدعم حاجة المستخدم. ليس مطلوباً استخدام كل مسار، ولا يجب أن تحل محل حاجة المستخدم. يجب أن تخدم التكنولوجيا القيمة، لا أن تصبح القيمة بحد ذاتها.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>العدسة التقنية</th><th>أسئلة لطرحها</th><th>المساهمة المحتملة</th></tr></thead>
+              <tbody>
+                <tr><td>تطوير الويب</td><td>هل يمكن لصفحة، نموذج، لوحة معلومات، أو تدفق مستخدم بسيط أن يسهل المعلومات أو الإجراء؟</td><td>صفحة هبوط، مركز معلومات، تدفق حجز، لوحة مهام، أو واجهة ورقية</td></tr>
+                <tr><td>الذكاء الاصطناعي والبيانات</td><td>هل يمكن لتوصية، تصنيف، نمط، أو استجابة موجهة أن تساعد المستخدم على اتخاذ قرار؟</td><td>تدفق توصية، شجرة قرار، قصة روبوت محادثة، اقتراح مدعوم بالبيانات، أو استجابة ذكاء اصطناعي محاكاة</td></tr>
+                <tr><td>الأنظمة المدمجة</td><td>هل يمكن للاستشعار، المراقبة، التنبيه، أو التفاعل الفيزيائي أن يساعد؟</td><td>مفهوم حساس، رسم إدخال-إخراج، رسم جهاز، تسلسل تنبيه، أو قصة أتمتة</td></tr>
+                <tr><td>الفن الرقمي</td><td>هل يمكن للتواصل البصري الأقوى، الهوية، أو سرد القصص أن يحسّن التجربة؟</td><td>تصميم واجهة، مفهوم حملة، تعليمات بصرية، أيقونات، قصة رسوم متحركة، أو هوية مشروع</td></tr>
+                <tr><td>الأمن السيبراني</td><td>كيف يمكن للفكرة حماية المعلومات، الوصول، الخصوصية، والسلوك الآمن؟</td><td>تدفق تسجيل دخول آمن، خيارات خصوصية، رسائل تحذير، قائمة مراجعة للاستخدام الآمن، أو رسم تحكم بالمخاطر</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">7.1 مستويات التكامل التقني</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المستوى</th><th>الوصف</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>لا يوجد عنصر تقني</td><td>قد تحل خدمة، عملية، أو حملة الحاجة دون ميزة رقمية</td><td>محطة تسجيل نادي أوضح مع توجيه بصري</td></tr>
+                <tr><td>مفهوم تقني</td><td>يشرح الفريق كيف يمكن للتكنولوجيا دعم الفكرة دون بنائها</td><td>رسم حساس يوضح كيف سيتم تشغيل التنبيه</td></tr>
+                <tr><td>تجربة تقنية محاكاة</td><td>يمثل الفريق السلوك باستخدام شاشات ورقية، بطاقات، أو تمثيل أدوار</td><td>طالب واحد يعمل كروبوت محادثة بينما يتبع المستخدم تدفق المحادثة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="p-3 bg-light rounded"><strong>حدود النطاق:</strong> لا يتطلب المستوى الثالث برمجة، أجهزة عاملة، ذكاء اصطناعي حي، حسابات حقيقية، أو منتج وظيفي تقنياً.</div>
+          <div class="original-text" id="d3-tech-en"><strong>English:</strong> Technical lenses content.</div>
+        </div>
+
+        <!-- 8. Feature to Benefit to Value -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-chart-line me-2 text-deci-dark"></i> 8. من الميزة إلى الفائدة إلى القيمة</h3>
+            <button class="btn-toggle-original" data-target="d3-fbv-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>غالباً ما تصف الفرق الفكرة بسرد الميزات. الميزة تشرح ما يحتويه الحل أو ما يفعله. الفائدة تشرح كيف تساعد هذه الميزة المستخدم. القيمة تشرح لماذا تهم الفائدة في وضع المستخدم.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الميزة</th><th>الفائدة للمستخدم</th><th>القيمة للمستخدم</th></tr></thead>
+              <tbody>
+                <tr><td>صفحة واحدة تحتوي على جميع تفاصيل النادي</td><td>يتحقق الطالب من مصادر أقل</td><td>يمكن للطالب اتخاذ قرار بارتباك أقل ومخاطر أقل لتفويت موعد نهائي</td></tr>
+                <tr><td>رمز تحذير بجانب رابط غير مألوف</td><td>يتوقف الطالب قبل فتحه</td><td>يمكن للطالب اتخاذ قرار أكثر أماناً قبل حدوث ضرر محتمل</td></tr>
+                <tr><td>مؤشر حالة إضاءة الفصل</td><td>يمكن للمجموعة ملاحظة بقاء الأضواء مضاءة</td><td>يمكن للطلاب تقليل استخدام الطاقة غير الضروري دون الاعتماد على شخص واحد ليتذكر</td></tr>
+                <tr><td>عرض واجبات ملون بالألوان</td><td>يرى الطالب المهام العاجلة بسرعة</td><td>يمكن للطالب تحديد الأولويات وتقليل المهام الفائتة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">8.1 أسئلة الميزة-الفائدة-القيمة</h6>
+          <ul>
+            <li><strong>ماذا تفعل الفكرة؟</strong> حدد الميزة أو الوظيفة الرئيسية.</li>
+            <li><strong>ما الذي يصبح أسهل، أسرع، أوضح، أكثر أماناً، أو أكثر متعة؟</strong> حدد الفائدة المباشرة.</li>
+            <li><strong>لماذا تهم هذه الفائدة للمستخدم المحدد في الموقف المختار؟</strong> اربط الفائدة بحاجة المستخدم والدليل.</li>
+          </ul>
+          <h6 class="fw-bold mt-3">8.2 تجنب قوائم الميزات دون اتصال بالمستخدم</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>وصف ضعيف</th><th>وصف أقوى مركز على القيمة</th></tr></thead>
+              <tbody>
+                <tr><td>"فكرتنا تحتوي على إشعارات، ألوان، وروبوت محادثة."</td><td>"فكرتنا تعطي الطلاب مكاناً واضحاً واحداً لتأكيد المواعيد النهائية المتغيرة، مما يساعدهم على التصرف قبل أن يتأخر العمل."</td></tr>
+                <tr><td>"الجهاز يحتوي على حساس وإنذار."</td><td>"يلاحظ الحساس عندما تكون المساحة المشتركة فارغة ويذكر المجموعة الأخيرة بإطفاء الأضواء غير المستخدمة."</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d3-fbv-en"><strong>English:</strong> Feature to benefit to value content.</div>
+        </div>
+
+        <!-- 9. Comparing Ideas -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-balance-scale me-2 text-deci-dark"></i> 9. مقارنة الأفكار: هل ستساعد؟</h3>
+            <button class="btn-toggle-original" data-target="d3-compare-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>بعد توليد وتحسين عدة أفكار، تقارن الفرق أقوى الخيارات. الهدف ليس إثبات أن فكرة طالب واحد هي الأفضل. الهدف هو اختيار الاتجاه الذي يخلق أوضح قيمة ويمكن استكشافه من خلال نموذج أولي بسيط.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المعيار</th><th>سؤال توجيهي</th><th>علامة تحذير</th></tr></thead>
+              <tbody>
+                <tr><td>الفائدة</td><td>هل ستحدث الفكرة فرقاً هادفاً للمستخدم؟</td><td>الفكرة مسلية لكنها لا تحسّن وضع المستخدم</td></tr>
+                <tr><td>ملاءمة حاجة المستخدم</td><td>هل تستجيب الفكرة مباشرة لبطاقة حاجة المستخدم؟</td><td>تحل الفكرة مشكلة مختلفة أو تخدم مستخدماً مختلفاً</td></tr>
+                <tr><td>الجدوى</td><td>هل يمكن للفريق شرح وتمثيل الفكرة بالوقت، المهارات، والمواد المتاحة؟</td><td>تعتمد الفكرة على أنظمة متقدمة، ميزانيات كبيرة، أو أذونات لا يمتلكها الفريق</td></tr>
+                <tr><td>قابلية الاختبار</td><td>هل يمكن لنموذج ورقي، قصة مصورة، تمثيل دور، أو رسم بياني أن يساعد الفريق على تعلم شيء مهم؟</td><td>الفكرة واسعة جداً لإظهار رحلة مستخدم أو تلقي تغذية راجعة مفيدة</td></tr>
+                <tr><td>السلامة والمسؤولية</td><td>هل الفكرة محترمة، آمنة، ومناسبة؟</td><td>تجميع بيانات حساسة، تسبب ضرراً، أو تشجع سلوكاً غير آمن</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">9.1 مقياس مقارنة بسيط</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>النتيجة</th><th>المعنى</th></tr></thead>
+              <tbody>
+                <tr><td><span class="badge bg-danger">١ - ضعيف</span></td><td>لا تستوفي الفكرة المعيار أو تتطلب تغييراً كبيراً</td></tr>
+                <tr><td><span class="badge bg-warning text-dark">٢ - في طور التطوير</span></td><td>تستوفي الفكرة المعيار جزئياً لكن تبقى أسئلة مهمة</td></tr>
+                <tr><td><span class="badge bg-success">٣ - قوي</span></td><td>تستوفي الفكرة المعيار بوضوح وجاهزة لمزيد من التطوير</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">9.2 الاختيار يتبعه التحسين</h6>
+          <p>لا تحتاج الفكرة المختارة إلى أن تكون مثالية. يمكن للفرق دمج عنصر مفيد من فكرة أخرى، تبسيط ميزة غير واقعية، أو تغيير النهج التقني قبل إكمال بطاقة فكرة المشروع.</p>
+          <div class="original-text" id="d3-compare-en"><strong>English:</strong> Comparing ideas content.</div>
+        </div>
+
+        <!-- 10. Value Proposition -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-tag me-2 text-deci-dark"></i> 10. كتابة عرض قيمة بسيط</h3>
+            <button class="btn-toggle-original" data-target="d3-vp-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="p-3 bg-soft-primary rounded mb-3">
+            <strong>قالب عرض القيمة:</strong><br>
+            لـ [مستخدم محدد] الذي يحتاج [الحاجة]، فكرتنا هي [الحل] الذي يساعدهم على [الفائدة الرئيسية].
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الجزء</th><th>سؤال توجيهي</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>المستخدم</td><td>من يعاني من الحاجة المختارة؟</td><td>الطلاب الجدد المهتمون بالانضمام إلى الأندية المدرسية</td></tr>
+                <tr><td>الحاجة</td><td>ما النتيجة المفيدة التي يحاولون تحقيقها؟</td><td>العثور على معلومات نادي كاملة وحالية قبل إغلاق التسجيل</td></tr>
+                <tr><td>الحل</td><td>ما هي فكرة المشروع المختارة؟</td><td>دليل نادي متوافق مع الجوال مع بطاقات مقارنة وخطوات تسجيل واضحة</td></tr>
+                <tr><td>الفائدة</td><td>كيف ستتحسن تجربة المستخدم؟</td><td>يمكن للطلاب مقارنة الخيارات والتصرف دون البحث في عدة مصادر</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">10.2 أمثلة قوية وضعيفة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>عرض القيمة</th><th>التقييم</th></tr></thead>
+              <tbody>
+                <tr><td>"فكرتنا هي منصة ذكية تستخدم الذكاء الاصطناعي والعديد من الميزات."</td><td>ضعيف: المستخدم، الحاجة، والفائدة غير واضحة، والتكنولوجيا مستخدمة كملصق</td></tr>
+                <tr><td>"للطلاب الجدد الذين يحتاجون إلى معلومات نادي موثوقة، يجمع دليلنا المتوافق مع الجوال الخيارات الحالية وخطوات التسجيل معاً حتى يتمكنوا من الاختيار والتسجيل بارتباك أقل."</td><td>قوي: يحدد المستخدم، الحاجة، الحل، والفائدة</td></tr>
+                <tr><td>"سنصنع أفضل تطبيق للجميع."</td><td>ضعيف: المستخدم واسع جداً والادعاء غير مدعوم</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d3-vp-en"><strong>English:</strong> Value proposition content.</div>
+        </div>
+
+        <!-- 11. Assumptions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-question me-2 text-deci-dark"></i> 11. الافتراضات: ما يجب أن يكون صحيحاً؟</h3>
+            <button class="btn-toggle-original" data-target="d3-assumptions-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>تحتوي كل فكرة جديدة على افتراضات. الافتراض هو شيء يعتقد الفريق أنه قد يكون صحيحاً لكن لم يؤكده بعد. تحديد الافتراضات يساعد الفريق على تحديد ما يجب أن يستكشفه نموذج اليوم الرابع.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>نوع الافتراض</th><th>السؤال</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>افتراض المستخدم</td><td>هل يعاني المستخدم المحدد حقاً من هذه الحاجة؟</td><td>يواجه الطلاب الجدد صعوبة في العثور على معلومات النادي الحالية</td></tr>
+                <tr><td>افتراض القيمة</td><td>هل تهم الفائدة المقترحة للمستخدم؟</td><td>سيقدّر الطلاب مقارنة الخيارات في مكان واحد</td></tr>
+                <tr><td>افتراض قابلية الاستخدام</td><td>هل سيفهم المستخدم كيفية استخدام الفكرة؟</td><td>سيتعرف الطلاب على بطاقات المقارنة وخطوات التسجيل</td></tr>
+                <tr><td>افتراض السلوك</td><td>هل سيتخذ المستخدم الإجراء المتوقع؟</td><td>سيتحقق الطلاب من الدليل قبل سؤال عدة أشخاص</td></tr>
+                <tr><td>افتراض تقني</td><td>هل يمكن للسلوك التقني المقترح أن يعمل في نسخة مستقبلية واقعية؟</td><td>يمكن للنظام استلام معلومات محدثة من قادة الأندية</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">11.1 الافتراض الرئيسي للاختبار</h6>
+          <p>في المستوى الثالث، يختار الفريق افتراضاً مهماً واحداً يمكن استكشافه من خلال نموذج أولي منخفض الدقة. أفضل اختيار هو عادة افتراض حول ما إذا كان المستخدم يفهم الفكرة، يقدر الفائدة، أو يمكنه إكمال الرحلة المقصودة.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>واسع جداً للاختبار</th><th>افتراض أكثر قابلية للاختبار</th></tr></thead>
+              <tbody>
+                <tr><td>"مشروعنا سيكون ناجحاً."</td><td>يمكن للطالب الجديد استخدام النموذج الأولي للعثور على نادٍ مناسب وتحديد خطوة التسجيل التالية.</td></tr>
+                <tr><td>"سيعمل الذكاء الاصطناعي على تحسين التجربة."</td><td>يفهم المستخدمون ويثقون في السبب المعروض بجانب توصية محاكاة.</td></tr>
+                <tr><td>"سيوفر الجهاز الطاقة في كل مكان."</td><td>يلاحظ المستخدمون التنبيه ويفهمون الإجراء الذي يطلب منهم النموذج الأولي اتخاذه.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="p-3 bg-light rounded"><strong>ارتباط اليوم الرابع:</strong> يُبنى النموذج الأولي للتعلم عن الافتراض الرئيسي، وليس لعرض كل ميزة ممكنة.</div>
+          <div class="original-text" id="d3-assumptions-en"><strong>English:</strong> Assumptions content.</div>
+        </div>
+
+        <!-- 12. Project Idea Card -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-id-card me-2 text-deci-dark"></i> 12. بطاقة فكرة المشروع: المعيار المحتوى</h3>
+            <button class="btn-toggle-original" data-target="d3-card-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>حقل البطاقة</th><th>ما تسجله الفرق</th><th>فحص الجودة</th></tr></thead>
+              <tbody>
+                <tr><td>اسم فكرة المشروع</td><td>اسم عمل قصير للمفهوم</td><td>هل هو واضح ومناسب دون ادعاءات مبالغ فيها؟</td></tr>
+                <tr><td>المستخدم الأساسي</td><td>المستخدم المحدد من بطاقة حاجة المستخدم</td><td>هل يتطابق مع أدلة اليوم الثاني؟</td></tr>
+                <tr><td>حاجة المستخدم</td><td>النتيجة المفيدة التي يعالجها الفريق</td><td>هل هي مكتوبة دون وصف الحل النهائي؟</td></tr>
+                <tr><td>الحل المختار</td><td>وصف موجز للفكرة المقترحة</td><td>هل يمكن لشخص آخر فهم ما هي الفكرة؟</td></tr>
+                <tr><td>الميزة أو التجربة الرئيسية</td><td>الإجراء المركزي، التدفق، أو التفاعل الذي سيمثله الفريق</td><td>هل النطاق صغير بما يكفي لنموذج أولي منخفض الدقة؟</td></tr>
+                <tr><td>فائدة المستخدم</td><td>ما يصبح أسهل، أوضح، أكثر أماناً، أسرع، أو أكثر فائدة</td><td>هل الفائدة هادفة للمستخدم المحدد؟</td></tr>
+                <tr><td>الاتصال التقني</td><td>مساهمة مسار DECI اختيارية أو سلوك تقني محاكى</td><td>هل يخدم القيمة بدلاً من تشتيت الانتباه عنها؟</td></tr>
+                <tr><td>سبب الاختيار</td><td>لماذا اختار الفريق هذه الفكرة باستخدام معايير المقارنة</td><td>هل يشير الشرح إلى الفائدة، الملاءمة، الجدوى، أو قابلية الاختبار؟</td></tr>
+                <tr><td>عرض القيمة البسيط</td><td>المستخدم، الحاجة، الحل، والفائدة الرئيسية في بيان واحد واضح</td><td>هل يمكن لشخص ما فهم القيمة دون شرح إضافي؟</td></tr>
+                <tr><td>الافتراض الرئيسي للاختبار</td><td>اعتقاد مهم يجب أن يستكشفه النموذج الأولي</td><td>هل يمكن لاختبار اليوم الرابع إنتاج أدلة مفيدة حوله؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">12.1 معايير جودة فكرة المشروع</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المعيار</th><th>دليل قوي على الجودة</th></tr></thead>
+              <tbody>
+                <tr><td>متمركزة حول المستخدم</td><td>تستجيب الفكرة للمستخدم المحدد والحاجة القائمة على الأدلة</td></tr>
+                <tr><td>مركزة على القيمة</td><td>الفائدة واضحة وهادفة وليست قائمة ميزات</td></tr>
+                <tr><td>مركزة</td><td>يمكن للفريق تمثيل التجربة الأساسية دون بناء منتج كامل</td></tr>
+                <tr><td>قابلة للتحقيق</td><td>يمكن استكشاف الفكرة بالورق، المواد البسيطة، المخططات، أو تمثيل الأدوار</td></tr>
+                <tr><td>قابلة للاختبار</td><td>يمكن للنموذج الأولي مساعدة الفريق على التعلم عن افتراض مهم واحد</td></tr>
+                <tr><td>مسؤولة</td><td>تحترم الفكرة الخصوصية، السلامة، الاندماج، والاستخدام المناسب للتكنولوجيا</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d3-card-en"><strong>English:</strong> Project Idea Card content.</div>
+        </div>
+
+        <!-- 13. Responsible Design -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-shield-alt me-2 text-deci-dark"></i> 13. تصميم الأفكار بمسؤولية وشمولية</h3>
+            <button class="btn-toggle-original" data-target="d3-responsible-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>حتى المفهوم البسيط يجب أن يأخذ في الاعتبار من قد يُستبعد، وما المعلومات التي يتم جمعها، وما إذا كان السلوك المقترح يمكن أن يسبب ضرراً أو ارتباكاً. في هذه المرحلة، لا تحتاج الفرق إلى تقييم مخاطر كامل، لكن يجب أن تحدد المخاوف الواضحة قبل اختيار الفكرة.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الاعتبار</th><th>أسئلة للفريق</th></tr></thead>
+              <tbody>
+                <tr><td>الخصوصية</td><td>هل تطلب الفكرة معلومات شخصية؟ هل كل المعلومات المطلوبة ضرورية؟</td></tr>
+                <tr><td>السلامة السيبرانية</td><td>هل يمكن أن تعرض الفكرة كلمات المرور، الحسابات الخاصة، الروابط غير الآمنة، أو الوصول غير المصرح به؟</td></tr>
+                <tr><td>السلامة الفيزيائية</td><td>هل تتضمن الفكرة كهرباء، أدوات، أجزاء متحركة، أو سلوكاً يجب محاكاته فقط؟</td></tr>
+                <tr><td>الاندماج وإمكانية الوصول</td><td>هل يمكن للأشخاص ذوي القدرات المختلفة، مستويات اللغة، أو ظروف الوصول المختلفة فهم واستخدام الفكرة؟</td></tr>
+                <tr><td>التحيز والعدالة</td><td>هل يمكن للتوصيات أو القرارات أن تعامل بعض المستخدمين بشكل غير عادل؟</td></tr>
+                <tr><td>الادعاءات الصادقة</td><td>هل ادعاءات الفريق واقعية، أم أنها تعد بنتائج لم يتم اختبارها؟</td></tr>
+                <tr><td>التأثير البيئي</td><td>هل يمكن للفكرة تقليل النفايات واستخدام الطاقة، أم أنها تخلق مواد وأجهزة غير ضرورية؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d3-responsible-en"><strong>English:</strong> Responsible design content.</div>
+        </div>
+
+        <!-- 14. Activities -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-tasks me-2 text-deci-dark"></i> 14. روابط المحتوى بالأنشطة التعليمية</h3>
+            <button class="btn-toggle-original" data-target="d3-activities-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>النشاط</th><th>المحتوى الممارس</th><th>دليل التعلم المتوقع</th></tr></thead>
+              <tbody>
+                <tr><td>أفكار مستحيلة</td><td>القيود المرحة وإنقاذ العناصر المفيدة</td><td>تحوّل الفرق الاقتراحات غير العادية إلى إمكانيات واقعية</td></tr>
+                <tr><td>سباق الأفكار</td><td>التفكير التباعدي وبناء الأفكار التعاوني</td><td>يضيف الطلاب، يدمجون، ويوسعون الأفكار دون نقد مبكر</td></tr>
+                <tr><td>من الميزة إلى القيمة</td><td>الميزة، الفائدة، وقيمة المستخدم</td><td>تشرح الفرق لماذا يهم عنصر الحل للمستخدم المحدد</td></tr>
+                <tr><td>بطاقات العدسات التقنية</td><td>الاستخدام الهادف لتعلم DECI التقني</td><td>تحسّن الفرق الأفكار باستخدام منظور تقني واحد أو أكثر ذي صلة</td></tr>
+                <tr><td>هل ستساعد؟</td><td>الفائدة، الملاءمة، الجدوى، قابلية الاختبار، والمسؤولية</td><td>تقارن الفرق الخيارات وتشرح قرار الاختيار</td></tr>
+                <tr><td>إنشاء بطاقة فكرة المشروع</td><td>الفكرة المختارة، عرض القيمة، والافتراض</td><td>ينتج كل فريق ناتج اليوم الثالث المطلوب للنمذجة الأولية في اليوم الرابع</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d3-activities-en"><strong>English:</strong> Activity connections.</div>
+        </div>
+
+        <!-- 15. Misconceptions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-exclamation-triangle me-2 text-deci-dark"></i> 15. المفاهيم الخاطئة وتصحيحاتها</h3>
+            <button class="btn-toggle-original" data-target="d3-mis-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المفهوم الخاطئ</th><th>التصحيح</th></tr></thead>
+              <tbody>
+                <tr><td>"الفكرة الأولى هي الأفضل لأنها جاءت بسرعة."</td><td>قد تكون الفكرة الأولى مفيدة، لكن يجب على الفرق توليد بدائل قبل اتخاذ القرار.</td></tr>
+                <tr><td>"الأفكار غير العادية تضيع الوقت."</td><td>يمكن للأفكار غير العادية الكشف عن ميزات مفيدة، فوائد، أو طرق تفكير جديدة.</td></tr>
+                <tr><td>"الفكرة التقنية هي تلقائياً أكثر قيمة."</td><td>تخلق التكنولوجيا قيمة فقط عندما تحسّن تجربة المستخدم أو النتيجة.</td></tr>
+                <tr><td>"نحتاج إلى استخدام كل مسار DECI في مشروع واحد."</td><td>تستخدم الفرق فقط العدسات التقنية التي تقوي الفكرة المختارة.</td></tr>
+                <tr><td>"المزيد من الميزات يجعل المشروع أقوى."</td><td>التجربة الأساسية المركزة أسهل في الشرح، النمذجة، والاختبار.</td></tr>
+                <tr><td>"الميزة والفائدة هما نفس الشيء."</td><td>تصف الميزة ما تفعله الفكرة؛ تصف الفائدة كيف تساعد المستخدم.</td></tr>
+                <tr><td>"أعلى درجة إجمالية تحدد الفكرة دائماً."</td><td>تدعم المقارنة النقاش. يجب على الفرق أيضاً مراجعة المخاطر والأدلة المهمة.</td></tr>
+                <tr><td>"يجب أن تكون الفكرة قابلة للبناء بالكامل خلال المخيم."</td><td>قد يكون المفهوم الكامل متجهاً نحو المستقبل، لكن يجب أن تكون التجربة الأساسية قابلة للتمثيل والاختبار.</td></tr>
+                <tr><td>"عرض القيمة هو شعار."</td><td>يربط عرض القيمة بوضوح بين المستخدم، الحاجة، الحل، والفائدة.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d3-mis-en"><strong>English:</strong> Misconceptions.</div>
+        </div>
+
+        <!-- 16. Takeaways -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-key me-2 text-deci-dark"></i> 16. النقاط الرئيسية</h3>
+            <button class="btn-toggle-original" data-target="d3-takeaways-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ul>
+            <li>حاجة مستخدم واحدة يمكن أن تؤدي إلى العديد من الحلول الممكنة.</li>
+            <li>يخلق التفكير التباعدي خيارات؛ يختار التفكير التقاربي ويحسّن اتجاهاً واحداً.</li>
+            <li>يجب على الفرق البناء على الأفكار قبل الحكم عليها.</li>
+            <li>المعرفة التقنية هي عدسة لخلق القيمة، وليس شرطاً لإضافة تعقيد.</li>
+            <li>الميزة تشرح ما تفعله الفكرة؛ الفائدة تشرح كيف تساعد؛ القيمة تشرح لماذا تهم.</li>
+            <li>يجب مقارنة الأفكار باستخدام الفائدة، ملاءمة حاجة المستخدم، الجدوى، قابلية الاختبار، والمسؤولية.</li>
+            <li>يربط عرض القيمة البسيط بين المستخدم المحدد، الحاجة، الحل المختار، والفائدة الرئيسية.</li>
+            <li>تعطي بطاقة فكرة المشروع لليوم الرابع مفهوماً مركزاً وافتراضاً واحداً لاختباره.</li>
+          </ul>
+          <div class="original-text" id="d3-takeaways-en"><strong>English:</strong> Key takeaways.</div>
+        </div>
+
+        <!-- 17. Reflection -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-comment-dots me-2 text-deci-dark"></i> 17. أسئلة التأمل</h3>
+            <button class="btn-toggle-original" data-target="d3-reflection-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ol>
+            <li>أي فكرة غير عادية ساعدت فريقنا على اكتشاف عنصر مفيد؟</li>
+            <li>لماذا ناسبت فكرتنا المختارة حاجة المستخدم بشكل أفضل من الخيارات الأخرى؟</li>
+            <li>أي افتراض يجب أن يساعدنا نموذجنا الأولي على استكشافه غداً؟</li>
+          </ol>
+          <div class="original-text" id="d3-reflection-en"><strong>English:</strong> Reflection questions.</div>
+        </div>
+
+        <!-- 18. Summary -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-file-alt me-2 text-deci-dark"></i> 18. ملخص المحتوى اليومي</h3>
+            <button class="btn-toggle-original" data-target="d3-summary-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <tbody>
+                <tr><th>المهارة الرئيسية</th><td>توليد الأفكار وعرض القيمة البسيط</td></tr>
+                <tr><th>السؤال الجوهري</th><td>كيف يمكننا إنشاء فكرة مفيدة تستحق الاختيار؟</td></tr>
+                <tr><th>المفاهيم الأساسية</th><td>التفكير التباعدي والتقاربي؛ الإبداع التعاوني؛ العدسات التقنية؛ الميزة، الفائدة، والقيمة؛ مقارنة الأفكار؛ عرض القيمة البسيط؛ الافتراضات</td></tr>
+                <tr><th>الناتج اليومي</th><td>بطاقة فكرة مشروع وعرض قيمة بسيط يحتويان على المستخدم، الحاجة، الحل المختار، الفائدة، الاتصال التقني، سبب الاختيار، والافتراض الرئيسي للاختبار</td></tr>
+                <tr><th>الاستخدام في الرحلة</th><td>تحدد الفكرة المختارة والافتراض ما سيمثله الفريق ويختبره ويحسّنه من خلال نموذج أولي منخفض الدقة في اليوم الرابع</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="d3-summary-en"><strong>English:</strong> Daily content summary.</div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function() {
+    // ---------- Navigation ----------
+    const navLinks = document.querySelectorAll('[data-page]');
+    const pages = {
+      overview: document.getElementById('page-overview'),
+      'day1-guide': document.getElementById('page-day1-guide'),
+      'day2-guide': document.getElementById('page-day2-guide'),
+      'day3-guide': document.getElementById('page-day3-guide')
+    };
+
+    function showPage(pageId) {
+      Object.values(pages).forEach(p => p.classList.remove('active-page'));
+      if (pages[pageId]) pages[pageId].classList.add('active-page');
+      navLinks.forEach(link => link.classList.remove('active'));
+      const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(this.getAttribute('data-page'));
+      });
+    });
+
+    // ---------- Toggle Original Text (per section) ----------
+    document.querySelectorAll('.btn-toggle-original[data-target]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const targetDiv = document.getElementById(targetId);
+        if (targetDiv) {
+          targetDiv.classList.toggle('show');
+          const isActive = targetDiv.classList.contains('show');
+          this.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+          this.classList.toggle('active', isActive);
+        }
+      });
+    });
+
+    // ---------- Toggle All Originals for Day 3 ----------
+    document.getElementById('toggleAllDay3').addEventListener('click', function() {
+      const allOriginals = document.querySelectorAll('#page-day3-guide .original-text');
+      const allButtons = document.querySelectorAll('#page-day3-guide .btn-toggle-original[data-target]');
+      const anyVisible = Array.from(allOriginals).some(el => el.classList.contains('show'));
+      const action = anyVisible ? 'hide' : 'show';
+
+      allOriginals.forEach(el => {
+        if (action === 'show') el.classList.add('show');
+        else el.classList.remove('show');
+      });
+
+      allButtons.forEach(btn => {
+        const isActive = action === 'show';
+        btn.classList.toggle('active', isActive);
+        btn.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+      });
+
+      this.innerHTML = action === 'show' ? '<i class="fas fa-eye-slash me-1"></i> إخفاء النص الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار النص الأصلي';
+    });
+
+    // ---------- Language Toggle ----------
+    let currentLang = 'ar';
+    document.getElementById('langToggle').addEventListener('click', function() {
+      currentLang = (currentLang === 'ar') ? 'en' : 'ar';
+      document.getElementById('langLabel').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.lang = currentLang;
+      const link = document.querySelector('link[href*="bootstrap.rtl"]');
+      link.setAttribute('href', currentLang === 'ar' 
+        ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css'
+        : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+    });
+
+    // Default page: day3-guide
+    showPage('day3-guide');
+  })();
+</script>
+</body>
+</html>
