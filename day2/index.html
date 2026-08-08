@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DECI - الدليل التفصيلي لليوم الثاني</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body { background: #f4f7fc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .sidebar { min-height: 100vh; background: #1e2a47; color: #fff; padding-top: 20px; }
+    .sidebar .nav-link { color: #cfd8e6; font-weight: 500; border-radius: 0.5rem; margin-bottom: 5px; padding: 10px 16px; }
+    .sidebar .nav-link:hover, .sidebar .nav-link.active { background: #2a3a5c; color: #fff; }
+    .sidebar .nav-link i { margin-left: 10px; width: 22px; text-align: center; }
+    .main-content { padding: 30px 30px 40px; }
+    .page-section { display: none; animation: fadeIn 0.3s ease-in-out; }
+    .page-section.active-page { display: block; }
+    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+    .card-deci { border: none; border-radius: 20px; box-shadow: 0 8px 28px rgba(0,0,0,0.05); background: #fff; transition: transform 0.15s; }
+    .card-deci:hover { transform: translateY(-2px); }
+    .badge-day { background: #eef3ff; color: #1e2a47; font-weight: 600; padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; }
+    .section-title { font-weight: 700; color: #1e2a47; position: relative; padding-bottom: 12px; }
+    .section-title::after { content: ''; position: absolute; bottom: 0; right: 0; width: 70px; height: 4px; background: #1e2a47; border-radius: 4px; }
+    .lang-toggle { cursor: pointer; background: #2a3a5c; border-radius: 30px; padding: 6px 16px; color: #fff; border: 1px solid #4a5a7c; transition: 0.2s; }
+    .lang-toggle:hover { background: #3a4a6c; }
+    @media (max-width: 768px) { .sidebar { min-height: auto; padding-top: 10px; } .main-content { padding: 20px 15px; } }
+    .original-text { display: none; background: #eef3fa; padding: 15px 20px; border-radius: 12px; margin-top: 12px; border: 1px dashed #bac8dc; font-size: 0.95rem; color: #2c3e5a; line-height: 1.7; }
+    .original-text.show { display: block; }
+    .btn-toggle-original { border-radius: 50px; font-size: 0.75rem; padding: 4px 14px; border: 1px solid #1e2a47; color: #1e2a47; background: transparent; transition: 0.2s; white-space: nowrap; }
+    .btn-toggle-original:hover, .btn-toggle-original.active { background: #1e2a47; color: #fff; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 15px; }
+    .table-deci { border-collapse: separate; border-spacing: 0; width: 100%; }
+    .table-deci th { background: #eef3ff; color: #1e2a47; font-weight: 600; }
+    .table-deci td, .table-deci th { padding: 12px 15px; border: 1px solid #e2e8f0; }
+    .table-deci tr:hover { background: #f8faff; }
+    .bg-soft-primary { background: #eef3ff; }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 sidebar d-md-block">
+      <div class="text-center py-3">
+        <h5 class="fw-bold text-white"><i class="fas fa-campground me-2"></i>DECI</h5>
+        <span class="badge bg-warning text-dark">المستوى الثالث</span>
+      </div>
+      <hr class="bg-secondary opacity-25" />
+      <ul class="nav flex-column px-2">
+        <li class="nav-item"><a class="nav-link" data-page="overview" href="../"><i class="fas fa-home"></i> نظرة عامة</a></li>
+      <!--  <li class="nav-item"><a class="nav-link" data-page="day1-guide" href="#"><i class="fas fa-sun"></i> اليوم الأول - دليل</a></li> -->
+        <li class="nav-item"><a class="nav-link active" data-page="day2-guide" href="#"><i class="fas fa-users"></i> اليوم الثاني - دليل</a></li>
+      </ul>
+      <hr class="bg-secondary opacity-25" />
+      <div class="px-3">
+        <div class="lang-toggle d-inline-flex align-items-center" id="langToggle">
+          <i class="fas fa-globe me-1"></i> <span id="langLabel">English</span>
+        </div>
+      </div>
+      <div class="px-3 small text-secondary mt-3">
+        <i class="fas fa-calendar-alt me-1"></i> النسخة 1.0 · أغسطس 2026
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 col-lg-10 main-content">
+
+      <!-- ========== OVERVIEW (مختصرة) ========== -->
+      <section id="page-overview" class="page-section">
+        <h1 class="section-title">المخطط التفصيلي للمستوى الثالث</h1>
+        <div class="card-deci card p-4 mb-4">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-8">
+              <h3 class="fw-bold text-deci-dark">من المشكلة إلى الإمكانية</h3>
+              <p class="lead fs-6 text-secondary">ريادة الأعمال من خلال الألعاب، اكتشاف المستخدم، والنماذج الأولية</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="day-icon mx-auto mb-2" style="width:48px;height:48px;background:#eef3ff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;">2</div>
+              <span class="fw-semibold">اليوم الثاني</span>
+              <div class="small text-secondary">فهم الأشخاص</div>
+            </div>
+          </div>
+        </div>
+        <p class="text-secondary">اختر <strong>اليوم الثاني - دليل</strong> من القائمة الجانبية لعرض الشرح الكامل.</p>
+      </section>
+
+      <!-- ========== DAY 1 GUIDE (مختصر) ========== -->
+      <section id="page-day1-guide" class="page-section">
+        <h1 class="section-title"><i class="fas fa-sun me-2"></i> اليوم الأول: اكتشاف الفرصة</h1>
+        <p class="text-secondary">الدليل التفصيلي لليوم الأول موجود في الصفحة السابقة.</p>
+        <div class="card-deci card p-4">
+          <p>يمكنك العودة إلى اليوم الأول من القائمة الجانبية.</p>
+        </div>
+      </section>
+
+      <!-- ========== DAY 2 FULL GUIDE ========== -->
+      <section id="page-day2-guide" class="page-section active-page">
+        <!-- Toggle All -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+          <h1 class="section-title"><i class="fas fa-users me-2"></i> اليوم الثاني: فهم الأشخاص</h1>
+          <div class="d-flex gap-2">
+            <button class="btn-toggle-original" id="toggleAllDay2"><i class="fas fa-eye me-1"></i> إظهار النص الأصلي</button>
+          </div>
+        </div>
+        <p class="text-secondary mb-4">دليل شامل يشرح كل جوانب اليوم الثاني من المخيم، مع إمكانية عرض النص الإنجليزي الأصلي أسفل كل قسم.</p>
+
+        <!-- 1. Day Overview -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-info-circle me-2 text-deci-dark"></i> 1. نظرة عامة على اليوم</h3>
+            <button class="btn-toggle-original" data-target="day2-overview-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>ينقل اليوم الثاني الفرق من ملاحظة المشكلة إلى فهم الأشخاص الذين يعانون منها. يتعلم الطلاب أن الفكرة تصبح مفيدة فقط عندما تستجيب لحاجة مستخدم حقيقية. من خلال تبني وجهات النظر، مقابلات تمثيل الأدوار، وفرز الأدلة، يحددون المستخدم الأساسي، ويفصلون الملاحظات عن الافتراضات، وينشئون بطاقة حاجة مستخدم قائمة على الأدلة.</p>
+          <div class="original-text" id="day2-overview-en">
+            <strong>English Original:</strong><br>
+            Day 2 moves the teams from noticing a problem to understanding the people who experience it. Students learn that an idea becomes useful only when it responds to a real user need. Through perspective-taking, role-play interviews and evidence sorting, they identify the primary user, separate observations from assumptions and create an evidence-based User Need Card.
+          </div>
+          <div class="row mt-3 g-3">
+            <div class="col-md-6">
+              <h6 class="fw-bold">السؤال الجوهري</h6>
+              <p class="bg-soft-primary p-3 rounded">كيف يمكننا فهم ما يحتاجه الناس حقاً؟</p>
+              <div class="original-text" id="day2-eq-en"><strong>English:</strong> How can we understand what people really need?</div>
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold">الغرض من اليوم</h6>
+              <p class="bg-soft-primary p-3 rounded">يتعلم الطلاب التصميم لأشخاص حقيقيين بدلاً من افتراضاتهم الخاصة. يحددون المستخدمين، الاحتياجات، الإحباطات، الأهداف، والأسئلة التي يمكن أن توجه حلاً مفيداً.</p>
+              <div class="original-text" id="day2-purpose-en"><strong>English:</strong> Students learn to design for real people rather than for their own assumptions. They identify users, needs, frustrations, goals and questions that can guide a useful solution.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Learning Objectives -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-bullseye me-2 text-deci-dark"></i> 2. أهداف التعلم</h3>
+            <button class="btn-toggle-original" data-target="day2-obj-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>بنهاية اليوم، سيكون الطلاب قادرين على:</p>
+          <ol>
+            <li>تحديد المستخدم الأساسي المتأثر بالمشكلة المختارة.</li>
+            <li>التمييز بين الملاحظة، الافتراض، والسؤال.</li>
+            <li>استخدام أسئلة مفتوحة لاستكشاف تجربة المستخدم في مقابلة تمثيل أدوار قصيرة.</li>
+            <li>كتابة بيان حاجة مستخدم مدعوم بقطعتين من الأدلة على الأقل.</li>
+          </ol>
+          <div class="original-text" id="day2-obj-en">
+            <strong>English:</strong><br>
+            By the end of the day, students will be able to:<br>
+            1. Identify the primary user affected by the selected problem.<br>
+            2. Distinguish between an observation, an assumption and a question.<br>
+            3. Use open questions to explore a user experience in a short role-play interview.<br>
+            4. Write a user need statement supported by at least two pieces of evidence.
+          </div>
+        </div>
+
+        <!-- 3. Content Map -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-map me-2 text-deci-dark"></i> 3. خريطة المحتوى</h3>
+            <button class="btn-toggle-original" data-target="day2-map-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مجال المحتوى</th><th>التركيز الأساسي</th><th>التطبيق في اليوم</th></tr></thead>
+              <tbody>
+                <tr><td>التركيز على المستخدم</td><td>المستخدمون الأساسيون، الثانويون، والمؤثرون</td><td>تحدد الفرق من يعاني من المشكلة بشكل مباشر</td></tr>
+                <tr><td>وجهة النظر</td><td>يمكن لأشخاص مختلفين تجربة الموقف نفسه بشكل مختلف</td><td>يستخدم الطلاب بطاقات الأدوار لاستكشاف الاحتياجات والأهداف والحواجز</td></tr>
+                <tr><td>التفكير القائم على الأدلة</td><td>الملاحظة، الافتراض، الدليل، والسؤال</td><td>تفصل الفرق ما تعرفه عما لا يزال بحاجة للتحقيق</td></tr>
+                <tr><td>مقابلة المستخدم</td><td>الأسئلة المفتوحة والاستماع النشط</td><td>يجري الطلاب مقابلات تمثيل أدوار قصيرة ويسجلون ملاحظات أدلة مفيدة</td></tr>
+                <tr><td>اكتشاف الحاجة</td><td>الاحتياجات، الإحباطات، الأهداف، والسلوك الحالي</td><td>تفرز الفرق تصريحات المستخدمين وتحدد الحاجة وراء الكلمات</td></tr>
+                <tr><td>بيان حاجة المستخدم</td><td>المستخدم، الحاجة، والسبب المبني على الأدلة</td><p>تكتب الفرق البيان الذي سيوجه توليد الأفكار في اليوم الثالث</p></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="day2-map-en"><strong>English:</strong> Content Map table.</div>
+        </div>
+
+        <!-- 4. User-Centred Entrepreneurship -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-user-check me-2 text-deci-dark"></i> 4. ريادة الأعمال المتمركزة حول المستخدم</h3>
+            <button class="btn-toggle-original" data-target="day2-uc-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>تصبح ريادة الأعمال متمركزة حول المستخدم عندما يبدأ الفريق بالأشخاص المتأثرين بالمشكلة ويتعلم من تجربتهم قبل إنشاء حل. قد يلاحظ الفريق قضية حقيقية في اليوم الأول، لكنه لا يزال بحاجة لفهم من يعاني منها، ما يحاول الشخص تحقيقه، وما الذي يجعل التجربة الحالية صعبة.</p>
+          <div class="p-3 bg-light rounded"><strong>المبدأ الأساسي:</strong> لا تصمم فقط لافتراضات الفريق. تعلم من الأشخاص الذين يعانون من المشكلة.</div>
+          <h6 class="fw-bold mt-3">4.1 المستخدم وعامة الناس ليسا نفس الشيء</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المصطلح</th><th>المعنى</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>عامة الناس</td><td>سكان واسعون لا يمكنهم توجيه حل واحد مركز</td><td>الجميع في المدرسة أو كل من يستخدم الإنترنت</td></tr>
+                <tr><td>مجموعة المستخدمين</td><td>أشخاص يشتركون في موقف، هدف، أو صعوبة ذات صلة</td><td>طلاب يحاولون الانضمام إلى أندية مدرسية قبل إغلاق التسجيل</td></tr>
+                <tr><td>مستخدم محدد</td><td>شريحة أوضح ضمن مجموعة المستخدمين تعاني من المشكلة بطريقة مماثلة</td><td>طلاب جدد لا يعرفون أين تنشر معلومات النادي</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">4.2 المستخدمون الأساسيون، الثانويون، والمؤثرون</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>نوع المستخدم</th><th>الدور في التجربة</th><th>سؤال توجيهي</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>أساسي</td><td>يعاني من المشكلة أو يستخدم الحل المستقبلي بشكل مباشر</td><td>من الأكثر تأثراً بشكل مباشر؟</td><td>طالب يحاول العثور على نادٍ والتسجيل فيه</td></tr>
+                <tr><td>ثانوي</td><td>يستخدم، يدعم، أو يتأثر بجزء من التجربة</td><td>من يتفاعل أيضاً مع العملية؟</td><td>قائد نادي طلابي يستقبل التسجيلات</td></tr>
+                <tr><td>مؤثر</td><td>يشكل الوصول، القرارات، القواعد، أو المعلومات دون أن يكون المستخدم الرئيسي</td><td>من يؤثر على ما يمكن للمستخدم فعله؟</td><td>معلم أو منسق مدرسي يوافق على معلومات النادي</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">4.3 ابدأ بالمستخدم الأساسي</h6>
+          <p>قد يشمل المشروع عدة أشخاص، لكن الفريق يحتاج إلى مستخدم أساسي واحد لتوجيه الفكرة الأولى. يساعد المستخدم الأساسي الواضح الفريق على طرح أسئلة مركزة، والتعرف على الأدلة ذات الصلة، وتجنب تصميم حل غامض للجميع.</p>
+          <div class="original-text" id="day2-uc-en"><strong>English:</strong> Full content on user-centred entrepreneurship.</div>
+        </div>
+
+        <!-- 5. Perspective -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-eye me-2 text-deci-dark"></i> 5. المنظور: الموقف نفسه قد يشعر به بشكل مختلف</h3>
+            <button class="btn-toggle-original" data-target="day2-persp-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>قد يكون لأشخاص في نفس الموقف أهداف مختلفة، معلومات، مسؤوليات، وحواجز. يساعد تبني المنظور الطلاب على التعرف على أن تجربتهم الخاصة هي مجرد رؤية واحدة محتملة للمشكلة.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الموقف</th><th>الشخص</th><th>الهدف المحتمل</th><th>الصعوبة المحتملة</th></tr></thead>
+              <tbody>
+                <tr><td>تسجيل النادي المدرسي</td><td>طالب جديد</td><td>العثور على نادٍ مناسب والتسجيل بشكل صحيح</td><td>لا يعرف أين تنشر المعلومات الموثوقة</td></tr>
+                <tr><td>تسجيل النادي المدرسي</td><td>قائد النادي</td><td>استلام تسجيلات كاملة قبل الموعد النهائي</td><td>يجيب على نفس الأسئلة مراراً ويستلم معلومات ناقصة</td></tr>
+                <tr><td>تسجيل النادي المدرسي</td><td>المنسق</td><td>إبقاء العملية عادلة ومنظمة</td><td>قد تكون المعلومات من أندية مختلفة غير متسقة</td></tr>
+                <tr><td>مواعيد الواجبات</td><td>طالب</td><td>إكمال العمل في الوقت المحدد دون نسيان المهام</td><td>يتلقى مواعيد نهائية من عدة مواد في أماكن مختلفة</td></tr>
+                <tr><td>مواعيد الواجبات</td><td>معلم</td><td>مساعدة الطلاب على فهم التوقعات والتسليم الصحيح</td><td>قد يتجاهل الطلاب التحديثات أو يسألون بعد الموعد النهائي</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">5.1 المنظور ليس تظاهراً بمعرفة كل شيء</h6>
+          <p>يساعد تمثيل الأدوار الفرق على توليد أسئلة محتملة والتعرف على وجهات نظر مختلفة. لا يحول الإجابة المتخيلة إلى دليل. يجب التعامل مع العبارات التي تُنشأ أثناء تمثيل الأدوار كفرضيات لاستكشافها، ما لم تدعمها ملاحظة فعلية، تجربة متكررة، أو استجابة مقابلة.</p>
+          <p><strong>لغة مفيدة:</strong> قد يعاني المستخدم من... / نعتقد أن هذا يمكن أن يحدث لأن... / نحتاج إلى سؤال ما إذا...</p>
+          <div class="original-text" id="day2-persp-en"><strong>English:</strong> Perspective content.</div>
+        </div>
+
+        <!-- 6. Observation, Assumption, Evidence, Question -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-search me-2 text-deci-dark"></i> 6. الملاحظة، الافتراض، الدليل، والسؤال</h3>
+            <button class="btn-toggle-original" data-target="day2-obs-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يعتمد اكتشاف المستخدم القوي على تسمية الفرق بين ما تم ملاحظته، ما يعتقده الفريق، ما يدعم الاعتقاد، وما لا يزال بحاجة للسؤال عنه.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المصطلح</th><th>المعنى</th><th>مثال</th><th>كيفية استخدامه</th></tr></thead>
+              <tbody>
+                <tr><td>الملاحظة</td><td>شيء تم رؤيته، سماعه، أو تجربته مباشرة</td><td>سأل ثلاثة طلاب أين يوجد نموذج تسجيل النادي</td><td>سجله بوضوح دون إضافة سبب لم يتم ملاحظته</td></tr>
+                <tr><td>الافتراض</td><td>تفسير أو اعتقاد لم يتم التحقق منه بعد</td><td>لا يسجل الطلاب لأنهم غير مهتمين</td><td>ضع علامة عليه كغير مختبر وحوله إلى سؤال</td></tr>
+                <tr><td>الدليل</td><td>معلومات تدعم أو تتحدى فهماً ما</td><td>قال طالبان إنهما أرادا التسجيل لكنهما فاتتهما الموعد النهائي</td><td>استخدمه لتحسين الحاجة وإظهار سبب أهميتها</td></tr>
+                <tr><td>السؤال</td><td>فجوة يحتاج الفريق للتحقيق فيها</td><td>ما المعلومات التي يحتاجها الطلاب قبل اتخاذ قرار الانضمام؟</td><td>اطرحه خلال مقابلة أو اختبار لاحق</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">6.1 موقف واحد، أربع عبارات مختلفة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>العبارة</th><th>النوع</th><th>السبب</th></tr></thead>
+              <tbody>
+                <tr><td>"فحص أربعة طلاب محادثتين جماعيتين مختلفتين لنفس الموعد النهائي."</td><td>ملاحظة</td><td>تصف سلوكاً مرئياً دون تفسير السبب</td></tr>
+                <tr><td>"الطلاب مهملون مع المواعيد النهائية."</td><td>افتراض/حكم</td><td>يخصص سبباً ويصنف المستخدم دون دليل</td></tr>
+                <tr><td>"قال ثلاثة طلاب تمت مقابلتهم إن تحديثات المواعيد النهائية تُنشر في أماكن مختلفة."</td><td>دليل</td><td>يسجل معلومات مقدمة من المستخدمين</td></tr>
+                <tr><td>"أين يتحقق الطلاب حالياً عندما يريدون تأكيد موعد نهائي؟"</td><td>سؤال</td><td>يستكشف السلوك الحالي بدلاً من اقتراح إجابة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">6.2 تحويل الافتراضات إلى أسئلة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الافتراض</th><th>سؤال أفضل</th></tr></thead>
+              <tbody>
+                <tr><td>ينسى الطلاب لأنهم غير منظمين.</td><td>ما الذي يجعل تذكر أو تتبع الواجبات صعباً خلال الأسابيع المزدحمة؟</td></tr>
+                <tr><td>يريد الطلاب تطبيقاً.</td><td>كيف يجد الطلاب حالياً المعلومات، يسجلونها، أو يتحققون منها؟</td></tr>
+                <tr><td>تحدث المشكلة كل يوم.</td><td>متى تحدث المشكلة أكثر، ومتى لا تحدث؟</td></tr>
+                <tr><td>الجميع متأثر بنفس الطريقة.</td><td>أي طلاب يعانون من أكبر صعوبة، وما المختلف في وضعهم؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="day2-obs-en"><strong>English:</strong> Observation, assumption, evidence, question content.</div>
+        </div>
+
+        <!-- 7. Open Questions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-question-circle me-2 text-deci-dark"></i> 7. طرح الأسئلة المفتوحة</h3>
+            <button class="btn-toggle-original" data-target="day2-questions-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>تدعو الأسئلة المفتوحة المستخدم لوصف تجربة بكلماته الخاصة. غالباً ما تبدأ بـ ماذا، متى، أين، كيف، أو لماذا. تركز الأسئلة المفيدة على تجربة سابقة أو حالية بدلاً من مطالبة المستخدم بالموافقة على فكرة الفريق.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>نوع السؤال</th><th>سؤال ضعيف أو موجه</th><th>سؤال مفتوح أقوى</th></tr></thead>
+              <tbody>
+                <tr><td>السلوك الحالي</td><td>هل ستستخدم تطبيقاً لتذكر المواعيد النهائية؟</td><td>كيف تتبع حالياً الواجبات والمواعيد النهائية؟</td></tr>
+                <tr><td>تجربة محددة</td><td>هل المعلومات المدرسية مربكة؟</td><td>أخبرني عن آخر مرة حاولت فيها العثور على معلومات مدرسية.</td></tr>
+                <tr><td>الصعوبة</td><td>هل تنسى لأن هناك مهام كثيرة؟</td><td>ما الجزء الأكثر صعوبة في إدارة عدة مهام؟</td></tr>
+                <tr><td>الأهمية</td><td>هل سيساعدك نظام أفضل؟</td><td>ماذا يحدث عندما تكون المعلومات متأخرة، غير كاملة، أو صعبة العثور؟</td></tr>
+                <tr><td>الحل البديل</td><td>هل تحتاج إلى تذكيرات؟</td><td>ماذا تفعل الآن عندما تكون غير متأكد من موعد نهائي؟</td></tr>
+                <tr><td>التحسين</td><td>هل أعجبتك فكرتنا؟</td><td>ما الذي قد يجعل التجربة الحالية أسهل أو أوضح لك؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">7.1 تدفق مقابلة بسيط</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الخطوة</th><th>الفعل</th></tr></thead>
+              <tbody>
+                <tr><td>١</td><td>قدّم: اشرح الموضوع والغرض المختصر.</td></tr>
+                <tr><td>٢</td><td>اسأل: استخدم سؤالاً مفتوحاً واحداً في كل مرة.</td></tr>
+                <tr><td>٣</td><td>استمع: اترك للمستخدم إكمال الإجابة.</td></tr>
+                <tr><td>٤</td><td>استقصِ: اطلب مثالاً، تفصيلاً، أو سبباً.</td></tr>
+                <tr><td>٥</td><td>أكد: أعد صياغة النقطة الرئيسية وتحقق من صحتها.</td></tr>
+                <tr><td>٦</td><td>اشكر: اختتم بأدب دون تقديم وعود.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">7.2 محفزات متابعة مفيدة</h6>
+          <ul>
+            <li>هل يمكنك إخباري بالمزيد عن ذلك؟</li>
+            <li>ماذا حدث في المرة الأخيرة؟</li>
+            <li>متى يحدث ذلك عادة؟</li>
+            <li>ماذا تفعل بعد ذلك؟</li>
+            <li>لماذا هذا الجزء مهم بالنسبة لك؟</li>
+            <li>ما الذي يجعله أسهل أو أكثر صعوبة؟</li>
+            <li>هل فهمت بشكل صحيح أن...؟</li>
+          </ul>
+          <div class="original-text" id="day2-questions-en"><strong>English:</strong> Open questions content.</div>
+        </div>
+
+        <!-- 8. Listening for Needs -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-ear-listen me-2 text-deci-dark"></i> 8. الاستماع للاحتياجات، الإحباطات، الأهداف، والسلوك الحالي</h3>
+            <button class="btn-toggle-original" data-target="day2-listening-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>قد لا يذكر المستخدمون الحاجة مباشرة. يستمع الفريق للأنماط في ما يحاول المستخدم تحقيقه، وما يعيق التقدم، وما يفعله الشخص حالياً، وما التأثير الذي تخلقه الحالة.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>فئة الدليل</th><th>ما تصفه</th><th>مثال اقتباس المستخدم</th><th>المعنى المحتمل</th></tr></thead>
+              <tbody>
+                <tr><td>الحاجة</td><td>ما الذي قد يحسّن التجربة</td><td>"أحتاج إلى مكان موثوق واحد لتأكيد الموعد النهائي النهائي."</td><td>يحتاج المستخدم إلى معلومات متسقة وموثوقة</td></tr>
+                <tr><td>الإحباط</td><td>ما يخلق صعوبة، تأخير، ارتباك، أو ضغطاً</td><td>"تغير الموعد النهائي في مجموعة واحدة، لكن المجموعة الأخرى لا تزال تظهر التاريخ القديم."</td><td>المعلومات غير المتسقة تخلق عدم يقين</td></tr>
+                <tr><td>الهدف</td><td>ما يحاول المستخدم تحقيقه</td><td>"أريد إنهاء مبكراً بما يكفي لطلب المساعدة إذا احتجت إليها."</td><td>يقدر المستخدم التخطيط والوقت للاستجابة</td></tr>
+                <tr><td>السلوك الحالي</td><td>ما يفعله المستخدم الآن لإدارة الموقف</td><td>"أسأل صديقين وأتحقق من محادثة الصف."</td><td>يعتمد المستخدم على عدة مصادر لتأكيد المعلومات</td></tr>
+                <tr><td>سؤال لم يُجب</td><td>ما لا يزال الفريق بحاجة لمعرفته</td><td>"لست متأكداً مما إذا كان الجميع يتحققون من نفس المجموعة."</td><td>يحتاج الفريق إلى مزيد من الأدلة حول قنوات التواصل</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">8.1 الحاجة ليست نفس الميزة المطلوبة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>بيان المستخدم</th><th>الميزة المطلوبة</th><th>الحاجة الأساسية</th></tr></thead>
+              <tbody>
+                <tr><td>"أريد إشعارات."</td><td>إشعارات تلقائية</td><td>استلام تحديثات مهمة في الوقت المناسب وتجنب تفويت التغييرات</td></tr>
+                <tr><td>"نحتاج إلى موقع ويب."</td><td>موقع ويب</td><td>العثور على معلومات كاملة وموثوقة في مكان واحد يمكن الوصول إليه</td></tr>
+                <tr><td>"يجب أن يكون هناك حساس."</td><td>حساس</td><td>ملاحظة متى يتغير شرط دون الاعتماد على شخص ليتذكر</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>المبدأ الأساسي:</strong> الميزة هي إجابة محتملة واحدة. الحاجة تصف النتيجة المفيدة التي يحاول المستخدم تحقيقها.</p>
+          <div class="original-text" id="day2-listening-en"><strong>English:</strong> Listening for needs content.</div>
+        </div>
+
+        <!-- 9. Recording and Interpreting Evidence -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-clipboard me-2 text-deci-dark"></i> 9. تسجيل وتفسير الأدلة</h3>
+            <button class="btn-toggle-original" data-target="day2-evidence-rec-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يجب أن تكون ملاحظات الأدلة قصيرة، دقيقة، وقابلة للتتبع لما قاله المستخدم أو فعله. يجب على الفرق تجنب إعادة كتابة إجابة بشكل قوي لدرجة تغيير المعنى.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>عنصر ملاحظة الدليل</th><th>ما يجب تسجيله</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>السياق</td><td>من كان يتحدث وما الموقف الذي تم مناقشته</td><td>طالب يدير واجبات خلال أسبوع الامتحانات</td></tr>
+                <tr><td>اقتباس أو سلوك</td><td>عبارة مباشرة قصيرة أو فعل مرصود واضح</td><td>"أكتب المهام في ثلاثة أماكن وأحياناً أُحدّث واحداً فقط."</td></tr>
+                <tr><td>المعنى</td><td>ما قد يشير إليه الدليل، مكتوب بحذر</td><td>قد يحتاج الطالب إلى طريقة متسقة واحدة لتحديث المهام</td></tr>
+                <tr><td>الثقة</td><td>ما إذا كانت هذه استجابة واحدة، نمط متكرر، أو لا تزال غير مؤكدة</td><td>استجابة مقابلة واحدة؛ تحتاج لمقارنة مع مستخدمين آخرين</td></tr>
+                <tr><td>السؤال التالي</td><td>ما يجب أن يحققه الفريق بعد ذلك</td><td>أي معلومات غالباً ما تُفقد أو تكون قديمة؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">9.1 قوة الدليل في هذه المرحلة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>مستوى الدليل</th><th>الوصف</th><th>كيف يجب أن يتعامل معه الفريق</th></tr></thead>
+              <tbody>
+                <tr><td>إشارة أولية</td><td>ملاحظة واحدة، تجربة واحدة، أو استجابة مستخدم واحد</td><td>نقطة بداية مفيدة، لكن لا تعمم على الجميع</td></tr>
+                <tr><td>نمط متكرر</td><td>تظهر أدلة مماثلة في عدة استجابات أو مواقف</td><td>امنحها مزيداً من الاهتمام عند تعريف الحاجة</td></tr>
+                <tr><td>دليل متناقض</td><td>يصف المستخدمون تجارب أو أولويات مختلفة</td><td>لا تخفِ الاختلاف؛ حسّن مجموعة المستخدمين أو اطرح المزيد من الأسئلة</td></tr>
+                <tr><td>غير معروف</td><td>لا يوجد دليل لدى الفريق بعد</td><td>اكتب سؤالاً بدلاً من اختراع إجابة</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">9.2 الأدلة قبل الأفكار</h6>
+          <p>الغرض من اليوم الثاني ليس إثبات أن فكرة الفريق الأولى صحيحة. بل هو تحسين فهم الفريق بحيث تستجيب أفكار اليوم الثالث لمستخدم محدد وحاجة قائمة على الأدلة.</p>
+          <div class="original-text" id="day2-evidence-rec-en"><strong>English:</strong> Recording and interpreting evidence content.</div>
+        </div>
+
+        <!-- 10. Respect and Privacy -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-shield-alt me-2 text-deci-dark"></i> 10. الاحترام، الخصوصية، وحدود المقابلة</h3>
+            <button class="btn-toggle-original" data-target="day2-respect-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <p>يستخدم المخيم تمثيل أدوار تعليمية قصيرة ومحادثات اكتشاف مستخدم بسيطة. يجب على الطلاب ممارسة السلوك المحترم وتجنب جمع معلومات شخصية حساسة. الهدف هو فهم تجربة يومية، وليس التحقيق في أمور خاصة.</p>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الممارسة</th><th>ما يجب على الطلاب فعله</th><th>ما يجب على الطلاب تجنبه</th></tr></thead>
+              <tbody>
+                <tr><td>الإذن</td><td>اسأل ما إذا كان الشخص على استعداد للإجابة على بضعة أسئلة قصيرة</td><td>الضغط على شخص للمشاركة</td></tr>
+                <tr><td>الغرض</td><td>اشرح الموضوع العام وأن الفريق يتعلم عن التجربة</td><td>التظاهر بأن الفريق يمكنه إصلاح المشكلة فوراً</td></tr>
+                <tr><td>الخصوصية</td><td>سجل فقط ملاحظات تعليمية ذات صلة دون تفاصيل شخصية غير ضرورية</td><td>جمع كلمات مرور، معلومات حساب خاص، تفاصيل طبية، أو معلومات تعريفية</td></tr>
+                <tr><td>الاحترام</td><td>استمع دون سخرية، مقاطعة، أو الحكم على الإجابة</td><td>الجدال مع المستخدم أو تصحيح تجربة الشخص</td></tr>
+                <tr><td>الوعود</td><td>اشكر المستخدم واشرح أن الفكرة لا تزال قيد الاستكشاف</td><td>الوعد بأن منتجاً أو تغييراً محدداً سيتم تقديمه</td></tr>
+                <tr><td>الدقة</td><td>أكد النقاط المهمة وسم الافتراضات بوضوح</td><td>تغيير اقتباس ليجعل يدعم الفكرة المفضلة للفريق</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">10.1 مسؤوليات المحاور</h6>
+          <ul>
+            <li>اطرح سؤالاً واحداً في كل مرة وامنح وقتاً كافياً للإجابة.</li>
+            <li>استخدم لغة محايدة وتجنب اقتراح الإجابة المفضلة.</li>
+            <li>خذ ملاحظات قصيرة دون فقدان الانتباه للمتحدث.</li>
+            <li>أعد صياغة النقاط المهمة واطلب من المستخدم تأكيدها.</li>
+            <li>افصل كلمات المستخدم عن تفسير الفريق.</li>
+            <li>أنهِ المحادثة بأدب واحتفظ بالمعلومات ضمن مهمة التعلم.</li>
+          </ul>
+          <div class="original-text" id="day2-respect-en"><strong>English:</strong> Respect and privacy content.</div>
+        </div>
+
+        <!-- 11. User Need Statement -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-pen-fancy me-2 text-deci-dark"></i> 11. كتابة بيان حاجة المستخدم</h3>
+            <button class="btn-toggle-original" data-target="day2-needstmt-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="p-3 bg-soft-primary rounded mb-3">
+            <strong>قالب بيان حاجة المستخدم:</strong><br>
+            [المستخدم] يحتاج إلى طريقة [للحاجة أو النتيجة المفيدة] لأن [السبب المبني على الأدلة].
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>الجزء</th><th>سؤال توجيهي</th><th>مثال</th></tr></thead>
+              <tbody>
+                <tr><td>المستخدم</td><td>من يعاني من الصعوبة بشكل مباشر؟</td><td>الطلاب الذين يديرون واجبات من عدة مواد</td></tr>
+                <tr><td>الحاجة</td><td>ماذا يحتاج المستخدم ليكون قادراً على فعله أو تحقيقه؟</td><td>رؤية وتحديث جميع المهام والمواعيد النهائية المهمة بشكل متسق</td></tr>
+                <tr><td>السبب/الدليل</td><td>لماذا هذا مهم بناءً على ما تم ملاحظته أو سماعه؟</td><td>يتحققون حالياً من عدة أماكن وقد يفوتون تغييراً أو موعداً نهائياً</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">11.2 أمثلة قوية وضعيفة</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>البيان</th><th>التقييم</th></tr></thead>
+              <tbody>
+                <tr><td>"يحتاج الطلاب إلى تطبيق مع إشعارات."</td><td>ضعيف: يتضمن حلاً واحداً قبل أن يولد الفريق ويقارن الأفكار</td></tr>
+                <tr><td>"الجميع يحتاج إلى تنظيم أفضل."</td><td>ضعيف: المستخدم والنتيجة المفيدة واسعان جداً، ولا يوجد دليل</td></tr>
+                <tr><td>"الطلاب الذين يديرون واجبات من عدة مواد يحتاجون إلى طريقة لرؤية وتحديث المواعيد النهائية بشكل متسق لأنهم يتحققون حالياً من مصادر متعددة وقد يفوتون تغييرات."</td><td>قوي: يحدد المستخدم، النتيجة المفيدة، والسبب المبني على الأدلة مع ترك الحل مفتوحاً</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">11.3 المزيد من أمثلة بيانات حاجة المستخدم</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المجال</th><th>بيان حاجة المستخدم</th></tr></thead>
+              <tbody>
+                <tr><td>البيئة</td><td>يحتاج الطلاب الذين يستخدمون الفصول المشتركة إلى طريقة بسيطة لملاحظة متى لا تكون الأضواء مطلوبة لأن المسؤولية غير واضحة عندما تغادر المجموعات في أوقات مختلفة.</td></tr>
+                <tr><td>السلامة الرقمية</td><td>يحتاج الطلاب الذين يتلقون روابط غير مألوفة إلى طريقة للتعرف على علامات التحذير قبل فتحها أو مشاركتها لأن عدة مستخدمين يعتمدون بشكل أساسي على اسم المرسل.</td></tr>
+                <tr><td>الفرص المدرسية</td><td>يحتاج الطلاب الجدد المهتمون بالأندية إلى طريقة للعثور على معلومات تسجيل كاملة وحالية لأن التفاصيل تُشارك عبر عدة مصادر.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="day2-needstmt-en"><strong>English:</strong> User need statement content.</div>
+        </div>
+
+        <!-- 12. User Need Card -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-id-card me-2 text-deci-dark"></i> 12. بطاقة حاجة المستخدم: المعيار المحتوى</h3>
+            <button class="btn-toggle-original" data-target="day2-card-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>حقل البطاقة</th><th>ما تسجله الفرق</th><th>فحص الجودة</th></tr></thead>
+              <tbody>
+                <tr><td>المستخدم الأساسي</td><td>المجموعة المحددة التي تعاني من المشكلة بشكل مباشر</td><td>هل المستخدم واضح ومركز بدلاً من "الجميع"؟</td></tr>
+                <tr><td>الموقف</td><td>أين أو متى تحدث التجربة</td><td>هل يمكن لشخص آخر فهم السياق؟</td></tr>
+                <tr><td>الصعوبة الحالية</td><td>ما يجعل التجربة الحالية صعبة، بطيئة، غير واضحة، غير آمنة، أو محبطة</td><td>هل تصف التجربة دون إلقاء اللوم على المستخدم؟</td></tr>
+                <tr><td>هدف المستخدم</td><td>ما يحاول المستخدم تحقيقه</td><td>هل الهدف مكتوب من وجهة نظر المستخدم؟</td></tr>
+                <tr><td>بيان حاجة المستخدم</td><td>المستخدم، النتيجة المفيدة، والسبب المبني على الأدلة</td><td>هل يترك مجالاً لعدة أفكار محتملة؟</td></tr>
+                <tr><td>الدليل</td><td>ملاحظتان على الأقل، اقتباسات، سلوكيات، أو أنماط متكررة</td><td>هل الأدلة وتفسير الفريق منفصلان بوضوح؟</td></tr>
+                <tr><td>سؤال لم يُجب</td><td>قضية مهمة لا تزال بحاجة للاختبار</td><td>هل سيساعد السؤال الفريق على صنع أو اختبار أفكار لاحقاً؟</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h6 class="fw-bold mt-3">12.1 معايير جودة بطاقة حاجة المستخدم</h6>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المعيار</th><th>دليل قوي على الجودة</th></tr></thead>
+              <tbody>
+                <tr><td>محددة</td><td>يُعرف المستخدم الأساسي والموقف بوضوح</td></tr>
+                <tr><td>قائمة على الأدلة</td><td>تتضمن البطاقة قطعتين على الأقل من الأدلة ذات الصلة</td></tr>
+                <tr><td>مركزة على الحاجة</td><td>يصف البيان نتيجة مفيدة، وليس ميزة منتج</td></tr>
+                <tr><td>محترمة</td><td>تصف اللغة التجربة دون إلقاء اللوم أو التنميط على المستخدم</td></tr>
+                <tr><td>مفتوحة للأفكار</td><td>يمكن للعديد من الحلول المختلفة الاستجابة للحاجة المذكورة</td></tr>
+                <tr><td>جاهزة لليوم الثالث</td><td>تعطي البطاقة الفريق اتجاهًا واضحًا لتوليد ومقارنة الأفكار</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="day2-card-en"><strong>English:</strong> User Need Card content.</div>
+        </div>
+
+        <!-- 13. Activities -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-tasks me-2 text-deci-dark"></i> 13. روابط المحتوى بالأنشطة التعليمية</h3>
+            <button class="btn-toggle-original" data-target="day2-activities-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>النشاط</th><th>المحتوى الممارس</th><th>دليل التعلم المتوقع</th></tr></thead>
+              <tbody>
+                <tr><td>لمن هذه المشكلة؟</td><td>تحديد المستخدم الأساسي</td><td>تطابق الفرق المشكلات مع الأشخاص الأكثر تأثراً وتبرر الاختيار</td></tr>
+                <tr><td>المشي في مكانهم</td><td>تبني المنظور وأدوار المستخدم المختلفة</td><td>يصف الطلاب الأهداف المحتملة والحواجز والأسئلة من عدة وجهات نظر</td></tr>
+                <tr><td>اسأل قبل أن تفترض</td><td>الملاحظة، الافتراض، الدليل، والأسئلة المفتوحة</td><td>يحوّل الطلاب الادعاءات غير المختبرة إلى أسئلة مفيدة</td></tr>
+                <tr><td>مقابلة مستخدم مصغرة</td><td>الأسئلة المفتوحة، الاستماع، الاستقصاء، والتأكيد</td><td>يجمع الأزواج ملاحظات أدلة قصيرة من تجربة مستخدم تمثيل أدوار</td></tr>
+                <tr><td>محقق الاحتياجات</td><td>الاحتياجات، الإحباطات، الأهداف، السلوك الحالي، والمجهولات</td><td>تصنف الفرق اقتباسات المستخدمين وتشرح ما يكشفه كل منها</td></tr>
+                <tr><td>إنشاء بطاقة حاجة المستخدم</td><td>المستخدم، الموقف، الحاجة، الهدف، الدليل، والسؤال لم يُجب</td><td>ينتج كل فريق ناتج اليوم الثاني المطلوب لتوليد الأفكار في اليوم الثالث</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="day2-activities-en"><strong>English:</strong> Activity connections.</div>
+        </div>
+
+        <!-- 14. Misconceptions -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-exclamation-triangle me-2 text-deci-dark"></i> 14. المفاهيم الخاطئة وتصحيحاتها</h3>
+            <button class="btn-toggle-original" data-target="day2-mis-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <thead><tr><th>المفهوم الخاطئ</th><th>التصحيح</th></tr></thead>
+              <tbody>
+                <tr><td>"فريقنا يعاني من المشكلة، لذلك نعرف بالفعل ما يحتاجه كل مستخدم."</td><td>الخبرة الشخصية مفيدة، لكنها لا تمثل كل مستخدم. لا يزال الفريق بحاجة إلى أسئلة وأدلة.</td></tr>
+                <tr><td>"المستخدم هو كل من قد يرى المشروع."</td><td>المستخدم الأساسي هو الشخص الذي يعاني من المشكلة أو يستخدم الحل المستقبلي بشكل مباشر.</td></tr>
+                <tr><td>"إجابة تمثيل الأدوار هي تلقائياً دليل."</td><td>يمكن لتمثيل الأدوار الكشف عن وجهات نظر وأسئلة مفيدة؛ تبقى الإجابات المتخيلة افتراضات ما لم تدعم.</td></tr>
+                <tr><td>"المقابلة الجيدة تشرح فكرتنا وتسأل ما إذا كان المستخدم يحبها."</td><td>تستكشف مقابلات اليوم الثاني التجربة الحالية قبل أن يقترح الفريق حلاً.</td></tr>
+                <tr><td>"إذا طلب المستخدم ميزة، فهذه الميزة هي الحاجة."</td><td>الميزة هي إجابة محتملة واحدة؛ الحاجة هي النتيجة المفيدة وراءها.</td></tr>
+                <tr><td>"المزيد من الملاحظات يعني دائماً دليلاً أقوى."</td><td>يجب أن يكون الدليل ذا صلة، دقيقاً، ومرتبطاً بوضوح بالمستخدم والمشكلة.</td></tr>
+                <tr><td>"إجابات المستخدم المختلفة تعني فشل المقابلة."</td><td>قد تكشف الإجابات المختلفة عن شرائح مستخدمين، سياقات، أو أولويات يحتاج الفريق لفهمها.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="day2-mis-en"><strong>English:</strong> Misconceptions.</div>
+        </div>
+
+        <!-- 15. Takeaways -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-key me-2 text-deci-dark"></i> 15. النقاط الرئيسية</h3>
+            <button class="btn-toggle-original" data-target="day2-takeaways-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ul>
+            <li>صُمم مشروع مفيد لمستخدم محدد، وليس لعامة الناس غير المحددين.</li>
+            <li>يمكن للمستخدمين الأساسيين والثانويين والمؤثرين تجربة الموقف نفسه بشكل مختلف.</li>
+            <li>يجب فصل الملاحظات والأدلة عن الافتراضات والأحكام.</li>
+            <li>تستكشف الأسئلة المفتوحة التجربة الحالية للمستخدم دون توجيهه نحو إجابة واحدة.</li>
+            <li>يستمع الفريق للاحتياجات، الإحباطات، الأهداف، السلوك الحالي، والأسئلة غير المجاب عنها.</li>
+            <li>يسمي بيان حاجة المستخدم المستخدم، النتيجة المفيدة، والسبب المبني على الأدلة دون وصف حل.</li>
+            <li>تصبح بطاقة حاجة المستخدم دليلاً لتوليد الأفكار في اليوم الثالث.</li>
+          </ul>
+          <div class="original-text" id="day2-takeaways-en"><strong>English:</strong> Key takeaways.</div>
+        </div>
+
+        <!-- 16. Reflection -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-comment-dots me-2 text-deci-dark"></i> 16. أسئلة التأمل</h3>
+            <button class="btn-toggle-original" data-target="day2-reflection-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <ol>
+            <li>أي افتراض غيّره فريقنا بعد الاستماع إلى المستخدم؟</li>
+            <li>أي سؤال أنتج المعلومات الأكثر فائدة؟</li>
+            <li>كيف ستوجه حاجة المستخدم أفكارنا غداً؟</li>
+          </ol>
+          <div class="original-text" id="day2-reflection-en"><strong>English:</strong> Reflection questions.</div>
+        </div>
+
+        <!-- 17. Summary -->
+        <div class="card-deci card p-4 mb-4">
+          <div class="section-header">
+            <h3><i class="fas fa-file-alt me-2 text-deci-dark"></i> 17. ملخص المحتوى اليومي</h3>
+            <button class="btn-toggle-original" data-target="day2-summary-en"><i class="fas fa-eye me-1"></i> إظهار الأصلي</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table-deci table">
+              <tbody>
+                <tr><th>المهارة الرئيسية</th><td>التعاطف مع المستخدم والاحتياجات</td></tr>
+                <tr><th>السؤال الجوهري</th><td>كيف يمكننا فهم ما يحتاجه الناس حقاً؟</td></tr>
+                <tr><th>المفاهيم الأساسية</th><td>المستخدم الأساسي؛ المنظور؛ الملاحظة، الافتراض، والدليل؛ الأسئلة المفتوحة؛ الاحتياجات، الإحباطات، الأهداف، والسلوك الحالي؛ بيان حاجة المستخدم</td></tr>
+                <tr><th>الناتج اليومي</th><td>بطاقة حاجة مستخدم تحتوي على المستخدم الأساسي، الموقف، الحاجة، الصعوبة الحالية، الأدلة، هدف المستخدم، وسؤال واحد لا يزال بحاجة للاختبار</td></tr>
+                <tr><th>الاستخدام في الرحلة</th><td>تمنع بطاقة حاجة المستخدم توليد أفكار عشوائية في اليوم الثالث. يجب أن تستجيب كل فكرة مقترحة للمستخدم والحاجة المحددين.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="original-text" id="day2-summary-en"><strong>English:</strong> Daily content summary.</div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function() {
+    // ---------- Navigation ----------
+    const navLinks = document.querySelectorAll('[data-page]');
+    const pages = {
+      overview: document.getElementById('page-overview'),
+      'day1-guide': document.getElementById('page-day1-guide'),
+      'day2-guide': document.getElementById('page-day2-guide')
+    };
+
+    function showPage(pageId) {
+      Object.values(pages).forEach(p => p.classList.remove('active-page'));
+      if (pages[pageId]) pages[pageId].classList.add('active-page');
+      navLinks.forEach(link => link.classList.remove('active'));
+      const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(this.getAttribute('data-page'));
+      });
+    });
+
+    // Default page: day2-guide (since it's active)
+    // but we set it active in HTML, so no need.
+
+    // ---------- Toggle Original Text (per section) ----------
+    document.querySelectorAll('.btn-toggle-original[data-target]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const targetDiv = document.getElementById(targetId);
+        if (targetDiv) {
+          targetDiv.classList.toggle('show');
+          const isActive = targetDiv.classList.contains('show');
+          this.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+          this.classList.toggle('active', isActive);
+        }
+      });
+    });
+
+    // ---------- Toggle All Originals for Day 2 ----------
+    document.getElementById('toggleAllDay2').addEventListener('click', function() {
+      const allOriginals = document.querySelectorAll('#page-day2-guide .original-text');
+      const allButtons = document.querySelectorAll('#page-day2-guide .btn-toggle-original[data-target]');
+      const anyVisible = Array.from(allOriginals).some(el => el.classList.contains('show'));
+      const action = anyVisible ? 'hide' : 'show';
+
+      allOriginals.forEach(el => {
+        if (action === 'show') el.classList.add('show');
+        else el.classList.remove('show');
+      });
+
+      allButtons.forEach(btn => {
+        const isActive = action === 'show';
+        btn.classList.toggle('active', isActive);
+        btn.innerHTML = isActive ? '<i class="fas fa-eye-slash me-1"></i> إخفاء الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار الأصلي';
+      });
+
+      this.innerHTML = action === 'show' ? '<i class="fas fa-eye-slash me-1"></i> إخفاء النص الأصلي' : '<i class="fas fa-eye me-1"></i> إظهار النص الأصلي';
+    });
+
+    // ---------- Language Toggle (UI only) ----------
+    let currentLang = 'ar';
+    document.getElementById('langToggle').addEventListener('click', function() {
+      currentLang = (currentLang === 'ar') ? 'en' : 'ar';
+      document.getElementById('langLabel').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+      document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.lang = currentLang;
+      const link = document.querySelector('link[href*="bootstrap.rtl"]');
+      link.setAttribute('href', currentLang === 'ar' 
+        ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css'
+        : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+    });
+
+    // Ensure day2 guide is default
+    showPage('day2-guide');
+  })();
+</script>
+</body>
+</html>
